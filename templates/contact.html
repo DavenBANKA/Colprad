@@ -1,0 +1,269 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-professional" style="min-height: 50vh;">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative">
+        <div class="row align-items-center" style="min-height: 50vh;">
+            <div class="col-lg-10 mx-auto text-center text-white">
+                <h1 class="hero-title mb-4">
+                    {% if current_lang == 'fr' %}
+                        Contactez-Nous
+                    {% else %}
+                        Contact Us
+                    {% endif %}
+                </h1>
+                <p class="hero-subtitle">
+                    {% if current_lang == 'fr' %}
+                        Notre équipe est à votre disposition pour répondre à toutes vos questions
+                    {% else %}
+                        Our team is at your disposal to answer all your questions
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form & Info -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="contact-card">
+                    <h3 class="mb-4" style="color: var(--accent-color); font-weight: 700;">
+                        {% if current_lang == 'fr' %}Envoyez-nous un Message{% else %}Send us a Message{% endif %}
+                    </h3>
+                    <form method="POST">
+                        <div class="mb-3">
+                            <label class="form-label">{% if current_lang == 'fr' %}Nom complet{% else %}Full Name{% endif %} *</label>
+                            <input type="text" class="form-control" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email *</label>
+                            <input type="email" class="form-control" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">{% if current_lang == 'fr' %}Téléphone{% else %}Phone{% endif %}</label>
+                            <input type="tel" class="form-control" name="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">{% if current_lang == 'fr' %}Sujet{% else %}Subject{% endif %} *</label>
+                            <select class="form-select" name="subject" required>
+                                <option value="">{% if current_lang == 'fr' %}Sélectionnez un sujet{% else %}Select a subject{% endif %}</option>
+                                <option value="general">{% if current_lang == 'fr' %}Question générale{% else %}General question{% endif %}</option>
+                                <option value="ticket">{% if current_lang == 'fr' %}Billetterie{% else %}Ticketing{% endif %}</option>
+                                <option value="speaker">{% if current_lang == 'fr' %}Devenir intervenant{% else %}Become a speaker{% endif %}</option>
+                                <option value="partner">{% if current_lang == 'fr' %}Partenariat{% else %}Partnership{% endif %}</option>
+                                <option value="press">{% if current_lang == 'fr' %}Presse{% else %}Press{% endif %}</option>
+                                <option value="other">{% if current_lang == 'fr' %}Autre{% else %}Other{% endif %}</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Message *</label>
+                            <textarea class="form-control" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 btn-lg">
+                            {% if current_lang == 'fr' %}Envoyer le Message{% else %}Send Message{% endif %}
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="contact-card">
+                    <h3 class="mb-4" style="color: var(--accent-color); font-weight: 700;">
+                        {% if current_lang == 'fr' %}Informations de Contact{% else %}Contact Information{% endif %}
+                    </h3>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-label">
+                            <span>📧</span> Email
+                        </div>
+                        <div class="contact-info-value">
+                            <a href="mailto:colpradofficiel@gmail.com" style="color: var(--secondary-1); text-decoration: none;">colpradofficiel@gmail.com</a><br>
+                            <small class="text-muted">{% if current_lang == 'fr' %}Email principal de l'événement{% else %}Main event email{% endif %}</small>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-label">
+                            <span>📱</span> {% if current_lang == 'fr' %}Téléphone{% else %}Phone{% endif %}
+                        </div>
+                        <div class="contact-info-value">
+                            <a href="tel:+22892384092" style="color: var(--secondary-1); text-decoration: none;">+228 92 38 40 92</a><br>
+                            <small class="text-muted">
+                                {% if current_lang == 'fr' %}Lundi - Vendredi: 9h00 - 17h00{% else %}Monday - Friday: 9am - 5pm{% endif %}
+                            </small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-label">
+                            <span>👤</span> {% if current_lang == 'fr' %}Contact Personnel{% else %}Personal Contact{% endif %}
+                        </div>
+                        <div class="contact-info-value">
+                            <a href="mailto:blaisederge@outlook.com" style="color: var(--secondary-1); text-decoration: none;">blaisederge@outlook.com</a><br>
+                            <a href="tel:+22892530512" style="color: var(--secondary-1); text-decoration: none;">+228 92 53 05 12</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-label">
+                            <span>📍</span> {% if current_lang == 'fr' %}Adresse{% else %}Address{% endif %}
+                        </div>
+                        <div class="contact-info-value">
+                            Life Field Inc.<br>
+                            Lomé, Togo
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-label">
+                            <span>🌐</span> {% if current_lang == 'fr' %}Réseaux Sociaux{% else %}Social Media{% endif %}
+                        </div>
+                        <div class="contact-info-value">
+                            <div class="d-flex gap-2 flex-wrap">
+                                <a href="#" class="btn btn-sm btn-outline-primary">Facebook</a>
+                                <a href="#" class="btn btn-sm btn-outline-info">LinkedIn</a>
+                                <a href="#" class="btn btn-sm btn-outline-dark">Twitter</a>
+                                <a href="#" class="btn btn-sm btn-outline-danger">Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-label">
+                            <span>⏰</span> {% if current_lang == 'fr' %}Horaires d'Ouverture{% else %}Opening Hours{% endif %}
+                        </div>
+                        <div class="contact-info-value">
+                            {% if current_lang == 'fr' %}
+                                <strong>Lundi - Vendredi:</strong> 9h00 - 17h00<br>
+                                <strong>Samedi:</strong> 9h00 - 13h00<br>
+                                <strong>Dimanche:</strong> Fermé
+                            {% else %}
+                                <strong>Monday - Friday:</strong> 9am - 5pm<br>
+                                <strong>Saturday:</strong> 9am - 1pm<br>
+                                <strong>Sunday:</strong> Closed
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Contact Options -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto text-center">
+                <h2 class="section-title-main mb-4">
+                    {% if current_lang == 'fr' %}Contacts Spécialisés{% else %}Specialized Contacts{% endif %}
+                </h2>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card text-center">
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}Billetterie{% else %}Ticketing{% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Questions sur les billets et réservations
+                        {% else %}
+                            Questions about tickets and bookings
+                        {% endif %}
+                    </p>
+                    <a href="mailto:colpradofficiel@gmail.com" class="btn btn-sm btn-outline-primary mt-2">
+                        colpradofficiel@gmail.com
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card text-center">
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}Presse{% else %}Press{% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Accréditation presse et demandes d'interview
+                        {% else %}
+                            Press accreditation and interview requests
+                        {% endif %}
+                    </p>
+                    <a href="mailto:colpradofficiel@gmail.com" class="btn btn-sm btn-outline-primary mt-2">
+                        colpradofficiel@gmail.com
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card text-center">
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}Partenariats{% else %}Partnerships{% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Opportunités de partenariat et sponsoring
+                        {% else %}
+                            Partnership and sponsorship opportunities
+                        {% endif %}
+                    </p>
+                    <a href="mailto:colpradofficiel@gmail.com" class="btn btn-sm btn-outline-primary mt-2">
+                        colpradofficiel@gmail.com
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card text-center">
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}Intervenants{% else %}Speakers{% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Propositions d'intervention
+                        {% else %}
+                            Speaker proposals
+                        {% endif %}
+                    </p>
+                    <a href="mailto:colpradofficiel@gmail.com" class="btn btn-sm btn-outline-primary mt-2">
+                        colpradofficiel@gmail.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="cta-title">
+                    {% if current_lang == 'fr' %}
+                        Une Question ? Nous Sommes Là Pour Vous Aider
+                    {% else %}
+                        A Question? We're Here to Help
+                    {% endif %}
+                </h2>
+                <p class="cta-text">
+                    {% if current_lang == 'fr' %}
+                        Notre équipe répond généralement dans les 24 heures
+                    {% else %}
+                        Our team typically responds within 24 hours
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="mailto:colpradofficiel@gmail.com" class="btn btn-cta btn-lg">
+                    {% if current_lang == 'fr' %}Envoyer un Email{% else %}Send Email{% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

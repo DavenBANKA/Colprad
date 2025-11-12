@@ -1,0 +1,296 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-professional" style="min-height: 50vh;">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative">
+        <div class="row align-items-center" style="min-height: 50vh;">
+            <div class="col-lg-10 mx-auto text-center text-white">
+                <h1 class="hero-title mb-4">
+                    {% if current_lang == 'fr' %}
+                        Programme COLPRAD 2025
+                    {% else %}
+                        COLPRAD 2025 Program
+                    {% endif %}
+                </h1>
+                <p class="hero-subtitle">
+                    {% if current_lang == 'fr' %}
+                        Une journée intensive de conférences, ateliers et networking pour transformer le secteur culturel
+                    {% else %}
+                        An intensive day of conferences, workshops and networking to transform the cultural sector
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Program Overview -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto text-center">
+                <h2 class="section-title-main mb-4">
+                    {% if current_lang == 'fr' %}Un Programme Riche et Diversifié{% else %}A Rich and Diverse Program{% endif %}
+                </h2>
+                <p class="section-description">
+                    {% if current_lang == 'fr' %}
+                        Le programme COLPRAD 2025 a été conçu pour offrir une expérience complète et enrichissante en une journée, 
+                        combinant sessions plénières de haut niveau, ateliers pratiques, tables rondes interactives 
+                        et opportunités de networking stratégique. Rendez-vous le 13 Décembre 2025 de 14H à 17H à l'Hôtel Elie Palace, Adidogomé-Lomé.
+                    {% else %}
+                        The COLPRAD 2025 program has been designed to offer a complete and enriching experience in one day, 
+                        combining high-level plenary sessions, practical workshops, interactive round tables 
+                        and strategic networking opportunities. Join us on December 13, 2025 from 2PM to 5PM at Elie Palace Hotel, Adidogomé-Lomé.
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Programme du 13 Décembre 2025 -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="program-day-header">
+                    <h2 class="text-center mb-2" style="color: var(--accent-color); font-size: 2.5rem;">
+                        {% if current_lang == 'fr' %}13 Décembre 2025{% else %}December 13, 2025{% endif %}
+                    </h2>
+                    <h3 class="text-center mb-2" style="color: var(--secondary-1); font-size: 1.5rem;">
+                        14H00 - 17H00
+                    </h3>
+                    <p class="text-center" style="color: var(--secondary-2); font-size: 1.2rem; font-weight: 600;">
+                        {% if current_lang == 'fr' %}
+                            Hôtel Elie Palace, Adidogomé - Lomé
+                        {% else %}
+                            Elie Palace Hotel, Adidogomé - Lomé
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="program-card">
+                    <div class="program-time">14:00 - 14:30</div>
+                    <h4 class="program-session-title">
+                        {% if current_lang == 'fr' %}Accueil et Enregistrement{% else %}Welcome and Registration{% endif %}
+                    </h4>
+                    <p class="program-description">
+                        {% if current_lang == 'fr' %}
+                            Accueil des participants, remise des badges et kits participants. 
+                            Première prise de contact avec les autres professionnels du secteur culturel.
+                        {% else %}
+                            Welcome participants, badge and participant kit distribution. 
+                            First contact with other cultural sector professionals.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="program-card">
+                    <div class="program-time">14:30 - 15:00</div>
+                    <h4 class="program-session-title">
+                        {% if current_lang == 'fr' %}Cérémonie d'Ouverture{% else %}Opening Ceremony{% endif %}
+                    </h4>
+                    <p class="program-description">
+                        {% if current_lang == 'fr' %}
+                            Discours officiels des autorités, présentation du colloque et de ses objectifs. 
+                            Intervention des partenaires institutionnels et sponsors principaux.
+                        {% else %}
+                            Official speeches from authorities, presentation of the conference and its objectives. 
+                            Intervention of institutional partners and main sponsors.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-lg-12">
+                <div class="program-card" style="border-top-color: var(--secondary-2);">
+                    <div class="program-time">15:00 - 15:45</div>
+                    <h4 class="program-session-title">
+                        {% if current_lang == 'fr' %}
+                            Panel Principal : Politiques Culturelles et Financement en Afrique de l'Ouest
+                        {% else %}
+                            Main Panel: Cultural Policies and Funding in West Africa
+                        {% endif %}
+                    </h4>
+                    <p class="program-description">
+                        {% if current_lang == 'fr' %}
+                            Table ronde de haut niveau réunissant ministres de la Culture, directeurs d'institutions culturelles, 
+                            représentants de l'UNESCO, de l'Union Africaine et de la CEDEAO. Discussion sur les défis et opportunités 
+                            des politiques culturelles régionales, les mécanismes de financement et les stratégies de développement culturel durable.
+                        {% else %}
+                            High-level round table bringing together Ministers of Culture, directors of cultural institutions, 
+                            representatives of UNESCO, the African Union and ECOWAS. Discussion on challenges and opportunities 
+                            of regional cultural policies, funding mechanisms and sustainable cultural development strategies.
+                        {% endif %}
+                    </p>
+                    <div class="mt-3">
+                        <span class="badge bg-primary me-2">{% if current_lang == 'fr' %}Conférence Plénière{% else %}Plenary Conference{% endif %}</span>
+                        <span class="badge bg-secondary">{% if current_lang == 'fr' %}Traduction simultanée{% else %}Simultaneous Translation{% endif %}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="program-card">
+                    <div class="program-time">15:45 - 16:30</div>
+                    <h4 class="program-session-title">
+                        {% if current_lang == 'fr' %}Atelier A : Gestion de Projets Culturels{% else %}Workshop A: Cultural Project Management{% endif %}
+                    </h4>
+                    <p class="program-description">
+                        {% if current_lang == 'fr' %}
+                            Méthodologies de gestion de projets culturels, planification stratégique, 
+                            budgétisation et suivi-évaluation. Études de cas pratiques et échanges d'expériences.
+                        {% else %}
+                            Cultural project management methodologies, strategic planning, 
+                            budgeting and monitoring-evaluation. Practical case studies and experience sharing.
+                        {% endif %}
+                    </p>
+                    <div class="mt-3">
+                        <span class="badge bg-success">{% if current_lang == 'fr' %}Atelier Pratique{% else %}Practical Workshop{% endif %}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="program-card">
+                    <div class="program-time">15:45 - 16:30</div>
+                    <h4 class="program-session-title">
+                        {% if current_lang == 'fr' %}Atelier B : Financement et Mécénat Culturel{% else %}Workshop B: Cultural Funding and Patronage{% endif %}
+                    </h4>
+                    <p class="program-description">
+                        {% if current_lang == 'fr' %}
+                            Stratégies de levée de fonds, montage de dossiers de financement, 
+                            approche des mécènes et investisseurs. Opportunités de financement disponibles.
+                        {% else %}
+                            Fundraising strategies, funding proposal development, 
+                            approaching patrons and investors. Available funding opportunities.
+                        {% endif %}
+                    </p>
+                    <div class="mt-3">
+                        <span class="badge bg-success">{% if current_lang == 'fr' %}Atelier Pratique{% else %}Practical Workshop{% endif %}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-12">
+                <div class="program-card" style="border-top-color: var(--vip-color);">
+                    <div class="program-time">16:30 - 17:00</div>
+                    <h4 class="program-session-title">
+                        {% if current_lang == 'fr' %}Clôture et Cocktail de Networking{% else %}Closing and Networking Cocktail{% endif %}
+                    </h4>
+                    <p class="program-description">
+                        {% if current_lang == 'fr' %}
+                            Synthèse de la journée, remise des certificats de participation et cocktail de networking. 
+                            Opportunité d'échanges informels avec les intervenants, décideurs et autres participants.
+                        {% else %}
+                            Summary of the day, distribution of participation certificates and networking cocktail. 
+                            Opportunity for informal exchanges with speakers, decision-makers and other participants.
+                        {% endif %}
+                    </p>
+                    <div class="mt-3">
+                        <span class="badge" style="background-color: var(--secondary-2);">{% if current_lang == 'fr' %}Networking{% else %}Networking{% endif %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Important Notes -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="alert alert-info" style="border-left: 4px solid var(--secondary-1);">
+                    <h5 class="alert-heading">
+                        {% if current_lang == 'fr' %}Informations Importantes{% else %}Important Information{% endif %}
+                    </h5>
+                    <ul class="mb-0">
+                        <li>
+                            {% if current_lang == 'fr' %}
+                                Le programme détaillé avec les noms des intervenants sera communiqué aux participants inscrits
+                            {% else %}
+                                The detailed program with speaker names will be communicated to registered participants
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if current_lang == 'fr' %}
+                                Des modifications mineures peuvent intervenir pour optimiser l'expérience des participants
+                            {% else %}
+                                Minor changes may occur to optimize the participant experience
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if current_lang == 'fr' %}
+                                Les ateliers sont à capacité limitée - inscription prioritaire pour les participants Premium et VIP
+                            {% else %}
+                                Workshops have limited capacity - priority registration for Premium and VIP participants
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if current_lang == 'fr' %}
+                                Traduction simultanée français-anglais disponible pour les sessions plénières
+                            {% else %}
+                                Simultaneous French-English translation available for plenary sessions
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if current_lang == 'fr' %}
+                                Lieu : Hôtel Elie Palace, Adidogomé - Lomé, Togo
+                            {% else %}
+                                Venue: Elie Palace Hotel, Adidogomé - Lomé, Togo
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if current_lang == 'fr' %}
+                                Horaires : 14H00 - 17H00 (accueil dès 14H00)
+                            {% else %}
+                                Schedule: 2PM - 5PM (welcome from 2PM)
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="cta-title">
+                    {% if current_lang == 'fr' %}
+                        Ne Manquez Pas Cette Opportunité
+                    {% else %}
+                        Don't Miss This Opportunity
+                    {% endif %}
+                </h2>
+                <p class="cta-text">
+                    {% if current_lang == 'fr' %}
+                        Réservez votre place dès maintenant pour participer à ce programme exceptionnel
+                    {% else %}
+                        Book your seat now to participate in this exceptional program
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{{ url_for('tickets') }}" class="btn btn-cta btn-lg">
+                    {% if current_lang == 'fr' %}Réserver{% else %}Book Now{% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

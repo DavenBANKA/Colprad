@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center mb-5">
+        {% if current_lang == 'fr' %}Commander votre billet{% else %}Order Your Ticket{% endif %}
+    </h2>
+
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="mb-4">
+                            <label class="form-label">
+                                {% if current_lang == 'fr' %}Type de billet{% else %}Ticket Type{% endif %} *
+                            </label>
+                            <select class="form-select" name="ticket_type" required>
+                                <option value="standard" {% if ticket_type == 'standard' %}selected{% endif %}>Standard - 5,000 FCFA</option>
+                                <option value="premium" {% if ticket_type == 'premium' %}selected{% endif %}>Premium - 15,000 FCFA</option>
+                                <option value="vip" {% if ticket_type == 'vip' %}selected{% endif %}>VIP - 30,000 FCFA</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">
+                                {% if current_lang == 'fr' %}Quantité{% else %}Quantity{% endif %} *
+                            </label>
+                            <input type="number" class="form-control" name="quantity" min="1" max="10" value="{{ quantity }}" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 btn-lg">
+                            {% if current_lang == 'fr' %}Continuer{% else %}Continue{% endif %}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

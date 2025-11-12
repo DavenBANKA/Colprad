@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid my-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>🚨 Gestion des Alertes</h1>
+        <div>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createAlertModal">
+                ➕ Nouvelle Alerte
+            </button>
+            <a href="{{ url_for('admin_incidents') }}" class="btn btn-warning">
+                📋 Incidents
+            </a>
+            <a href="{{ url_for('emergency_contacts') }}" class="btn btn-info">
+                📞 Contacts Urgence
+            </a>
+            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">
+                ← Dashboard
+            </a>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="alert alert-info">
+                <strong>ℹ️ Guide rapide :</strong>
+                <ul class="mb-0">
+                    <li><strong>Info</strong> : Information générale (bleu)</li>
+                    <li><strong>Warning</strong> : Attention requise (orange)</li>
+                    <li><strong>Danger</strong> : Situation critique (rouge)</li>
+                    <li><strong>Priorité Urgente (2)</strong> : Envoie un email à tous les participants</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h5>Alertes Actives et Historique</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Statut</th>
+                            <th>Priorité</th>
+                            <th>Type</th>
+                            <th>Titre</th>
+                            <th>Message</th>
+                            <th>Créé le</th>
+                            <th>Expire le</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for alert in alerts %}
+                        <tr class="{% if not alert.active %}table-secondary{% endif %}">
+                            <td>
+                                {% if alert.active %}
+                                    <span class="badge bg-success">✓ Active</span>
+                                {% else %}
+                                    <span class="badge bg-secondary">Inactive</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if alert.priority == 2 %}
+                                    <span class="badge bg-danger">🔴 URGENT</span>
+                                {% elif alert.priority == 1 %}
+                                    <span class="badge bg-warning">🟡 Haute</span>
+                                {% else %}
+                                    <span class="badge bg-info">🔵 Normale</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <span class="badge bg-{{ alert.alert_type }}">
+                                    {{ alert.alert_type }}
+                                </span>
+                            </td>
+                            <td><strong>{{ alert.title }}</strong></td>
+                            <td>{{ alert.message[:100] }}{% if alert.message|length > 100 %}...{% endif %}</td>
+                            <td>{{ alert.created_at.strftime('%d/%m %H:%M') }}</td>
+                            <td>
+                                {% if alert.expires_at %}
+                                    {{ alert.expires_at.strftime('%d/%m %H:%M') }}
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </td>
+                            <td>
+                                <div class="btn-group btn-group-sm">
+                                    <button class="btn btn-{{ 'secondary' if alert.active else 'success' }} toggle-alert-btn" 
+                                            data-alert-id="{{ alert.id }}"
+                                            title="{{ 'Désactiver' if alert.active else 'Activer' }}">
+                                        {{ '⏸️' if alert.active else '▶️' }}
+                                    </button>
+                                    <form method="POST" action="{{ url_for('delete_alert', alert_id=alert.id) }}" style="display: inline;">
+                                        <button type="submit" class="btn btn-danger btn-sm" 
+                                                onclick="return confirm('Supprimer cette alerte ?')"
+                                                title="Supprimer">
+                                            🗑️
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Create Alert Modal -->
+<div class="modal fade" id="createAlertModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Créer une Nouvelle Alerte</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="POST" action="{{ url_for('create_alert') }}">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Titre *</label>
+                        <input type="text" class="form-control" name="title" required 
+                               placeholder="Ex: Retard de 30 minutes">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Message *</label>
+                        <textarea class="form-control" name="message" rows="3" required
+                                  placeholder="Ex: En raison d'un problème technique, le début de l'événement est reporté de 30 minutes."></textarea>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Type d'alerte *</label>
+                            <select class="form-select" name="alert_type" required>
+                                <option value="info">Info (Bleu)</option>
+                                <option value="warning">Warning (Orange)</option>
+                                <option value="danger">Danger (Rouge)</option>
+                                <option value="success">Success (Vert)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Priorité *</label>
+                            <select class="form-select" name="priority" required>
+                                <option value="0">Normale</option>
+                                <option value="1">Haute</option>
+                                <option value="2">URGENT (Email à tous)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Expire dans (heures)</label>
+                            <input type="number" class="form-control" name="expires_hours" 
+                                   placeholder="Ex: 24" min="1">
+                            <small class="text-muted">Laisser vide pour pas d'expiration</small>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-warning">
+                        <strong>⚠️ Attention :</strong> Une alerte avec priorité URGENT enverra automatiquement 
+                        un email à tous les participants ayant acheté un billet.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Créer l'Alerte</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+document.querySelectorAll('.toggle-alert-btn').forEach(btn => {
+    btn.addEventListener('click', async function() {
+        const alertId = this.dataset.alertId;
+        
+        try {
+            const response = await fetch(`/admin/alerts/${alertId}/toggle`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'}
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                location.reload();
+            }
+        } catch (error) {
+            alert('Erreur lors de la mise à jour');
+        }
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid my-4">
+    <h1 class="mb-4">Dashboard Admin COLPRAD</h1>
+
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5>Total Commandes</h5>
+                    <h2>{{ total_orders }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5>Revenus Total</h5>
+                    <h2>{{ "{:,.0f}".format(total_revenue) }} FCFA</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5>Billets Vendus</h5>
+                    <h2>{{ orders_by_type|sum(attribute=2) if orders_by_type else 0 }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <h5>Actions</h5>
+                    <div class="d-grid gap-2">
+                        <a href="{{ url_for('export_orders') }}" class="btn btn-light btn-sm">📊 Export CSV</a>
+                        <a href="{{ url_for('download_all_badges') }}" class="btn btn-light btn-sm">🎫 Tous les badges</a>
+                        <a href="{{ url_for('participants_list') }}" class="btn btn-light btn-sm">👥 Participants</a>
+                        <a href="{{ url_for('admin_alerts') }}" class="btn btn-light btn-sm">🚨 Alertes</a>
+                        <a href="{{ url_for('admin_incidents') }}" class="btn btn-light btn-sm">📋 Incidents</a>
+                        <a href="{{ url_for('emergency_contacts') }}" class="btn btn-light btn-sm">📞 Urgences</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Ventes par Type</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Commandes</th>
+                                <th>Billets</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for type, count, quantity in orders_by_type %}
+                            <tr>
+                                <td>{{ type|upper }}</td>
+                                <td>{{ count }}</td>
+                                <td>{{ quantity }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Commandes Récentes</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Client</th>
+                                <th>Type</th>
+                                <th>Montant</th>
+                                <th>Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in recent_orders %}
+                            <tr>
+                                <td>{{ order.order_number }}</td>
+                                <td>{{ order.first_name }} {{ order.last_name }}</td>
+                                <td>{{ order.ticket_type }}</td>
+                                <td>{{ "{:,.0f}".format(order.total_amount) }}</td>
+                                <td>
+                                    <span class="badge bg-{{ 'success' if order.payment_status == 'completed' else 'warning' }}">
+                                        {{ order.payment_status }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,349 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <h1 class="mb-4">
+                {% if current_lang == 'fr' %}
+                    Politique de Confidentialité
+                {% else %}
+                    Privacy Policy
+                {% endif %}
+            </h1>
+            
+            <p class="text-muted mb-4">
+                {% if current_lang == 'fr' %}
+                    Dernière mise à jour : Janvier 2025
+                {% else %}
+                    Last updated: January 2025
+                {% endif %}
+            </p>
+
+            {% if current_lang == 'fr' %}
+            
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>1. Introduction</h3>
+                    <p>
+                        Life Field Inc., organisateur de COLPRAD, s'engage à protéger la vie privée et les données personnelles 
+                        de ses utilisateurs. Cette politique de confidentialité explique comment nous collectons, utilisons, 
+                        partageons et protégeons vos informations personnelles.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>2. Responsable du traitement</h3>
+                    <p>
+                        <strong>Life Field Inc.</strong><br>
+                        Lomé, Togo<br>
+                        Email : <a href="mailto:contact@colprad.tg">contact@colprad.tg</a><br>
+                        Téléphone : +228 XX XX XX XX
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>3. Données collectées</h3>
+                    <p>Nous collectons les données suivantes :</p>
+                    
+                    <h5 class="mt-3">3.1 Données d'identification</h5>
+                    <ul>
+                        <li>Nom et prénom</li>
+                        <li>Adresse email</li>
+                        <li>Numéro de téléphone</li>
+                        <li>Organisation (optionnel)</li>
+                    </ul>
+                    
+                    <h5 class="mt-3">3.2 Données de commande</h5>
+                    <ul>
+                        <li>Type de billet acheté</li>
+                        <li>Quantité</li>
+                        <li>Montant de la transaction</li>
+                        <li>Mode de paiement</li>
+                        <li>Date et heure de la commande</li>
+                    </ul>
+                    
+                    <h5 class="mt-3">3.3 Données techniques</h5>
+                    <ul>
+                        <li>Adresse IP</li>
+                        <li>Type de navigateur</li>
+                        <li>Pages visitées</li>
+                        <li>Cookies (voir section dédiée)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>4. Finalités du traitement</h3>
+                    <p>Vos données sont utilisées pour :</p>
+                    <ul>
+                        <li>Traiter vos commandes de billets</li>
+                        <li>Vous envoyer des confirmations et informations sur l'événement</li>
+                        <li>Gérer le check-in le jour de l'événement</li>
+                        <li>Vous contacter en cas de modification ou d'annulation</li>
+                        <li>Améliorer nos services</li>
+                        <li>Respecter nos obligations légales</li>
+                        <li>Vous envoyer notre newsletter (avec votre consentement)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>5. Base légale du traitement</h3>
+                    <p>Le traitement de vos données repose sur :</p>
+                    <ul>
+                        <li><strong>L'exécution du contrat</strong> : pour traiter votre commande</li>
+                        <li><strong>Votre consentement</strong> : pour la newsletter et les communications marketing</li>
+                        <li><strong>Nos intérêts légitimes</strong> : pour améliorer nos services</li>
+                        <li><strong>Obligations légales</strong> : pour la comptabilité et la fiscalité</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>6. Partage des données</h3>
+                    <p>Vos données peuvent être partagées avec :</p>
+                    <ul>
+                        <li><strong>Prestataires de paiement</strong> : PayGate, MoovMoney, Mixx By Yas (pour traiter les paiements)</li>
+                        <li><strong>Prestataires techniques</strong> : hébergement, envoi d'emails</li>
+                        <li><strong>Autorités compétentes</strong> : si requis par la loi</li>
+                    </ul>
+                    <p>Nous ne vendons jamais vos données à des tiers.</p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>7. Durée de conservation</h3>
+                    <ul>
+                        <li><strong>Données de commande</strong> : 5 ans (obligations comptables)</li>
+                        <li><strong>Données de newsletter</strong> : jusqu'à désinscription</li>
+                        <li><strong>Cookies</strong> : 13 mois maximum</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>8. Vos droits</h3>
+                    <p>Conformément à la réglementation, vous disposez des droits suivants :</p>
+                    <ul>
+                        <li><strong>Droit d'accès</strong> : obtenir une copie de vos données</li>
+                        <li><strong>Droit de rectification</strong> : corriger vos données inexactes</li>
+                        <li><strong>Droit à l'effacement</strong> : demander la suppression de vos données</li>
+                        <li><strong>Droit d'opposition</strong> : vous opposer au traitement de vos données</li>
+                        <li><strong>Droit à la portabilité</strong> : recevoir vos données dans un format structuré</li>
+                        <li><strong>Droit de retirer votre consentement</strong> : à tout moment</li>
+                    </ul>
+                    <p>
+                        Pour exercer vos droits, contactez-nous à : 
+                        <a href="mailto:contact@colprad.tg">contact@colprad.tg</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>9. Sécurité des données</h3>
+                    <p>
+                        Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données 
+                        contre tout accès non autorisé, perte, destruction ou divulgation :
+                    </p>
+                    <ul>
+                        <li>Chiffrement SSL/TLS pour les transmissions</li>
+                        <li>Accès restreint aux données personnelles</li>
+                        <li>Sauvegardes régulières</li>
+                        <li>Surveillance des accès</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4" id="cookies">
+                <div class="card-body">
+                    <h3>10. Cookies et traceurs</h3>
+                    
+                    <h5 class="mt-3">10.1 Qu'est-ce qu'un cookie ?</h5>
+                    <p>
+                        Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, smartphone, tablette) lors de la 
+                        visite d'un site web. Il permet de collecter des informations relatives à votre navigation et de vous reconnaître 
+                        lors de votre prochaine visite.
+                    </p>
+                    
+                    <h5 class="mt-3">10.2 Types de cookies utilisés</h5>
+                    
+                    <h6 class="mt-3">Cookies strictement nécessaires</h6>
+                    <p>
+                        Ces cookies sont indispensables au fonctionnement du site. Ils vous permettent d'utiliser les principales 
+                        fonctionnalités du site (par exemple : maintenir votre session, mémoriser votre panier d'achat, sécuriser 
+                        votre connexion).
+                    </p>
+                    <ul>
+                        <li><strong>Cookie de session</strong> : maintient votre connexion pendant votre visite</li>
+                        <li><strong>Cookie de langue</strong> : mémorise votre choix de langue (FR/EN)</li>
+                        <li><strong>Cookie CSRF</strong> : protège contre les attaques de falsification de requêtes</li>
+                    </ul>
+                    <p class="text-muted small">
+                        Ces cookies ne nécessitent pas votre consentement car ils sont essentiels au fonctionnement du site.
+                    </p>
+                    
+                    <h6 class="mt-3">Cookies analytiques</h6>
+                    <p>
+                        Ces cookies nous permettent de mesurer l'audience du site, d'analyser la navigation des visiteurs et 
+                        d'améliorer nos services.
+                    </p>
+                    <ul>
+                        <li><strong>Google Analytics</strong> : analyse du trafic et du comportement des visiteurs</li>
+                        <li><strong>Durée de conservation</strong> : 13 mois maximum</li>
+                    </ul>
+                    <p class="text-muted small">
+                        Ces cookies nécessitent votre consentement préalable.
+                    </p>
+                    
+                    <h6 class="mt-3">Cookies marketing (si activés)</h6>
+                    <p>
+                        Ces cookies permettent de vous proposer des publicités personnalisées sur les réseaux sociaux et sites partenaires.
+                    </p>
+                    <ul>
+                        <li><strong>Facebook Pixel</strong> : suivi des conversions et remarketing</li>
+                        <li><strong>LinkedIn Insight Tag</strong> : analyse et publicité ciblée</li>
+                    </ul>
+                    <p class="text-muted small">
+                        Ces cookies nécessitent votre consentement préalable.
+                    </p>
+                    
+                    <h5 class="mt-3">10.3 Consentement</h5>
+                    <p>
+                        À l'exception des cookies strictement nécessaires, l'installation de cookies requiert votre consentement préalable. 
+                        Une bannière cookies est affichée lors de votre première visite et vous permet de :
+                    </p>
+                    <ul>
+                        <li>Accepter tous les cookies</li>
+                        <li>Refuser les cookies non essentiels</li>
+                        <li>Personnaliser vos choix par catégorie</li>
+                    </ul>
+                    
+                    <h5 class="mt-3">10.4 Durée de conservation</h5>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Type de cookie</th>
+                                <th>Durée</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cookies de session</td>
+                                <td>Jusqu'à la fermeture du navigateur</td>
+                            </tr>
+                            <tr>
+                                <td>Cookies de préférences</td>
+                                <td>12 mois</td>
+                            </tr>
+                            <tr>
+                                <td>Cookies analytiques</td>
+                                <td>13 mois</td>
+                            </tr>
+                            <tr>
+                                <td>Cookies marketing</td>
+                                <td>13 mois</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h5 class="mt-3">10.5 Gestion des cookies</h5>
+                    <p>
+                        Vous pouvez à tout moment modifier vos préférences concernant les cookies :
+                    </p>
+                    <ul>
+                        <li><strong>Via notre bandeau cookies</strong> : accessible en bas de page</li>
+                        <li><strong>Via votre navigateur</strong> : consultez l'aide de votre navigateur pour gérer les cookies</li>
+                    </ul>
+                    
+                    <h6 class="mt-3">Paramétrage par navigateur :</h6>
+                    <ul>
+                        <li><strong>Chrome</strong> : Paramètres > Confidentialité et sécurité > Cookies</li>
+                        <li><strong>Firefox</strong> : Options > Vie privée et sécurité > Cookies</li>
+                        <li><strong>Safari</strong> : Préférences > Confidentialité > Cookies</li>
+                        <li><strong>Edge</strong> : Paramètres > Cookies et autorisations de site</li>
+                    </ul>
+                    
+                    <p class="alert alert-warning mt-3">
+                        <strong>⚠️ Attention :</strong> La désactivation de certains cookies peut affecter votre expérience de navigation 
+                        et limiter l'accès à certaines fonctionnalités du site (par exemple : maintien de la session, mémorisation du panier).
+                    </p>
+                    
+                    <h5 class="mt-3">10.6 Cookies tiers</h5>
+                    <p>
+                        Certains cookies sont déposés par des services tiers (Google Analytics, réseaux sociaux). Ces services ont leurs 
+                        propres politiques de confidentialité :
+                    </p>
+                    <ul>
+                        <li><a href="https://policies.google.com/privacy" target="_blank">Politique de confidentialité Google</a></li>
+                        <li><a href="https://www.facebook.com/privacy/explanation" target="_blank">Politique de confidentialité Facebook</a></li>
+                        <li><a href="https://www.linkedin.com/legal/privacy-policy" target="_blank">Politique de confidentialité LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>11. Transferts internationaux</h3>
+                    <p>
+                        Certains de nos prestataires peuvent être situés en dehors du Togo. Dans ce cas, nous nous assurons 
+                        que des garanties appropriées sont en place pour protéger vos données.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>12. Modifications de la politique</h3>
+                    <p>
+                        Nous pouvons modifier cette politique de confidentialité à tout moment. Les modifications seront 
+                        publiées sur cette page avec une nouvelle date de mise à jour.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>13. Contact</h3>
+                    <p>
+                        Pour toute question concernant cette politique de confidentialité ou le traitement de vos données :
+                    </p>
+                    <ul>
+                        <li>Email : <a href="mailto:contact@colprad.tg">contact@colprad.tg</a></li>
+                        <li>Téléphone : +228 XX XX XX XX</li>
+                        <li>Adresse : Lomé, Togo</li>
+                    </ul>
+                </div>
+            </div>
+
+            {% else %}
+            
+            <!-- English version -->
+            <div class="alert alert-info">
+                <p class="mb-0">
+                    The French version of the Privacy Policy is the legally binding version. 
+                    <a href="{{ url_for('set_language', lang='fr') }}">Switch to French</a>
+                </p>
+            </div>
+            
+            {% endif %}
+
+            <div class="text-center mt-5">
+                <a href="{{ url_for('index') }}" class="btn btn-primary">
+                    {% if current_lang == 'fr' %}Retour à l'accueil{% else %}Back to Home{% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

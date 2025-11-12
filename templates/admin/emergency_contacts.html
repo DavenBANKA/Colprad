@@ -1,0 +1,235 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<style>
+    .emergency-contacts-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: white;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .emergency-contacts-table thead {
+        background-color: #000;
+        color: white;
+    }
+    
+    .emergency-contacts-table th {
+        padding: 15px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        border: 1px solid #000;
+    }
+    
+    .emergency-contacts-table td {
+        padding: 15px;
+        border: 1px solid #ddd;
+        vertical-align: top;
+    }
+    
+    .emergency-contacts-table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    
+    .emergency-contacts-table tbody tr:hover {
+        background-color: #f0f0f0;
+    }
+    
+    .role-cell {
+        font-weight: 600;
+        color: #000;
+    }
+    
+    .remarks-cell {
+        color: #333;
+        font-size: 13px;
+    }
+    
+    .page-header {
+        background-color: #000;
+        color: white;
+        padding: 15px 20px;
+        margin: -20px -20px 20px -20px;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .print-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1000;
+    }
+    
+    @media print {
+        .no-print {
+            display: none !important;
+        }
+        
+        .emergency-contacts-table {
+            page-break-inside: avoid;
+        }
+        
+        .emergency-contacts-table th,
+        .emergency-contacts-table td {
+            padding: 10px;
+            font-size: 11px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid my-4">
+    <div class="no-print mb-4">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>📞 Contacts d'Urgence COLPRAD</h1>
+            <div>
+                <button onclick="window.print()" class="btn btn-primary">
+                    🖨️ Imprimer
+                </button>
+                <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">
+                    ← Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="page-header">
+            CONTACTS D'URGENCE - COLPRAD
+        </div>
+        <div class="card-body p-0">
+            <table class="emergency-contacts-table">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">RÔLE</th>
+                        <th style="width: 20%;">NOM</th>
+                        <th style="width: 30%;">CONTACTS</th>
+                        <th style="width: 30%;">REMARQUES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="role-cell">Responsable sécurité site</td>
+                        <td></td>
+                        <td></td>
+                        <td class="remarks-cell">Présent sur site; point de rendez-vous sécurité</td>
+                    </tr>
+                    <tr>
+                        <td class="role-cell">Responsable logistique</td>
+                        <td></td>
+                        <td></td>
+                        <td class="remarks-cell">Gère matériel, montage, fournisseurs</td>
+                    </tr>
+                    <tr>
+                        <td class="role-cell">Responsable billetterie / check-in</td>
+                        <td></td>
+                        <td></td>
+                        <td class="remarks-cell">Validation QR / liste invités</td>
+                    </tr>
+                    <tr>
+                        <td class="role-cell">Responsable médical / secourisme</td>
+                        <td></td>
+                        <td></td>
+                        <td class="remarks-cell">Trousse secours; ambulance coordonnée</td>
+                    </tr>
+                    <tr>
+                        <td class="role-cell">Responsable communication</td>
+                        <td></td>
+                        <td></td>
+                        <td class="remarks-cell">Messages officiels, réseaux sociaux</td>
+                    </tr>
+                    <tr>
+                        <td class="role-cell">Responsable relations presse</td>
+                        <td></td>
+                        <td></td>
+                        <td class="remarks-cell">Contacts journalistes, gestion interviews</td>
+                    </tr>
+                    <tr>
+                        <td class="role-cell">Contact police/municipalité</td>
+                        <td></td>
+                        <td></td>
+                        <td class="remarks-cell">Intervention publique / ordre</td>
+                    </tr>
+                    <tr>
+                        <td class="role-cell">Contact ambulance / SAMU local</td>
+                        <td></td>
+                        <td></td>
+                        <td class="remarks-cell">Numéro d'ambulance local</td>
+                    </tr>
+                    <tr>
+                        <td class="role-cell">Contact pompiers</td>
+                        <td></td>
+                        <td></td>
+                        <td class="remarks-cell">Intervention incendie / évacuation</td>
+                    </tr>
+                    <tr>
+                        <td class="role-cell">Hotline support technique</td>
+                        <td></td>
+                        <td></td>
+                        <td class="remarks-cell">Panne son/vidéo/connexion</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row mt-4 no-print">
+        <div class="col-md-12">
+            <div class="alert alert-info">
+                <h5>📋 Instructions d'utilisation</h5>
+                <ul class="mb-0">
+                    <li>Imprimez ce document et gardez-le accessible pendant l'événement</li>
+                    <li>Distribuez des copies aux responsables clés</li>
+                    <li>Affichez une copie au point de coordination principal</li>
+                    <li>Vérifiez tous les numéros avant le jour J</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3 no-print">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-warning">
+                    <h5 class="mb-0">⚠️ Numéros d'urgence nationaux</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        <li><strong>Police :</strong> 117 ou +228 22 21 05 13</li>
+                        <li><strong>Pompiers :</strong> 118</li>
+                        <li><strong>SAMU :</strong> [À compléter]</li>
+                        <li><strong>Gendarmerie :</strong> +228 22 21 24 91</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">🚨 Procédure d'urgence</h5>
+                </div>
+                <div class="card-body">
+                    <ol class="mb-0">
+                        <li>Évaluer la situation (5-10 min)</li>
+                        <li>Contacter le responsable concerné</li>
+                        <li>Si nécessaire, réunion comité de crise</li>
+                        <li>Décision et communication</li>
+                        <li>Documentation de l'incident</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button onclick="window.print()" class="btn btn-primary btn-lg print-btn no-print">
+    🖨️ Imprimer
+</button>
+{% endblock %}

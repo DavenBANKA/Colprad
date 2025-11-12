@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-8 order-2 order-md-1">
+            <h2 class="mb-4">
+                {% if current_lang == 'fr' %}Finaliser votre réservation{% else %}Complete Your Booking{% endif %}
+            </h2>
+            
+            <form method="POST" id="checkout-form">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>{% if current_lang == 'fr' %}Vos informations{% else %}Your Information{% endif %}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">{% if current_lang == 'fr' %}Prénom{% else %}First Name{% endif %} *</label>
+                                <input type="text" class="form-control" name="first_name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">{% if current_lang == 'fr' %}Nom{% else %}Last Name{% endif %} *</label>
+                                <input type="text" class="form-control" name="last_name" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Email *</label>
+                                <input type="email" class="form-control" name="email" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">{% if current_lang == 'fr' %}Téléphone{% else %}Phone{% endif %} *</label>
+                                <input type="tel" class="form-control" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">{% if current_lang == 'fr' %}Organisation{% else %}Organization{% endif %}</label>
+                            <input type="text" class="form-control" name="organization">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>{% if current_lang == 'fr' %}Code promo{% else %}Promo Code{% endif %}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="promo_code" id="promo-code" placeholder="{% if current_lang == 'fr' %}Entrez votre code{% else %}Enter your code{% endif %}">
+                            <button class="btn btn-outline-secondary" type="button" id="apply-promo">
+                                {% if current_lang == 'fr' %}Appliquer{% else %}Apply{% endif %}
+                            </button>
+                        </div>
+                        <div id="promo-message" class="mt-2"></div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>{% if current_lang == 'fr' %}Mode de paiement{% else %}Payment Method{% endif %}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="payment_method" value="momo" id="momo" required>
+                            <label class="form-check-label" for="momo">
+                                MoovMoney
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="payment_method" value="mixx" id="mixx">
+                            <label class="form-check-label" for="mixx">
+                                Mixx By Yas
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="payment_method" value="card" id="card">
+                            <label class="form-check-label" for="card">
+                                {% if current_lang == 'fr' %}Carte bancaire{% else %}Credit Card{% endif %}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" id="terms" required>
+                    <label class="form-check-label" for="terms">
+                        {% if current_lang == 'fr' %}
+                            J'accepte les <a href="{{ url_for('cgv') }}" target="_blank">conditions générales de vente</a> 
+                            et la <a href="{{ url_for('privacy') }}" target="_blank">politique de confidentialité</a>
+                        {% else %}
+                            I accept the <a href="{{ url_for('cgv') }}" target="_blank">terms and conditions</a> 
+                            and <a href="{{ url_for('privacy') }}" target="_blank">privacy policy</a>
+                        {% endif %}
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg w-100">
+                    {% if current_lang == 'fr' %}Confirmer et payer{% else %}Confirm and Pay{% endif %}
+                </button>
+            </form>
+        </div>
+
+        <div class="col-md-4 order-1 order-md-2">
+            <div class="card checkout-summary" style="top: 20px;">
+                <div class="card-header">
+                    <h5>{% if current_lang == 'fr' %}Récapitulatif{% else %}Summary{% endif %}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>{% if current_lang == 'fr' %}Type de billet{% else %}Ticket Type{% endif %}:</span>
+                        <strong>{{ order_data.ticket_type|upper }}</strong>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>{% if current_lang == 'fr' %}Quantité{% else %}Quantity{% endif %}:</span>
+                        <strong>{{ order_data.quantity }}</strong>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>{% if current_lang == 'fr' %}Prix unitaire{% else %}Unit Price{% endif %}:</span>
+                        <strong>{{ "{:,.0f}".format(order_data.unit_price) }} FCFA</strong>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="h5">Total:</span>
+                        <strong class="h5 text-primary" id="total-amount">{{ "{:,.0f}".format(order_data.total) }} FCFA</strong>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <small>
+                            {% if current_lang == 'fr' %}
+                                Vous recevrez votre confirmation par email avec votre QR code dans les 60 secondes.
+                            {% else %}
+                                You will receive your confirmation email with QR code within 60 seconds.
+                            {% endif %}
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('apply-promo').addEventListener('click', async function() {
+    const code = document.getElementById('promo-code').value;
+    const messageDiv = document.getElementById('promo-message');
+    
+    if (!code) {
+        messageDiv.innerHTML = '<div class="alert alert-warning">{% if current_lang == "fr" %}Entrez un code promo{% else %}Enter a promo code{% endif %}</div>';
+        return;
+    }
+    
+    try {
+        const response = await fetch('/api/validate-promo', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({code: code})
+        });
+        const data = await response.json();
+        
+        if (data.valid) {
+            messageDiv.innerHTML = '<div class="alert alert-success">{% if current_lang == "fr" %}Code promo valide!{% else %}Valid promo code!{% endif %}</div>';
+            // Update total amount
+            let total = {{ order_data.total }};
+            if (data.discount_type === 'percentage') {
+                total = total * (1 - data.discount_value / 100);
+            } else {
+                total = total - data.discount_value;
+            }
+            document.getElementById('total-amount').textContent = total.toLocaleString() + ' FCFA';
+        } else {
+            messageDiv.innerHTML = '<div class="alert alert-danger">' + data.message + '</div>';
+        }
+    } catch (error) {
+        messageDiv.innerHTML = '<div class="alert alert-danger">{% if current_lang == "fr" %}Erreur de validation{% else %}Validation error{% endif %}</div>';
+    }
+});
+</script>
+{% endblock %}

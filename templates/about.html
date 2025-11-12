@@ -1,0 +1,329 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-professional" style="min-height: 50vh;">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative">
+        <div class="row align-items-center" style="min-height: 50vh;">
+            <div class="col-lg-10 mx-auto text-center text-white">
+                <h1 class="hero-title mb-4">
+                    {% if current_lang == 'fr' %}
+                        À Propos de COLPRAD
+                    {% else %}
+                        About COLPRAD
+                    {% endif %}
+                </h1>
+                <p class="hero-subtitle">
+                    {% if current_lang == 'fr' %}
+                        Une plateforme d'excellence au service du développement culturel en Afrique de l'Ouest
+                    {% else %}
+                        A platform of excellence serving cultural development in West Africa
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission Statement -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="text-center mb-5">
+                    <h2 class="section-title-main mb-4">
+                        {% if current_lang == 'fr' %}
+                            Le Colloque des Professionnels de l'Art pour le Développement
+                        {% else %}
+                            The Conference of Art Professionals for Development
+                        {% endif %}
+                    </h2>
+                    <p class="section-description">
+                        {% if current_lang == 'fr' %}
+                            Le COLPRAD est une plateforme d'échange et de réflexion stratégique dédiée aux acteurs culturels et artistiques. 
+                            Depuis sa création, le colloque s'est imposé comme le rendez-vous incontournable des professionnels de la culture 
+                            en Afrique de l'Ouest, réunissant experts internationaux, artistes, gestionnaires culturels, décideurs politiques 
+                            et investisseurs pour explorer ensemble les politiques culturelles, le financement des projets artistiques 
+                            et le développement durable du secteur créatif.
+                        {% else %}
+                            COLPRAD is a strategic exchange and reflection platform dedicated to cultural and artistic actors. 
+                            Since its creation, the conference has established itself as the essential meeting place for culture professionals 
+                            in West Africa, bringing together international experts, artists, cultural managers, policy makers 
+                            and investors to explore together cultural policies, artistic project financing 
+                            and sustainable development of the creative sector.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission, Vision, Values -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="info-card-professional" style="border-left-color: var(--secondary-2);">
+                    <div class="info-number">01</div>
+                    <h3 class="info-title">
+                        {% if current_lang == 'fr' %}Notre Mission{% else %}Our Mission{% endif %}
+                    </h3>
+                    <p class="info-text">
+                        {% if current_lang == 'fr' %}
+                            Favoriser le développement du secteur culturel et artistique en Afrique de l'Ouest à travers 
+                            l'échange de connaissances, d'expériences et de meilleures pratiques. Créer un écosystème collaboratif 
+                            où les professionnels de la culture peuvent se rencontrer, apprendre et développer des partenariats durables 
+                            pour transformer le paysage culturel régional.
+                        {% else %}
+                            Foster the development of the cultural and artistic sector in West Africa through 
+                            knowledge sharing, experiences and best practices. Create a collaborative ecosystem 
+                            where culture professionals can meet, learn and develop lasting partnerships 
+                            to transform the regional cultural landscape.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="info-card-professional" style="border-left-color: var(--secondary-1);">
+                    <div class="info-number">02</div>
+                    <h3 class="info-title">
+                        {% if current_lang == 'fr' %}Notre Vision{% else %}Our Vision{% endif %}
+                    </h3>
+                    <p class="info-text">
+                        {% if current_lang == 'fr' %}
+                            Devenir la référence régionale et internationale pour les professionnels de l'art et de la culture 
+                            en Afrique de l'Ouest. Être reconnu comme la plateforme qui catalyse l'innovation culturelle, 
+                            facilite l'accès au financement et crée des opportunités de développement professionnel 
+                            pour tous les acteurs du secteur créatif.
+                        {% else %}
+                            Become the regional and international reference for art and culture professionals 
+                            in West Africa. Be recognized as the platform that catalyzes cultural innovation, 
+                            facilitates access to funding and creates professional development opportunities 
+                            for all actors in the creative sector.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="info-card-professional" style="border-left-color: var(--secondary-3);">
+                    <div class="info-number">03</div>
+                    <h3 class="info-title">
+                        {% if current_lang == 'fr' %}Nos Valeurs{% else %}Our Values{% endif %}
+                    </h3>
+                    <p class="info-text">
+                        {% if current_lang == 'fr' %}
+                            Excellence dans l'organisation et la qualité des contenus. Collaboration entre tous les acteurs 
+                            de l'écosystème culturel. Innovation dans les approches et les solutions proposées. 
+                            Diversité culturelle et artistique comme richesse fondamentale. Développement durable 
+                            et responsabilité sociale au cœur de nos actions.
+                        {% else %}
+                            Excellence in organization and content quality. Collaboration between all actors 
+                            in the cultural ecosystem. Innovation in approaches and proposed solutions. 
+                            Cultural and artistic diversity as fundamental wealth. Sustainable development 
+                            and social responsibility at the heart of our actions.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Objectives -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto text-center">
+                <h2 class="section-title-main mb-4">
+                    {% if current_lang == 'fr' %}Nos Objectifs Stratégiques{% else %}Our Strategic Objectives{% endif %}
+                </h2>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="why-card">
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}
+                            Promouvoir les Politiques Culturelles Innovantes
+                        {% else %}
+                            Promote Innovative Cultural Policies
+                        {% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Analyser et promouvoir les politiques culturelles qui favorisent le développement du secteur créatif, 
+                            en s'appuyant sur les expériences réussies et les meilleures pratiques internationales. 
+                            Faciliter le dialogue entre décideurs politiques et acteurs culturels pour créer des cadres 
+                            réglementaires favorables à l'épanouissement des arts et de la culture.
+                        {% else %}
+                            Analyze and promote cultural policies that foster the development of the creative sector, 
+                            building on successful experiences and international best practices. 
+                            Facilitate dialogue between policy makers and cultural actors to create 
+                            regulatory frameworks conducive to the flourishing of arts and culture.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="why-card">
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}
+                            Faciliter le Financement des Projets Artistiques
+                        {% else %}
+                            Facilitate Funding for Artistic Projects
+                        {% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Créer des ponts entre porteurs de projets culturels et sources de financement (subventions publiques, 
+                            mécénat privé, investissement d'impact, crowdfunding). Renforcer les capacités des acteurs culturels 
+                            dans le montage de dossiers de financement et la gestion de projets pour augmenter leurs chances 
+                            d'obtenir des financements.
+                        {% else %}
+                            Create bridges between cultural project leaders and funding sources (public grants, 
+                            private patronage, impact investment, crowdfunding). Strengthen the capacities of cultural actors 
+                            in proposal development and project management to increase their chances 
+                            of obtaining funding.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="why-card">
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}
+                            Créer des Opportunités de Networking
+                        {% else %}
+                            Create Networking Opportunities
+                        {% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Offrir un espace privilégié de rencontres et d'échanges entre professionnels de la culture, 
+                            artistes, producteurs, galeristes, directeurs de festivals, investisseurs et décideurs. 
+                            Faciliter la création de partenariats stratégiques et de collaborations durables 
+                            qui transcendent les frontières et les disciplines artistiques.
+                        {% else %}
+                            Offer a privileged space for meetings and exchanges between culture professionals, 
+                            artists, producers, gallery owners, festival directors, investors and decision-makers. 
+                            Facilitate the creation of strategic partnerships and lasting collaborations 
+                            that transcend borders and artistic disciplines.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="why-card">
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}
+                            Renforcer les Capacités des Acteurs Culturels
+                        {% else %}
+                            Strengthen Capacities of Cultural Actors
+                        {% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Proposer des ateliers pratiques, des formations et des sessions de mentorat pour développer 
+                            les compétences en gestion culturelle, marketing, communication, levée de fonds et entrepreneuriat culturel. 
+                            Accompagner les professionnels dans leur développement de carrière et la professionnalisation 
+                            de leurs pratiques.
+                        {% else %}
+                            Offer practical workshops, training and mentoring sessions to develop 
+                            skills in cultural management, marketing, communication, fundraising and cultural entrepreneurship. 
+                            Support professionals in their career development and the professionalization 
+                            of their practices.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Impact Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto text-center">
+                <h2 class="section-title-main mb-4">
+                    {% if current_lang == 'fr' %}Notre Impact{% else %}Our Impact{% endif %}
+                </h2>
+                <p class="section-description">
+                    {% if current_lang == 'fr' %}
+                        Depuis sa création, COLPRAD a contribué de manière significative au développement 
+                        de l'écosystème culturel en Afrique de l'Ouest
+                    {% else %}
+                        Since its creation, COLPRAD has contributed significantly to the development 
+                        of the cultural ecosystem in West Africa
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <div class="row text-center g-4">
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">
+                        {% if current_lang == 'fr' %}Partenariats Créés{% else %}Partnerships Created{% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">
+                        {% if current_lang == 'fr' %}Professionnels Formés{% else %}Professionals Trained{% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">
+                        {% if current_lang == 'fr' %}Projets Financés{% else %}Projects Funded{% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">
+                        {% if current_lang == 'fr' %}Pays Participants{% else %}Participating Countries{% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="cta-title">
+                    {% if current_lang == 'fr' %}
+                        Rejoignez le Mouvement COLPRAD
+                    {% else %}
+                        Join the COLPRAD Movement
+                    {% endif %}
+                </h2>
+                <p class="cta-text">
+                    {% if current_lang == 'fr' %}
+                        Faites partie de la communauté des professionnels qui façonnent l'avenir de la culture en Afrique de l'Ouest
+                    {% else %}
+                        Be part of the community of professionals shaping the future of culture in West Africa
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{{ url_for('tickets') }}" class="btn btn-cta btn-lg">
+                    {% if current_lang == 'fr' %}Participer{% else %}Participate{% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

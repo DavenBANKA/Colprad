@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <div class="display-1 text-success">✓</div>
+                        <h2 class="mt-3">
+                            {% if current_lang == 'fr' %}Réservation confirmée !{% else %}Booking Confirmed!{% endif %}
+                        </h2>
+                    </div>
+
+                    <div class="alert alert-success">
+                        {% if current_lang == 'fr' %}
+                            Votre commande <strong>{{ order.order_number }}</strong> a été enregistrée avec succès.
+                        {% else %}
+                            Your order <strong>{{ order.order_number }}</strong> has been successfully registered.
+                        {% endif %}
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5>{% if current_lang == 'fr' %}Détails de la commande{% else %}Order Details{% endif %}</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-6 text-start">
+                                    <strong>{% if current_lang == 'fr' %}Numéro de commande{% else %}Order Number{% endif %}:</strong>
+                                </div>
+                                <div class="col-6 text-end">
+                                    {{ order.order_number }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6 text-start">
+                                    <strong>{% if current_lang == 'fr' %}Type de billet{% else %}Ticket Type{% endif %}:</strong>
+                                </div>
+                                <div class="col-6 text-end">
+                                    {{ order.ticket_type|upper }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6 text-start">
+                                    <strong>{% if current_lang == 'fr' %}Quantité{% else %}Quantity{% endif %}:</strong>
+                                </div>
+                                <div class="col-6 text-end">
+                                    {{ order.quantity }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6 text-start">
+                                    <strong>{% if current_lang == 'fr' %}Montant total{% else %}Total Amount{% endif %}:</strong>
+                                </div>
+                                <div class="col-6 text-end">
+                                    <strong class="text-primary">{{ "{:,.0f}".format(order.total_amount) }} FCFA</strong>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 text-start">
+                                    <strong>{% if current_lang == 'fr' %}Participant{% else %}Participant{% endif %}:</strong>
+                                </div>
+                                <div class="col-6 text-end">
+                                    {{ order.first_name }} {{ order.last_name }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5>{% if current_lang == 'fr' %}Votre QR Code{% else %}Your QR Code{% endif %}</h5>
+                        </div>
+                        <div class="card-body">
+                            <img src="{{ qr_code }}" alt="QR Code" class="img-fluid mb-3" style="max-width: 300px;">
+                            <p class="text-muted">
+                                {% if current_lang == 'fr' %}
+                                    Présentez ce QR code à l'accueil le jour de l'événement
+                                {% else %}
+                                    Present this QR code at the entrance on the event day
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <strong>📧</strong>
+                        {% if current_lang == 'fr' %}
+                            Un email de confirmation avec votre QR code a été envoyé à <strong>{{ order.email }}</strong>
+                        {% else %}
+                            A confirmation email with your QR code has been sent to <strong>{{ order.email }}</strong>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <a href="{{ url_for('download_badge', order_number=order.order_number) }}" class="btn btn-success btn-lg">
+                            <span class="hide-mobile">📥 </span>{% if current_lang == 'fr' %}Télécharger le badge PDF{% else %}Download Badge PDF{% endif %}
+                        </a>
+                        <button onclick="window.print()" class="btn btn-outline-primary no-print">
+                            <span class="hide-mobile">🖨️ </span>{% if current_lang == 'fr' %}Imprimer{% else %}Print{% endif %}
+                        </button>
+                        <a href="{{ url_for('index') }}" class="btn btn-primary">
+                            <span class="hide-mobile">🏠 </span>{% if current_lang == 'fr' %}Retour à l'accueil{% else %}Back to Home{% endif %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+@media print {
+    nav, footer, .btn { display: none !important; }
+}
+</style>
+{% endblock %}

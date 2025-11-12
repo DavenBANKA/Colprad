@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-professional" style="min-height: 50vh;">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative">
+        <div class="row align-items-center" style="min-height: 50vh;">
+            <div class="col-lg-10 mx-auto text-center text-white">
+                <h1 class="hero-title mb-4">
+                    {% if current_lang == 'fr' %}
+                        Nos Intervenants
+                    {% else %}
+                        Our Speakers
+                    {% endif %}
+                </h1>
+                <p class="hero-subtitle">
+                    {% if current_lang == 'fr' %}
+                        Des experts internationaux, des décideurs politiques et des leaders du secteur culturel
+                    {% else %}
+                        International experts, policy makers and cultural sector leaders
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Speakers Introduction -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto text-center">
+                <h2 class="section-title-main mb-4">
+                    {% if current_lang == 'fr' %}Une Expertise de Classe Mondiale{% else %}World-Class Expertise{% endif %}
+                </h2>
+                <p class="section-description">
+                    {% if current_lang == 'fr' %}
+                        COLPRAD 2025 réunit plus de 50 intervenants de renommée internationale : ministres de la Culture, 
+                        directeurs d'institutions culturelles, représentants d'organisations internationales (UNESCO, Union Africaine, CEDEAO), 
+                        artistes reconnus, gestionnaires culturels expérimentés, investisseurs et mécènes. 
+                        Chaque intervenant apporte son expertise unique pour enrichir les débats et partager les meilleures pratiques.
+                    {% else %}
+                        COLPRAD 2025 brings together over 50 internationally renowned speakers: Ministers of Culture, 
+                        directors of cultural institutions, representatives of international organizations (UNESCO, African Union, ECOWAS), 
+                        recognized artists, experienced cultural managers, investors and patrons. 
+                        Each speaker brings their unique expertise to enrich debates and share best practices.
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Speakers Grid -->
+<section class="py-5 bg-light">
+    <div class="container">
+        {% if speakers %}
+            <div class="row g-4">
+                {% for speaker in speakers %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="speaker-card">
+                        <div class="speaker-image">
+                            {% if speaker.photo_url %}
+                            <img src="{{ speaker.photo_url }}" alt="{{ speaker.first_name }} {{ speaker.last_name }}">
+                            {% else %}
+                            <div class="speaker-placeholder">
+                                <span class="speaker-initials">{{ speaker.first_name[0] }}{{ speaker.last_name[0] }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="speaker-content">
+                            <h4 class="speaker-name">{{ speaker.first_name }} {{ speaker.last_name }}</h4>
+                            <p class="speaker-role">{{ speaker.role }}</p>
+                            <p class="speaker-bio">
+                                {% if current_lang == 'fr' %}
+                                    {{ speaker.bio_fr or 'Biographie à venir' }}
+                                {% else %}
+                                    {{ speaker.bio_en or 'Biography coming soon' }}
+                                {% endif %}
+                            </p>
+                            {% if speaker.session_time %}
+                            <div class="speaker-session">
+                                <span class="badge bg-primary">{{ speaker.session_time }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="info-card-professional text-center">
+                        <h3 class="info-title">
+                            {% if current_lang == 'fr' %}
+                                Programme d'Intervenants en Cours de Finalisation
+                            {% else %}
+                                Speaker Program Being Finalized
+                            {% endif %}
+                        </h3>
+                        <p class="info-text">
+                            {% if current_lang == 'fr' %}
+                                Nous sommes en train de finaliser notre programme d'intervenants exceptionnels. 
+                                La liste complète avec les biographies détaillées sera publiée prochainement. 
+                                Inscrivez-vous à notre newsletter pour être informé en priorité.
+                            {% else %}
+                                We are finalizing our program of exceptional speakers. 
+                                The complete list with detailed biographies will be published soon. 
+                                Subscribe to our newsletter to be informed first.
+                            {% endif %}
+                        </p>
+                        <div class="mt-4">
+                            <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">
+                                {% if current_lang == 'fr' %}Rester Informé{% else %}Stay Informed{% endif %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Speaker Categories -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto text-center">
+                <h2 class="section-title-main mb-4">
+                    {% if current_lang == 'fr' %}Profils d'Intervenants{% else %}Speaker Profiles{% endif %}
+                </h2>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card text-center">
+                    <div class="stat-number" style="font-size: 2.5rem;">15+</div>
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}Décideurs Politiques{% else %}Policy Makers{% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Ministres, directeurs d'institutions, représentants d'organisations internationales
+                        {% else %}
+                            Ministers, institution directors, international organization representatives
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card text-center">
+                    <div class="stat-number" style="font-size: 2.5rem;">20+</div>
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}Experts Culturels{% else %}Cultural Experts{% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Gestionnaires culturels, consultants, chercheurs et académiciens
+                        {% else %}
+                            Cultural managers, consultants, researchers and academics
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card text-center">
+                    <div class="stat-number" style="font-size: 2.5rem;">10+</div>
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}Artistes Reconnus{% else %}Renowned Artists{% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Artistes de renommée internationale partageant leur expérience
+                        {% else %}
+                            Internationally renowned artists sharing their experience
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card text-center">
+                    <div class="stat-number" style="font-size: 2.5rem;">10+</div>
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}Investisseurs{% else %}Investors{% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Mécènes, fondations, fonds d'investissement et bailleurs de fonds
+                        {% else %}
+                            Patrons, foundations, investment funds and funders
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Become a Speaker -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="info-card-professional">
+                    <h3 class="info-title text-center">
+                        {% if current_lang == 'fr' %}
+                            Vous Souhaitez Intervenir à COLPRAD ?
+                        {% else %}
+                            Would You Like to Speak at COLPRAD?
+                        {% endif %}
+                    </h3>
+                    <p class="info-text text-center">
+                        {% if current_lang == 'fr' %}
+                            Nous sommes toujours à la recherche d'experts et de professionnels souhaitant partager leur expérience 
+                            et contribuer aux débats sur le développement culturel en Afrique de l'Ouest. 
+                            Si vous avez une expertise pertinente et souhaitez proposer une intervention, contactez-nous.
+                        {% else %}
+                            We are always looking for experts and professionals wishing to share their experience 
+                            and contribute to debates on cultural development in West Africa. 
+                            If you have relevant expertise and would like to propose a presentation, contact us.
+                        {% endif %}
+                    </p>
+                    <div class="text-center mt-4">
+                        <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">
+                            {% if current_lang == 'fr' %}Proposer une Intervention{% else %}Propose a Presentation{% endif %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="cta-title">
+                    {% if current_lang == 'fr' %}
+                        Rencontrez Ces Experts en Personne
+                    {% else %}
+                        Meet These Experts in Person
+                    {% endif %}
+                </h2>
+                <p class="cta-text">
+                    {% if current_lang == 'fr' %}
+                        Réservez votre place pour échanger avec les meilleurs experts du secteur culturel
+                    {% else %}
+                        Book your seat to exchange with the best experts in the cultural sector
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{{ url_for('tickets') }}" class="btn btn-cta btn-lg">
+                    {% if current_lang == 'fr' %}Réserver{% else %}Book Now{% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

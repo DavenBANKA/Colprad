@@ -1,0 +1,416 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section Professional -->
+<section class="hero-professional">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative">
+        <div class="row align-items-center" style="min-height: 70vh;">
+            <div class="col-lg-10 mx-auto text-center text-white">
+                <div class="hero-badge mb-4">
+                    <span class="badge-text">3ème Édition - 13 Décembre 2025</span>
+                </div>
+                <h1 class="hero-title mb-4">
+                    {% if current_lang == 'fr' %}
+                        Façonner l'Avenir de la Culture en Afrique de l'Ouest
+                    {% else %}
+                        Shaping the Future of Culture in West Africa
+                    {% endif %}
+                </h1>
+                <p class="hero-subtitle mb-5">
+                    {% if current_lang == 'fr' %}
+                        Le COLPRAD réunit les acteurs majeurs du secteur culturel et artistique pour une journée d'échanges stratégiques 
+                        sur les politiques culturelles, le financement des arts et le développement durable du secteur créatif. 
+                        Une plateforme d'excellence où se rencontrent artistes, gestionnaires culturels, décideurs politiques et investisseurs 
+                        pour construire ensemble l'écosystème culturel de demain.
+                    {% else %}
+                        COLPRAD brings together major players in the cultural and artistic sector for a day of strategic exchanges 
+                        on cultural policies, arts financing and sustainable development of the creative sector. 
+                        A platform of excellence where artists, cultural managers, policy makers and investors meet 
+                        to build together the cultural ecosystem of tomorrow.
+                    {% endif %}
+                </p>
+                <div class="hero-meta mb-5">
+                    <div class="row justify-content-center g-4">
+                        <div class="col-md-3 col-6">
+                            <div class="meta-card">
+                                <div class="meta-value">13 Déc 2025</div>
+                                <div class="meta-label">{% if current_lang == 'fr' %}Date{% else %}Date{% endif %}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="meta-card">
+                                <div class="meta-value">14H - 17H</div>
+                                <div class="meta-label">{% if current_lang == 'fr' %}Horaires{% else %}Time{% endif %}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="meta-card">
+                                <div class="meta-value">{% if current_lang == 'fr' %}Hôtel Elie Palace{% else %}Elie Palace Hotel{% endif %}</div>
+                                <div class="meta-label">Adidogomé - Lomé</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="meta-card">
+                                <div class="meta-value">300+</div>
+                                <div class="meta-label">{% if current_lang == 'fr' %}Participants{% else %}Participants{% endif %}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="{{ url_for('tickets') }}" class="btn btn-hero btn-lg me-3 mb-3">
+                        {% if current_lang == 'fr' %}Réserver ma place{% else %}Book My Seat{% endif %}
+                    </a>
+                    <a href="{{ url_for('program') }}" class="btn btn-hero-outline btn-lg mb-3">
+                        {% if current_lang == 'fr' %}Découvrir le programme{% else %}Discover Program{% endif %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission & Vision Section -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto text-center">
+                <h2 class="section-title-main mb-4">
+                    {% if current_lang == 'fr' %}
+                        Une Plateforme Stratégique pour le Développement Culturel
+                    {% else %}
+                        A Strategic Platform for Cultural Development
+                    {% endif %}
+                </h2>
+                <p class="section-description">
+                    {% if current_lang == 'fr' %}
+                        Le COLPRAD s'impose comme le rendez-vous incontournable des professionnels de la culture en Afrique de l'Ouest. 
+                        Depuis sa création, le colloque a facilité plus de 500 partenariats stratégiques et contribué au financement 
+                        de dizaines de projets culturels d'envergure régionale et internationale.
+                    {% else %}
+                        COLPRAD has established itself as the essential meeting place for culture professionals in West Africa. 
+                        Since its creation, the conference has facilitated over 500 strategic partnerships and contributed to the financing 
+                        of dozens of regional and international cultural projects.
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="info-card-professional">
+                    <div class="info-number">01</div>
+                    <h3 class="info-title">
+                        {% if current_lang == 'fr' %}Politiques Culturelles & Gouvernance{% else %}Cultural Policies & Governance{% endif %}
+                    </h3>
+                    <p class="info-text">
+                        {% if current_lang == 'fr' %}
+                            Analyse approfondie des cadres réglementaires et politiques culturelles en Afrique de l'Ouest. 
+                            Participation d'experts internationaux, ministres de la Culture, directeurs d'institutions culturelles 
+                            et représentants d'organisations internationales (UNESCO, Union Africaine, CEDEAO). 
+                            Études de cas sur les réformes réussies et les meilleures pratiques en matière de gouvernance culturelle.
+                        {% else %}
+                            In-depth analysis of regulatory frameworks and cultural policies in West Africa. 
+                            Participation of international experts, Ministers of Culture, directors of cultural institutions 
+                            and representatives of international organizations (UNESCO, African Union, ECOWAS). 
+                            Case studies on successful reforms and best practices in cultural governance.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="info-card-professional">
+                    <div class="info-number">02</div>
+                    <h3 class="info-title">
+                        {% if current_lang == 'fr' %}Financement, Mécénat & Investissement{% else %}Funding, Patronage & Investment{% endif %}
+                    </h3>
+                    <p class="info-text">
+                        {% if current_lang == 'fr' %}
+                            Exploration des mécanismes de financement innovants pour les projets culturels : subventions publiques, 
+                            mécénat d'entreprise, crowdfunding, investissement d'impact. Présentation des fonds de développement culturel, 
+                            des programmes de soutien internationaux et des opportunités de partenariat public-privé. 
+                            Sessions de pitch pour les porteurs de projets et rencontres B2B avec des investisseurs potentiels.
+                        {% else %}
+                            Exploration of innovative financing mechanisms for cultural projects: public grants, 
+                            corporate patronage, crowdfunding, impact investment. Presentation of cultural development funds, 
+                            international support programs and public-private partnership opportunities. 
+                            Pitch sessions for project leaders and B2B meetings with potential investors.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="info-card-professional">
+                    <div class="info-number">03</div>
+                    <h3 class="info-title">
+                        {% if current_lang == 'fr' %}Networking & Partenariats Stratégiques{% else %}Networking & Strategic Partnerships{% endif %}
+                    </h3>
+                    <p class="info-text">
+                        {% if current_lang == 'fr' %}
+                            Création d'un écosystème collaboratif réunissant artistes, producteurs, gestionnaires culturels, 
+                            galeristes, directeurs de festivals et décideurs politiques. Sessions de networking structurées, 
+                            ateliers collaboratifs et espaces d'échange dédiés. Plateforme digitale de mise en relation 
+                            pour faciliter les partenariats post-événement et le suivi des collaborations initiées.
+                        {% else %}
+                            Creation of a collaborative ecosystem bringing together artists, producers, cultural managers, 
+                            gallery owners, festival directors and policy makers. Structured networking sessions, 
+                            collaborative workshops and dedicated exchange spaces. Digital networking platform 
+                            to facilitate post-event partnerships and follow-up on initiated collaborations.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center g-4">
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label">
+                        {% if current_lang == 'fr' %}Participants{% else %}Participants{% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">
+                        {% if current_lang == 'fr' %}Intervenants{% else %}Speakers{% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">
+                        {% if current_lang == 'fr' %}Pays Représentés{% else %}Countries{% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">
+                        {% if current_lang == 'fr' %}Sessions{% else %}Sessions{% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Program Highlights -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title">
+                {% if current_lang == 'fr' %}Programme de la Journée{% else %}Day Program{% endif %}
+            </h2>
+            <p class="section-subtitle">
+                {% if current_lang == 'fr' %}
+                    Une journée intensive de conférences, ateliers et networking - 13 Décembre 2025, 14H-17H
+                {% else %}
+                    An intensive day of conferences, workshops and networking - December 13, 2025, 2PM-5PM
+                {% endif %}
+            </p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-12">
+                <div class="program-card">
+                    <div class="program-day">
+                        {% if current_lang == 'fr' %}13 Décembre 2025 | 14H - 17H{% else %}December 13, 2025 | 2PM - 5PM{% endif %}
+                    </div>
+                    <h3 class="program-title">
+                        {% if current_lang == 'fr' %}
+                            Politiques Culturelles, Financement et Développement du Secteur Créatif
+                        {% else %}
+                            Cultural Policies, Funding and Creative Sector Development
+                        {% endif %}
+                    </h3>
+                    <ul class="program-list">
+                        <li>
+                            <strong>14H00 - 14H30</strong> : 
+                            {% if current_lang == 'fr' %}
+                                Accueil et enregistrement des participants
+                            {% else %}
+                                Welcome and participant registration
+                            {% endif %}
+                        </li>
+                        <li>
+                            <strong>14H30 - 15H00</strong> : 
+                            {% if current_lang == 'fr' %}
+                                Cérémonie d'ouverture avec discours officiels
+                            {% else %}
+                                Opening ceremony with official speeches
+                            {% endif %}
+                        </li>
+                        <li>
+                            <strong>15H00 - 15H45</strong> : 
+                            {% if current_lang == 'fr' %}
+                                Panel principal : Politiques culturelles et financement en Afrique de l'Ouest
+                            {% else %}
+                                Main panel: Cultural policies and funding in West Africa
+                            {% endif %}
+                        </li>
+                        <li>
+                            <strong>15H45 - 16H30</strong> : 
+                            {% if current_lang == 'fr' %}
+                                Ateliers thématiques et sessions de networking
+                            {% else %}
+                                Thematic workshops and networking sessions
+                            {% endif %}
+                        </li>
+                        <li>
+                            <strong>16H30 - 17H00</strong> : 
+                            {% if current_lang == 'fr' %}
+                                Clôture et cocktail de networking
+                            {% else %}
+                                Closing and networking cocktail
+                            {% endif %}
+                        </li>
+                    </ul>
+                    <div class="mt-3">
+                        <span class="badge bg-primary me-2">{% if current_lang == 'fr' %}Hôtel Elie Palace{% else %}Elie Palace Hotel{% endif %}</span>
+                        <span class="badge bg-secondary">Adidogomé - Lomé</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <a href="{{ url_for('program') }}" class="btn btn-primary btn-lg">
+                {% if current_lang == 'fr' %}Consulter le programme complet{% else %}View Full Program{% endif %}
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Why Attend Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title">
+                {% if current_lang == 'fr' %}Pourquoi Participer ?{% else %}Why Attend?{% endif %}
+            </h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="why-card">
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}
+                            Expertise Internationale
+                        {% else %}
+                            International Expertise
+                        {% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Bénéficiez de l'expérience de plus de 50 experts internationaux en politiques culturelles, 
+                            financement de projets et développement du secteur créatif.
+                        {% else %}
+                            Benefit from the experience of over 50 international experts in cultural policies, 
+                            project financing and creative sector development.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="why-card">
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}
+                            Opportunités de Financement
+                        {% else %}
+                            Funding Opportunities
+                        {% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Découvrez les mécanismes de financement disponibles, rencontrez des bailleurs de fonds 
+                            et apprenez à monter des dossiers de financement efficaces.
+                        {% else %}
+                            Discover available funding mechanisms, meet funders 
+                            and learn how to build effective funding proposals.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="why-card">
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}
+                            Networking Stratégique
+                        {% else %}
+                            Strategic Networking
+                        {% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Créez des contacts durables avec des professionnels du secteur culturel, 
+                            des décideurs politiques et des acteurs économiques.
+                        {% else %}
+                            Create lasting partnerships with cultural sector professionals, 
+                            policy makers and economic actors.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="why-card">
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}
+                            Développement Professionnel
+                        {% else %}
+                            Professional Development
+                        {% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Participez à des ateliers pratiques, obtenez un certificat de participation 
+                            et renforcez vos compétences en gestion culturelle.
+                        {% else %}
+                            Participate in practical workshops, obtain a certificate of participation 
+                            and strengthen your cultural management skills.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="cta-title">
+                    {% if current_lang == 'fr' %}
+                        Prêt à Rejoindre COLPRAD 2025 ?
+                    {% else %}
+                        Ready to Join COLPRAD 2025?
+                    {% endif %}
+                </h2>
+                <p class="cta-text">
+                    {% if current_lang == 'fr' %}
+                        Réservez votre place dès maintenant et participez à l'événement de référence 
+                        pour les professionnels de l'art et de la culture en Afrique de l'Ouest.
+                    {% else %}
+                        Book your seat now and participate in the reference event 
+                        for art and culture professionals in West Africa.
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{{ url_for('tickets') }}" class="btn btn-cta btn-lg">
+                    {% if current_lang == 'fr' %}Réserver Maintenant{% else %}Book Now{% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

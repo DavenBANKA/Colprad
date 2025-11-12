@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-5">
+        {% if current_lang == 'fr' %}Espace Presse & Partenaires{% else %}Press & Partners Area{% endif %}
+    </h1>
+
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h4>📰 {% if current_lang == 'fr' %}Espace Presse{% else %}Press Area{% endif %}</h4>
+                </div>
+                <div class="card-body">
+                    <p>
+                        {% if current_lang == 'fr' %}
+                            Pour toute demande d'accréditation presse ou d'interview, veuillez nous contacter.
+                        {% else %}
+                            For press accreditation or interview requests, please contact us.
+                        {% endif %}
+                    </p>
+                    <p><strong>Email:</strong> <a href="mailto:colpradofficiel@gmail.com" style="color: var(--secondary-1); text-decoration: none;">colpradofficiel@gmail.com</a></p>
+                    <p><strong>{% if current_lang == 'fr' %}Téléphone{% else %}Phone{% endif %}:</strong> <a href="tel:+22892384092" style="color: var(--secondary-1); text-decoration: none;">+228 92 38 40 92</a></p>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <a href="{{ url_for('contact') }}" class="btn btn-primary">
+                            {% if current_lang == 'fr' %}Demande d'accréditation{% else %}Accreditation Request{% endif %}
+                        </a>
+                        <a href="mailto:colpradofficiel@gmail.com?subject=Accréditation Presse COLPRAD 2025" class="btn btn-outline-primary">
+                            {% if current_lang == 'fr' %}Envoyer un Email{% else %}Send Email{% endif %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h4>🤝 {% if current_lang == 'fr' %}Nos Partenaires{% else %}Our Partners{% endif %}</h4>
+                </div>
+                <div class="card-body">
+                    <p>
+                        {% if current_lang == 'fr' %}
+                            COLPRAD 2025 est rendu possible grâce au soutien de nos partenaires.
+                        {% else %}
+                            COLPRAD 2025 is made possible thanks to the support of our partners.
+                        {% endif %}
+                    </p>
+                    <div class="row text-center mt-4">
+                        <div class="col-md-4 mb-3">
+                            <div class="border p-4">
+                                <p class="text-muted">{% if current_lang == 'fr' %}Partenaire{% else %}Partner{% endif %} 1</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="border p-4">
+                                <p class="text-muted">{% if current_lang == 'fr' %}Partenaire{% else %}Partner{% endif %} 2</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="border p-4">
+                                <p class="text-muted">{% if current_lang == 'fr' %}Partenaire{% else %}Partner{% endif %} 3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header bg-warning">
+                    <h4>💼 {% if current_lang == 'fr' %}Devenir Partenaire{% else %}Become a Partner{% endif %}</h4>
+                </div>
+                <div class="card-body">
+                    <p>
+                        {% if current_lang == 'fr' %}
+                            Intéressé par un partenariat avec COLPRAD ? Contactez-nous pour découvrir nos offres.
+                        {% else %}
+                            Interested in partnering with COLPRAD? Contact us to discover our offers.
+                        {% endif %}
+                    </p>
+                    <a href="{{ url_for('contact') }}" class="btn btn-warning">
+                        {% if current_lang == 'fr' %}Nous contacter{% else %}Contact Us{% endif %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

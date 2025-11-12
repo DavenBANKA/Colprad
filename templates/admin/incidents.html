@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid my-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>📋 Gestion des Incidents</h1>
+        <div>
+            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#createIncidentModal">
+                ➕ Signaler un Incident
+            </button>
+            <a href="{{ url_for('admin_alerts') }}" class="btn btn-warning">
+                🚨 Alertes
+            </a>
+            <a href="{{ url_for('emergency_contacts') }}" class="btn btn-info">
+                📞 Contacts Urgence
+            </a>
+            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">
+                ← Dashboard
+            </a>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3 class="text-danger">{{ incidents|selectattr('status', 'equalto', 'open')|list|length }}</h3>
+                    <p class="mb-0">Incidents Ouverts</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3 class="text-warning">{{ incidents|selectattr('status', 'equalto', 'in_progress')|list|length }}</h3>
+                    <p class="mb-0">En Cours</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3 class="text-success">{{ incidents|selectattr('status', 'equalto', 'resolved')|list|length }}</h3>
+                    <p class="mb-0">Résolus</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3 class="text-secondary">{{ incidents|selectattr('status', 'equalto', 'closed')|list|length }}</h3>
+                    <p class="mb-0">Fermés</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h5>Historique des Incidents</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Sévérité</th>
+                            <th>Type</th>
+                            <th>Titre</th>
+                            <th>Lieu</th>
+                            <th>Statut</th>
+                            <th>Signalé le</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for incident in incidents %}
+                        <tr>
+                            <td><strong>#{{ incident.id }}</strong></td>
+                            <td>
+                                {% if incident.severity == 'critical' %}
+                                    <span class="badge bg-danger">🔴 CRITIQUE</span>
+                                {% elif incident.severity == 'high' %}
+                                    <span class="badge bg-warning">🟠 HAUTE</span>
+                                {% elif incident.severity == 'medium' %}
+                                    <span class="badge bg-info">🟡 MOYENNE</span>
+                                {% else %}
+                                    <span class="badge bg-secondary">🟢 BASSE</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <span class="badge bg-secondary">
+                                    {% if incident.incident_type == 'technical' %}⚙️ Technique
+                                    {% elif incident.incident_type == 'medical' %}🏥 Médical
+                                    {% elif incident.incident_type == 'security' %}🔒 Sécurité
+                                    {% elif incident.incident_type == 'queue' %}👥 File d'attente
+                                    {% else %}{{ incident.incident_type }}
+                                    {% endif %}
+                                </span>
+                            </td>
+                            <td><strong>{{ incident.title }}</strong></td>
+                            <td>{{ incident.location or '-' }}</td>
+                            <td>
+                                {% if incident.status == 'open' %}
+                                    <span class="badge bg-danger">Ouvert</span>
+                                {% elif incident.status == 'in_progress' %}
+                                    <span class="badge bg-warning">En cours</span>
+                                {% elif incident.status == 'resolved' %}
+                                    <span class="badge bg-success">Résolu</span>
+                                {% else %}
+                                    <span class="badge bg-secondary">Fermé</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ incident.created_at.strftime('%d/%m %H:%M') }}</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" 
+                                        data-bs-target="#incidentModal{{ incident.id }}">
+                                    👁️ Détails
+                                </button>
+                            </td>
+                        </tr>
+                        
+                        <!-- Incident Detail Modal -->
+                        <div class="modal fade" id="incidentModal{{ incident.id }}" tabindex="-1">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Incident #{{ incident.id }} - {{ incident.title }}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <form method="POST" action="{{ url_for('update_incident', incident_id=incident.id) }}">
+                                        <div class="modal-body">
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <strong>Type:</strong> {{ incident.incident_type }}<br>
+                                                    <strong>Sévérité:</strong> {{ incident.severity }}<br>
+                                                    <strong>Lieu:</strong> {{ incident.location or 'Non spécifié' }}
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <strong>Signalé par:</strong> {{ incident.reported_by }}<br>
+                                                    <strong>Signalé le:</strong> {{ incident.created_at.strftime('%d/%m/%Y %H:%M') }}<br>
+                                                    {% if incident.resolved_at %}
+                                                        <strong>Résolu le:</strong> {{ incident.resolved_at.strftime('%d/%m/%Y %H:%M') }}
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <strong>Description:</strong>
+                                                <p>{{ incident.description }}</p>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label class="form-label"><strong>Statut</strong></label>
+                                                <select class="form-select" name="status">
+                                                    <option value="open" {% if incident.status == 'open' %}selected{% endif %}>Ouvert</option>
+                                                    <option value="in_progress" {% if incident.status == 'in_progress' %}selected{% endif %}>En cours</option>
+                                                    <option value="resolved" {% if incident.status == 'resolved' %}selected{% endif %}>Résolu</option>
+                                                    <option value="closed" {% if incident.status == 'closed' %}selected{% endif %}>Fermé</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label class="form-label"><strong>Actions prises</strong></label>
+                                                <textarea class="form-control" name="actions_taken" rows="3">{{ incident.actions_taken or '' }}</textarea>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label class="form-label"><strong>Évaluation de l'impact</strong></label>
+                                                <textarea class="form-control" name="impact_assessment" rows="2">{{ incident.impact_assessment or '' }}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                            <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Create Incident Modal -->
+<div class="modal fade" id="createIncidentModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Signaler un Nouvel Incident</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="POST" action="{{ url_for('create_incident') }}">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Type d'incident *</label>
+                            <select class="form-select" name="incident_type" required>
+                                <option value="technical">⚙️ Technique (son, vidéo, électricité)</option>
+                                <option value="medical">🏥 Médical</option>
+                                <option value="security">🔒 Sécurité / Évacuation</option>
+                                <option value="queue">👥 File d'attente / Surcharge</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Sévérité *</label>
+                            <select class="form-select" name="severity" required>
+                                <option value="low">🟢 Basse</option>
+                                <option value="medium">🟡 Moyenne</option>
+                                <option value="high">🟠 Haute</option>
+                                <option value="critical">🔴 Critique</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Titre *</label>
+                        <input type="text" class="form-control" name="title" required 
+                               placeholder="Ex: Panne de micro principal">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Description *</label>
+                        <textarea class="form-control" name="description" rows="4" required
+                                  placeholder="Décrivez l'incident en détail..."></textarea>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Lieu</label>
+                            <input type="text" class="form-control" name="location" 
+                                   placeholder="Ex: Salle principale, Accueil">
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Signalé par</label>
+                            <input type="text" class="form-control" name="reported_by" 
+                                   placeholder="Votre nom">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-danger">Signaler l'Incident</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
