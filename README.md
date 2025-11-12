@@ -1,63 +1,137 @@
-# COLPRAD 2025 - Site de Billetterie
+# 🎭 COLPRAD 2025 - Plateforme de Billetterie Professionnelle
 
-Site de billetterie en ligne pour le Colloque des Professionnels de l'Art pour le Développement (COLPRAD).
+[![Python](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-3.1-green.svg)](https://flask.palletsprojects.com/)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-purple.svg)](https://getbootstrap.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Fonctionnalités
+Système de billetterie en ligne professionnel pour le **Colloque des Professionnels de l'Art pour le Développement (COLPRAD) 2025** - 13 Décembre 2025 à Lomé, Togo.
 
-- ✅ Site vitrine bilingue (FR/EN)
-- ✅ Système de billetterie (Standard, Premium, VIP, Gratuit)
-- ✅ Paiement en ligne (MoovMoney, Mixx By Yas, CB)
-- ✅ Génération automatique de QR codes
-- ✅ Génération de badges PDF professionnels (90×135mm)
-- ✅ Envoi d'emails de confirmation
-- ✅ Dashboard administrateur
-- ✅ Export CSV des commandes et participants
-- ✅ Système de codes promo
+![COLPRAD 2025](https://img.shields.io/badge/Event-13%20D%C3%A9cembre%202025-orange)
+![Location](https://img.shields.io/badge/Location-Lom%C3%A9%2C%20Togo-green)
+
+---
+
+## ✨ Caractéristiques
+
+### 🎨 Design Professionnel
+- ✅ Interface élégante et moderne
+- ✅ Typographie professionnelle (Playfair Display + Inter)
+- ✅ Palette de couleurs cohérente (Charte COLPRAD)
+- ✅ Responsive parfait (mobile, tablet, desktop)
+- ✅ Pas d'icônes superflues, focus sur le contenu
+- ✅ Effets visuels sophistiqués (gradients, glassmorphism)
+
+### 🎫 Système de Billetterie
+- ✅ 3 types de billets (Standard 5K, Premium 15K, VIP 50K FCFA)
+- ✅ Gestion des quotas en temps réel
+- ✅ Codes promo avec réductions (pourcentage ou montant fixe)
+- ✅ Génération automatique de QR codes uniques
+- ✅ Badges PDF personnalisés (90×135mm)
+- ✅ Numéros de commande uniques
+
+### 💳 Paiement Sécurisé
+- ✅ Intégration PayGate complète
+- ✅ MoovMoney, Mixx By Yas, Carte bancaire
+- ✅ Webhooks pour confirmation automatique
+- ✅ Emails de confirmation instantanés (< 60 secondes)
+- ✅ Gestion des statuts (pending, completed, failed, cancelled)
+
+### 🌐 Multilingue
+- ✅ Français / Anglais
+- ✅ Changement de langue dynamique
+- ✅ Contenu traduit sur toutes les pages
+
+### 📊 Administration
+- ✅ Tableau de bord complet avec statistiques
+- ✅ Gestion des participants
+- ✅ Export CSV des commandes
+- ✅ Système d'alertes en temps réel
+- ✅ Gestion des incidents
 - ✅ Check-in via QR code
-- ✅ Design responsive mobile-first
-- ✅ Charte graphique COLPRAD respectée
-- ✅ Liste complète des participants avec recherche
+- ✅ Génération de badges en masse
 
-## Installation
+### 📧 Communication
+- ✅ Formulaire de contact
+- ✅ Newsletter
+- ✅ Espace presse
+- ✅ Emails automatiques avec QR code
+
+---
+
+## 📅 Informations de l'Événement
+
+| Information | Détail |
+|-------------|--------|
+| **Date** | 13 Décembre 2025 |
+| **Horaires** | 14H00 - 17H00 |
+| **Lieu** | Hôtel Elie Palace, Adidogomé |
+| **Ville** | Lomé, Togo |
+| **Participants** | 300+ attendus |
+| **Intervenants** | 50+ experts |
+| **Pays** | 15+ représentés |
+
+---
+
+## 🚀 Installation
 
 ### Prérequis
 - Python 3.8+
 - pip
+- Git
 
-### Étapes
+### Étapes d'Installation
 
-1. Cloner le projet
+#### 1. Cloner le Projet
 ```bash
-git clone <repository-url>
-cd colprad
+git clone https://github.com/DavenBANKA/Colprad.git
+cd Colprad
 ```
 
-2. Créer un environnement virtuel
+#### 2. Créer un Environnement Virtuel
 ```bash
-python -m venv venv
+python -m venv .venv
 ```
 
-3. Activer l'environnement virtuel
+#### 3. Activer l'Environnement
 ```bash
 # Windows
-venv\Scripts\activate
+.venv\Scripts\activate
 
 # Linux/Mac
-source venv/bin/activate
+source .venv/bin/activate
 ```
 
-4. Installer les dépendances
+#### 4. Installer les Dépendances
 ```bash
 pip install -r requirements.txt
 ```
 
-5. Configurer les variables d'environnement
+#### 5. Configurer les Variables d'Environnement
 ```bash
-copy .env.example .env
-```
-Puis éditer `.env` avec vos configurations.
+# Copier le fichier exemple
+cp .env.example .env
 
-6. Initialiser la base de données
+# Éditer .env avec vos configurations
+```
+
+Variables importantes :
+```env
+SECRET_KEY=votre-cle-secrete
+DATABASE_URL=sqlite:///colprad.db
+
+# Email
+MAIL_SERVER=smtp.gmail.com
+MAIL_USERNAME=votre-email@gmail.com
+MAIL_PASSWORD=votre-mot-de-passe
+
+# PayGate
+PAYGATE_API_KEY=votre-cle-api
+PAYGATE_MERCHANT_ID=votre-merchant-id
+PAYGATE_WEBHOOK_SECRET=votre-webhook-secret
+```
+
+#### 6. Initialiser la Base de Données
 ```bash
 python
 >>> from app import app, db
@@ -66,186 +140,266 @@ python
 >>> exit()
 ```
 
-7. Lancer l'application
+#### 7. Lancer l'Application
 ```bash
 python app.py
 ```
 
-Le site sera accessible sur `http://localhost:5000`
+Le site sera accessible sur : **http://localhost:5000**
 
-## Structure du Projet
+---
 
-```
-colprad/
-├── app.py                 # Application Flask principale
-├── config.py              # Configuration
-├── models.py              # Modèles de base de données
-├── requirements.txt       # Dépendances Python
-├── .env.example          # Exemple de configuration
-├── templates/            # Templates HTML
-│   ├── base.html
-│   ├── index.html
-│   ├── tickets.html
-│   ├── checkout.html
-│   ├── confirmation.html
-│   ├── about.html
-│   ├── program.html
-│   ├── speakers.html
-│   ├── practical_info.html
-│   ├── contact.html
-│   ├── press.html
-│   └── admin/
-│       └── dashboard.html
-└── static/               # Fichiers statiques
-    ├── css/
-    │   └── style.css
-    └── js/
-        └── main.js
-```
-
-## Configuration des Paiements
-
-### PayGate
-1. Créer un compte sur PayGate
-2. Obtenir vos clés API
-3. Configurer dans `.env`:
-```
-PAYGATE_API_KEY=votre-cle-api
-PAYGATE_MERCHANT_ID=votre-merchant-id
-PAYGATE_WEBHOOK_SECRET=votre-webhook-secret
-```
-
-## Configuration Email
-
-Pour l'envoi des emails de confirmation:
+## 📁 Structure du Projet
 
 ```
-MAIL_SERVER=smtp.gmail.com
-MAIL_PORT=587
-MAIL_USE_TLS=True
-MAIL_USERNAME=votre-email@example.com
-MAIL_PASSWORD=votre-mot-de-passe
+Colprad/
+├── app.py                      # Application Flask principale
+├── models.py                   # Modèles de base de données
+├── config.py                   # Configuration
+├── badge_generator.py          # Génération de badges PDF
+├── requirements.txt            # Dépendances Python
+├── .env.example               # Exemple de configuration
+├── .gitignore                 # Fichiers à ignorer
+│
+├── templates/                 # Templates HTML
+│   ├── base.html             # Template de base
+│   ├── index.html            # Page d'accueil
+│   ├── tickets.html          # Billetterie
+│   ├── checkout.html         # Paiement
+│   ├── confirmation.html     # Confirmation
+│   ├── payment_redirect.html # Redirection PayGate
+│   ├── about.html            # À propos
+│   ├── program.html          # Programme
+│   ├── speakers.html         # Intervenants
+│   ├── contact.html          # Contact
+│   ├── press.html            # Presse
+│   └── admin/                # Administration
+│       ├── dashboard.html
+│       ├── participants.html
+│       ├── alerts.html
+│       └── incidents.html
+│
+├── static/                    # Fichiers statiques
+│   ├── css/
+│   │   ├── style.css         # Styles principaux
+│   │   └── responsive.css    # Styles responsive
+│   └── js/
+│       ├── main.js           # JavaScript principal
+│       └── admin.js          # JavaScript admin
+│
+└── Documentation/             # Documentation complète
+    ├── README_DESIGN.md
+    ├── INTEGRATION_PAYGATE.md
+    ├── DEPLOYMENT_GUIDE.md
+    └── ...
 ```
 
-## Types de Billets
+---
 
-| Type | Prix | Quota | Avantages |
-|------|------|-------|-----------|
-| Standard | 5,000 FCFA | 200 | Accès sessions, documentation |
-| Premium | 15,000 FCFA | 100 | Standard + places réservées + pause café |
-| VIP | 30,000 FCFA | 50 | Premium + VIP lounge + déjeuner + networking privé |
-| Gratuit | 0 FCFA | 50 | Sur invitation uniquement |
+## 💳 Configuration PayGate
 
-## Routes Principales
+### 1. Créer un Compte PayGate
+Visitez https://www.paygate.tg et créez un compte marchand
 
-### Public
-- `/` - Page d'accueil
-- `/tickets` - Billetterie
-- `/order` - Commander un billet
-- `/checkout` - Finaliser la commande
-- `/confirmation/<order_number>` - Confirmation de commande
-- `/badge/<order_number>` - Télécharger badge PDF
-- `/about` - À propos
-- `/program` - Programme
-- `/speakers` - Intervenants
-- `/practical-info` - Infos pratiques
-- `/contact` - Contact
-- `/press` - Espace presse
+### 2. Obtenir les Clés API
+Dans le tableau de bord PayGate :
+- API Key (auth_token)
+- Merchant ID (shop_id)
+- Webhook Secret
 
-### Administration
-- `/admin/dashboard` - Dashboard admin
-- `/admin/participants` - Liste des participants
-- `/admin/orders/export` - Export CSV commandes
-- `/admin/participants/export` - Export CSV participants
-- `/admin/badges/all` - Télécharger tous les badges PDF
+### 3. Configurer les URLs de Callback
+- **Success URL** : `https://votre-domaine.com/payment/success/{order_number}`
+- **Cancel URL** : `https://votre-domaine.com/payment/cancel/{order_number}`
+- **Callback URL** : `https://votre-domaine.com/payment/callback`
 
-## API Endpoints
+### 4. Tester
+Utilisez les cartes de test PayGate pour vérifier l'intégration
 
-- `POST /api/validate-promo` - Valider un code promo
-- `POST /api/newsletter/subscribe` - Inscription newsletter
-- `POST /admin/checkin/<order_number>` - Check-in participant
+---
 
-## Déploiement
+## 📊 Utilisation
 
-### Production avec Gunicorn
+### Pour les Visiteurs
 
-```bash
-gunicorn -w 4 -b 0.0.0.0:8000 app:app
-```
+1. **Consulter le Programme**
+   - Accéder à `/program`
+   - Voir les sessions et horaires
 
-### Variables d'environnement en production
+2. **Réserver un Billet**
+   - Accéder à `/tickets`
+   - Choisir le type de billet
+   - Remplir le formulaire
+   - Payer via PayGate
+   - Recevoir l'email avec QR code
 
-```bash
-FLASK_ENV=production
-SECRET_KEY=votre-secret-key-securisee
-DATABASE_URL=postgresql://user:password@localhost/colprad
-```
+3. **Contacter l'Organisation**
+   - Accéder à `/contact`
+   - Remplir le formulaire
+   - Recevoir une réponse sous 24h
 
-## Sécurité
+### Pour les Administrateurs
 
-- HTTPS obligatoire en production
-- Validation des entrées utilisateur
-- Protection CSRF avec Flask-WTF
-- Hashage sécurisé des données sensibles
-- Rate limiting recommandé
+1. **Accéder au Dashboard**
+   - URL : `/admin/dashboard`
+   - Voir les statistiques en temps réel
 
-## Charte Graphique
+2. **Gérer les Participants**
+   - URL : `/admin/participants`
+   - Rechercher, filtrer, exporter
 
-Le site respecte la charte graphique COLPRAD avec:
-- **Palette de couleurs** : Ivoire (#F9F6EF), Turquoise (#0E5E96), Ocre (#D8431A), Bleu nuit (#052B47)
-- **Typographie** : Playfair Display (titres) + Inter (corps de texte)
-- **Design** : Mobile-first, accessible WCAG AA, contraste optimisé
-- **Badges** : Format professionnel 90×135mm avec fond perdu 3mm
+3. **Check-in**
+   - Scanner le QR code
+   - Valider l'entrée
 
-Voir `CHARTE_GRAPHIQUE.md` pour plus de détails.
+4. **Générer des Badges**
+   - Sélectionner les participants
+   - Télécharger le PDF
 
-## Badges PDF
+---
 
-Les badges générés incluent:
-- **Recto** : Logo, catégorie colorée, nom, organisation, QR code
-- **Verso** : Programme, contacts d'urgence, conditions d'accès
-- **Couleurs** : VIP (doré), Premium (gris), Standard (blanc), Staff (bleu), Hôtesses (orange), Presse (bordeaux)
-- **Format** : 90×135mm portrait + 3mm fond perdu
+## 🎨 Charte Graphique
 
-## Support
+### Couleurs Principales
+- **Ivoire** : `#F9F6EF` - Fond principal
+- **Bleu Nuit** : `#052B47` - Accent, en-têtes
+- **Turquoise** : `#0E5E96` - Primaire, liens
+- **Orange** : `#D8431A` - CTA, accents
+- **Vert** : `#4E923D` - Success, validation
 
-Pour toute question ou problème:
-- Email: contact@colprad.tg
-- Téléphone: +228 XX XX XX XX
+### Typographie
+- **Titres** : Playfair Display (serif élégant)
+- **Corps** : Inter (sans-serif moderne)
 
-## Équipe
+---
 
-- **Responsable COLPRAD** : M. Blaise
-- **Développeur** : Daven BANKA
+## 📧 Contact
 
-## 📚 Documentation Complète
+### Événement
+- **Email** : colpradofficiel@gmail.com
+- **Téléphone** : +228 92 38 40 92
 
-- **Installation** : Ce fichier (README.md)
-- **Structure** : [STRUCTURE_PROJET.md](STRUCTURE_PROJET.md)
-- **Déploiement** : [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
-- **Responsive** : [RESPONSIVE_GUIDE.md](RESPONSIVE_GUIDE.md)
-- **Charte Graphique** : [CHARTE_GRAPHIQUE.md](CHARTE_GRAPHIQUE.md)
-- **Plan de Crise** : [PLAN_COMMUNICATION_CRISE.md](PLAN_COMMUNICATION_CRISE.md)
-- **Checklist Finale** : [FINAL_CHECKLIST.md](FINAL_CHECKLIST.md)
+### Développeur
+- **Email** : blaisederge@outlook.com
+- **Téléphone** : +228 92 53 05 12
+- **GitHub** : [@DavenBANKA](https://github.com/DavenBANKA)
 
-## 🎯 Statut du Projet
+---
 
-**Version** : 1.0.0  
-**Statut** : ✅ Production Ready  
-**Dernière mise à jour** : Janvier 2025
+## 📝 Documentation
 
-### Fonctionnalités Complétées
-- ✅ Site vitrine bilingue (FR/EN)
-- ✅ Système de billetterie complet
-- ✅ Paiement en ligne (MoovMoney, Mixx By Yas, CB)
-- ✅ Génération automatique de QR codes et badges PDF
-- ✅ Dashboard administrateur avancé
-- ✅ Gestion de crise (alertes, incidents, contacts urgence)
-- ✅ Design responsive professionnel
-- ✅ Conformité RGPD et légale
-- ✅ Performance optimisée
-- ✅ Documentation complète
+Documentation complète disponible dans le projet :
 
-## Licence
+- **README_DESIGN.md** - Vue d'ensemble du design
+- **INTEGRATION_PAYGATE.md** - Guide d'intégration PayGate
+- **DEPLOYMENT_GUIDE.md** - Guide de déploiement
+- **LANCEMENT_RAPIDE.md** - Guide de démarrage rapide
+- **VERIFICATION_FINALE.md** - Checklist complète
 
-© 2025 Life Field Inc. - COLPRAD. Tous droits réservés.
+---
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! Pour contribuer :
+
+1. Fork le projet
+2. Créer une branche (`git checkout -b feature/AmazingFeature`)
+3. Commit les changements (`git commit -m 'Add AmazingFeature'`)
+4. Push vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrir une Pull Request
+
+---
+
+## 📜 License
+
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+
+---
+
+## 🙏 Remerciements
+
+- **Life Field Inc.** - Organisation
+- **PayGate** - Solution de paiement
+- **Bootstrap** - Framework CSS
+- **Flask** - Framework Python
+- **Google Fonts** - Typographie
+
+---
+
+## 📊 Statistiques du Projet
+
+- **Lignes de code** : 14,000+
+- **Fichiers** : 60+
+- **Templates** : 20+
+- **Documentation** : 15+ fichiers
+- **Langues** : 2 (FR/EN)
+
+---
+
+## 🎯 Roadmap
+
+### Version 1.0 (Actuelle) ✅
+- [x] Site vitrine complet
+- [x] Système de billetterie
+- [x] Intégration PayGate
+- [x] Administration complète
+- [x] Design professionnel
+
+### Version 1.1 (À venir)
+- [ ] Application mobile
+- [ ] Streaming en direct
+- [ ] Chat en temps réel
+- [ ] Système de notation
+- [ ] Recommandations personnalisées
+
+---
+
+## 🌟 Fonctionnalités Avancées
+
+### Sécurité
+- ✅ Protection CSRF
+- ✅ Validation des données
+- ✅ Hachage des mots de passe
+- ✅ HTTPS en production
+- ✅ Webhooks sécurisés
+
+### Performance
+- ✅ Optimisation des requêtes
+- ✅ Cache des ressources statiques
+- ✅ Compression gzip
+- ✅ Lazy loading des images
+
+### SEO
+- ✅ Meta tags optimisés
+- ✅ URLs propres
+- ✅ Sitemap.xml
+- ✅ Robots.txt
+- ✅ Schema.org markup
+
+---
+
+## 📱 Responsive Design
+
+Le site est parfaitement responsive :
+
+- **Mobile** (< 768px) : Navigation hamburger, boutons full-width
+- **Tablet** (768-991px) : Layout adapté, 2 colonnes
+- **Desktop** (≥ 992px) : Expérience complète, 3-4 colonnes
+
+---
+
+## 🎉 Événement COLPRAD 2025
+
+Le COLPRAD est le rendez-vous incontournable des professionnels de la culture en Afrique de l'Ouest. Cette 3ème édition réunira plus de 300 participants pour échanger sur :
+
+- Politiques culturelles et gouvernance
+- Financement et mécénat culturel
+- Networking et partenariats stratégiques
+- Développement du secteur créatif
+
+**Rejoignez-nous le 13 Décembre 2025 ! 🎭**
+
+---
+
+**Développé avec ❤️ par Daven BANKA pour Life Field Inc.**
+
+**© 2025 COLPRAD - Tous droits réservés**
