@@ -10,7 +10,7 @@
 ### Téléphone Principal
 **+228 92 38 40 92**
 - Numéro principal de l'événement
-- Disponible Lundi-Vendredi 9h-17h
+- Disponible 7 jours sur 7
 
 ### Contact Personnel
 **blaisederge@outlook.com**
@@ -124,9 +124,9 @@ Tous utilisent maintenant : **colpradofficiel@gmail.com**
 - **Contact personnel :** blaisederge@outlook.com / +228 92 53 05 12
 
 ### Horaires de Disponibilité
-- **Lundi - Vendredi :** 9h00 - 17h00
-- **Samedi :** 9h00 - 13h00
-- **Dimanche :** Fermé
+- **Disponibilité :** 7 jours sur 7
+- **Réponse Email :** Sous 24-48 heures
+- **Réponse Téléphone :** Immédiate
 
 ---
 
@@ -239,7 +239,7 @@ Tous utilisent maintenant : **colpradofficiel@gmail.com**
 
 ### Temps de Réponse
 - **Email :** Moins de 24 heures
-- **Téléphone :** Immédiat (heures d'ouverture)
+- **Téléphone :** Immédiat (disponible 7j/7)
 - **Formulaire web :** Moins de 48 heures
 
 ### Qualité de Service

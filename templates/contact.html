@@ -94,7 +94,7 @@
                         <div class="contact-info-value">
                             <a href="tel:+22892384092" style="color: var(--secondary-1); text-decoration: none;">+228 92 38 40 92</a><br>
                             <small class="text-muted">
-                                {% if current_lang == 'fr' %}Lundi - Vendredi: 9h00 - 17h00{% else %}Monday - Friday: 9am - 5pm{% endif %}
+                                {% if current_lang == 'fr' %}Disponible 7j/7{% else %}Available 7 days a week{% endif %}
                             </small>
                         </div>
                     </div>
@@ -125,28 +125,37 @@
                         </div>
                         <div class="contact-info-value">
                             <div class="d-flex gap-2 flex-wrap">
-                                <a href="#" class="btn btn-sm btn-outline-primary">Facebook</a>
-                                <a href="#" class="btn btn-sm btn-outline-info">LinkedIn</a>
-                                <a href="#" class="btn btn-sm btn-outline-dark">Twitter</a>
-                                <a href="#" class="btn btn-sm btn-outline-danger">Instagram</a>
+                                <a href="https://facebook.com/colprad" class="btn btn-sm btn-outline-primary" target="_blank">Facebook</a>
+                                <a href="https://wa.me/22892384092" class="btn btn-sm btn-outline-success" target="_blank">WhatsApp</a>
+                                <a href="https://youtube.com/@colprad" class="btn btn-sm btn-outline-danger" target="_blank">YouTube</a>
+                                <a href="https://linkedin.com/company/colprad" class="btn btn-sm btn-outline-info" target="_blank">LinkedIn</a>
                             </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-label">
+                            <span>📅</span> {% if current_lang == 'fr' %}Disponibilité{% else %}Availability{% endif %}
+                        </div>
+                        <div class="contact-info-value">
+                            {% if current_lang == 'fr' %}
+                                Réponse sous 24-48 heures<br>
+                                <small class="text-muted">Du lundi au samedi</small>
+                            {% else %}
+                                Response within 24-48 hours<br>
+                                <small class="text-muted">Monday to Saturday</small>
+                            {% endif %}
                         </div>
                     </div>
 
                     <div class="contact-info-item">
                         <div class="contact-info-label">
-                            <span>⏰</span> {% if current_lang == 'fr' %}Horaires d'Ouverture{% else %}Opening Hours{% endif %}
+                            <span>📅</span> {% if current_lang == 'fr' %}Événement{% else %}Event{% endif %}
                         </div>
                         <div class="contact-info-value">
-                            {% if current_lang == 'fr' %}
-                                <strong>Lundi - Vendredi:</strong> 9h00 - 17h00<br>
-                                <strong>Samedi:</strong> 9h00 - 13h00<br>
-                                <strong>Dimanche:</strong> Fermé
-                            {% else %}
-                                <strong>Monday - Friday:</strong> 9am - 5pm<br>
-                                <strong>Saturday:</strong> 9am - 1pm<br>
-                                <strong>Sunday:</strong> Closed
-                            {% endif %}
+                            <strong>13 Décembre 2025</strong><br>
+                            14H00 - 17H00<br>
+                            Hôtel Elie Palace, Adidogomé
                         </div>
                     </div>
                 </div>

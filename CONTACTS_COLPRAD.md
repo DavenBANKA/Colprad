@@ -9,8 +9,8 @@
 - Informations sur l'événement
 
 **Téléphone :** +228 92 38 40 92
-- Lundi - Vendredi : 9h00 - 17h00
-- Samedi : 9h00 - 13h00
+- Disponible 7 jours sur 7
+- Réponse rapide garantie
 
 ---
 
@@ -90,10 +90,10 @@ www.colprad.tg (à venir)
 
 ## 📋 Horaires de Disponibilité
 
-### Bureau
-- **Lundi - Vendredi :** 9h00 - 17h00
-- **Samedi :** 9h00 - 13h00
-- **Dimanche :** Fermé
+### Disponibilité
+- **Contact :** 7 jours sur 7
+- **Email :** Réponse sous 24-48h
+- **Téléphone :** Réponse immédiate
 
 ### Réponse aux Emails
 - Délai de réponse : 24-48 heures
@@ -123,7 +123,7 @@ www.colprad.tg (à venir)
 
 ### Par Téléphone
 1. Appelez : +228 92 38 40 92
-2. Horaires : Lundi-Vendredi 9h-17h
+2. Disponible : 7 jours sur 7
 3. Préparez votre numéro de réservation si applicable
 
 ### Via le Site Web
@@ -161,7 +161,7 @@ www.colprad.tg (à venir)
 
 ### Temps de Réponse Moyen
 - Email : 24 heures
-- Téléphone : Immédiat (heures d'ouverture)
+- Téléphone : Immédiat (disponible 7j/7)
 - Formulaire web : 48 heures
 
 ### Langues Disponibles

@@ -120,8 +120,8 @@ Votre site COLPRAD 2025 est maintenant **100% opérationnel** avec toutes les in
 
 ### Téléphone Principal
 **+228 92 38 40 92**
-- Lundi - Vendredi : 9h00 - 17h00
-- Samedi : 9h00 - 13h00
+- Disponible 7 jours sur 7
+- Réponse rapide garantie
 
 ### Contact Personnel
 **blaisederge@outlook.com**

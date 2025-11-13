@@ -170,23 +170,21 @@ def checkout():
 def process_payment(order_number):
     order = Order.query.filter_by(order_number=order_number).first_or_404()
     
-    # PayGate configuration
-    paygate_url = "https://www.paygate.tg/v1/page"  # URL PayGate
+    # Check if PayGate is properly configured
+    if not app.config.get('PAYGATE_API_KEY'):
+        flash('Le système de paiement n\'est pas configuré. Contactez l\'administrateur.', 'error')
+        return redirect(url_for('tickets'))
+    
+    # PayGate configuration (Méthode 2 - Redirection simple)
+    paygate_url = "https://paygate.tg/checkout"
     
     # Prepare PayGate parameters
     paygate_params = {
-        'auth_token': app.config['PAYGATE_API_KEY'],
-        'shop_id': app.config['PAYGATE_MERCHANT_ID'],
+        'token': app.config['PAYGATE_API_KEY'],
         'amount': int(order.total_amount),
-        'currency': 'XOF',  # Franc CFA
-        'description': f'COLPRAD 2025 - Billet {order.ticket_type.upper()}',
-        'custom_field': order.order_number,
-        'customer_name': f'{order.first_name} {order.last_name}',
-        'customer_email': order.email,
-        'customer_phone': order.phone,
-        'success_url': url_for('payment_success', order_number=order.order_number, _external=True),
-        'cancel_url': url_for('payment_cancel', order_number=order.order_number, _external=True),
-        'callback_url': url_for('payment_callback', _external=True)
+        'description': f'COLPRAD 2025 - Billet {order.ticket_type.upper()} - Commande {order.order_number}',
+        'identifier': order.order_number,
+        'url': app.config.get('PAYGATE_PAYMENT_RETURN_URL') or url_for('payment_return', _external=True)
     }
     
     return render_template('payment_redirect.html', 
@@ -194,40 +192,93 @@ def process_payment(order_number):
                          paygate_params=paygate_params,
                          order=order)
 
-@app.route('/payment/success/<order_number>')
-def payment_success(order_number):
-    order = Order.query.filter_by(order_number=order_number).first_or_404()
+@app.route('/retour-paiement')
+def retour_paiement():
+    """
+    Route de retour après paiement PayGate (Méthode 2)
+    PayGate redirige ici avec les paramètres: identifier, transaction_id, status
+    """
+    order_number = request.args.get('identifier') or request.args.get('order_number')
+    transaction_id = request.args.get('transaction_id') or request.args.get('tx_reference')
+    status = request.args.get('status') or request.args.get('payment_status')
     
-    # Update payment status
-    order.payment_status = 'completed'
-    order.payment_reference = request.args.get('transaction_id')
-    db.session.commit()
+    # Log pour débogage
+    print(f"=== RETOUR PAIEMENT ===")
+    print(f"Order Number: {order_number}")
+    print(f"Transaction ID: {transaction_id}")
+    print(f"Status: {status}")
+    print(f"All params: {request.args}")
     
-    # Generate QR code
-    qr_data = f"COLPRAD2025|{order.order_number}|{order.email}"
-    qr_code = generate_qr_code(qr_data)
+    if not order_number:
+        flash('Commande introuvable. Vérifiez votre email pour la confirmation.', 'warning')
+        return redirect(url_for('tickets'))
     
-    # Send confirmation email
-    send_confirmation_email(order, qr_code)
+    order = Order.query.filter_by(order_number=order_number).first()
     
-    session.pop('order_data', None)
-    return redirect(url_for('confirmation', order_number=order.order_number))
+    if not order:
+        flash('Commande introuvable. Contactez le support si vous avez effectué un paiement.', 'error')
+        return redirect(url_for('tickets'))
+    
+    # Vérifier le statut du paiement
+    if status in ['completed', 'successful', 'success', 'paid']:
+        # Paiement réussi
+        if order.payment_status != 'completed':
+            order.payment_status = 'completed'
+            order.payment_reference = transaction_id or 'PAYGATE-' + order.order_number
+            db.session.commit()
+            
+            # Generate QR code
+            qr_data = f"COLPRAD2025|{order.order_number}|{order.email}"
+            qr_code = generate_qr_code(qr_data)
+            
+            # Send confirmation email
+            try:
+                send_confirmation_email(order, qr_code)
+            except Exception as e:
+                print(f"Erreur envoi email: {e}")
+        
+        session.pop('order_data', None)
+        flash('Paiement effectué avec succès ! Consultez votre email pour la confirmation.', 'success')
+        return redirect(url_for('confirmation', order_number=order.order_number))
+    
+    elif status in ['cancelled', 'canceled', 'cancel']:
+        # Paiement annulé
+        order.payment_status = 'cancelled'
+        db.session.commit()
+        flash('Paiement annulé. Vous pouvez réessayer quand vous voulez.', 'warning')
+        return redirect(url_for('tickets'))
+    
+    elif status in ['failed', 'error', 'declined']:
+        # Paiement échoué
+        order.payment_status = 'failed'
+        db.session.commit()
+        flash('Le paiement a échoué. Veuillez vérifier vos informations et réessayer.', 'error')
+        return redirect(url_for('tickets'))
+    
+    elif status in ['pending', 'processing']:
+        # Paiement en cours
+        flash('Votre paiement est en cours de traitement. Vous recevrez une confirmation par email.', 'info')
+        return redirect(url_for('confirmation', order_number=order.order_number))
+    
+    else:
+        # Statut inconnu - on affiche quand même la confirmation
+        print(f"Statut inconnu: {status}")
+        flash('Paiement en cours de vérification. Consultez votre email pour la confirmation.', 'info')
+        return redirect(url_for('confirmation', order_number=order.order_number))
 
-@app.route('/payment/cancel/<order_number>')
-def payment_cancel(order_number):
-    order = Order.query.filter_by(order_number=order_number).first_or_404()
-    order.payment_status = 'cancelled'
-    db.session.commit()
-    
-    flash('Paiement annulé. Vous pouvez réessayer.', 'warning')
-    return redirect(url_for('tickets'))
-
-@app.route('/payment/callback', methods=['POST'])
-def payment_callback():
-    # PayGate webhook callback
+@app.route('/payment/webhook', methods=['POST'])
+def payment_webhook():
+    """
+    Webhook PayGate pour notifications de paiement
+    """
     data = request.json or request.form.to_dict()
     
-    order_number = data.get('custom_field')
+    # Vérifier le secret webhook
+    webhook_secret = request.headers.get('X-Webhook-Secret')
+    if webhook_secret != app.config.get('PAYGATE_WEBHOOK_SECRET'):
+        return jsonify({'error': 'Invalid webhook secret'}), 403
+    
+    order_number = data.get('identifier')
     transaction_id = data.get('transaction_id')
     status = data.get('status')
     
@@ -238,12 +289,15 @@ def payment_callback():
                 order.payment_status = 'completed'
                 order.payment_reference = transaction_id
                 
-                # Generate and send confirmation
-                qr_data = f"COLPRAD2025|{order.order_number}|{order.email}"
-                qr_code = generate_qr_code(qr_data)
-                send_confirmation_email(order, qr_code)
+                # Generate and send confirmation if not already sent
+                if order.payment_status != 'completed':
+                    qr_data = f"COLPRAD2025|{order.order_number}|{order.email}"
+                    qr_code = generate_qr_code(qr_data)
+                    send_confirmation_email(order, qr_code)
             elif status == 'failed':
                 order.payment_status = 'failed'
+            elif status == 'cancelled':
+                order.payment_status = 'cancelled'
             
             db.session.commit()
     
@@ -483,6 +537,179 @@ def export_participants():
         'Content-Type': 'text/csv; charset=utf-8',
         'Content-Disposition': f'attachment; filename=participants_colprad_{datetime.now().strftime("%Y%m%d")}.csv'
     }
+
+# Test payment simulation (for development only)
+@app.route('/test-payment/<order_number>')
+def test_payment(order_number):
+    """
+    Page de test pour simuler un retour PayGate
+    À SUPPRIMER EN PRODUCTION !
+    """
+    order = Order.query.filter_by(order_number=order_number).first_or_404()
+    
+    return f"""
+    <html>
+    <head>
+        <title>Test Paiement - COLPRAD</title>
+        <style>
+            body {{ font-family: Arial, sans-serif; padding: 40px; background: #f5f5f5; }}
+            .container {{ max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; }}
+            h1 {{ color: #D8431A; }}
+            .btn {{ display: inline-block; padding: 12px 24px; margin: 10px; text-decoration: none; border-radius: 5px; color: white; font-weight: bold; }}
+            .success {{ background: #28a745; }}
+            .warning {{ background: #ffc107; color: #000; }}
+            .danger {{ background: #dc3545; }}
+            .info {{ background: #17a2b8; }}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>🧪 Test Paiement</h1>
+            <p><strong>Commande:</strong> {order.order_number}</p>
+            <p><strong>Montant:</strong> {order.total_amount:,.0f} FCFA</p>
+            <p><strong>Client:</strong> {order.first_name} {order.last_name}</p>
+            
+            <h3>Simuler un retour PayGate:</h3>
+            
+            <a href="/retour-paiement?identifier={order.order_number}&transaction_id=TEST-TXN-{order.order_number}&status=completed" class="btn success">
+                ✅ Paiement Réussi
+            </a>
+            
+            <a href="/retour-paiement?identifier={order.order_number}&status=cancelled" class="btn warning">
+                ⚠️ Paiement Annulé
+            </a>
+            
+            <a href="/retour-paiement?identifier={order.order_number}&status=failed" class="btn danger">
+                ❌ Paiement Échoué
+            </a>
+            
+            <a href="/retour-paiement?identifier={order.order_number}&status=pending" class="btn info">
+                ⏳ Paiement En Cours
+            </a>
+            
+            <hr>
+            <p><small>⚠️ Cette page est pour les tests uniquement. À supprimer en production !</small></p>
+        </div>
+    </body>
+    </html>
+    """
+
+# Test route for PayGate configuration
+@app.route('/test-paygate')
+def test_paygate():
+    api_key_configured = '✅ Configuré' if app.config.get('PAYGATE_API_KEY') else '❌ Manquant'
+    webhook_configured = '✅ Configuré' if app.config.get('PAYGATE_WEBHOOK_SECRET') else '❌ Manquant'
+    return_url_configured = '✅ Configuré' if app.config.get('PAYGATE_PAYMENT_RETURN_URL') else '❌ Manquant'
+    mail_configured = '✅ Configuré' if app.config.get('MAIL_USERNAME') else '❌ Manquant'
+    
+    api_key_value = app.config.get('PAYGATE_API_KEY', 'Non défini')
+    if api_key_value != 'Non défini':
+        api_key_value = api_key_value[:20] + '...'
+    
+    return_url_value = app.config.get('PAYGATE_PAYMENT_RETURN_URL', 'Non défini')
+    
+    all_configured = (api_key_configured == '✅ Configuré' and 
+                     webhook_configured == '✅ Configuré' and 
+                     return_url_configured == '✅ Configuré')
+    
+    html = """
+    <html>
+    <head>
+        <title>Test Configuration PayGate</title>
+        <style>
+            body {{ font-family: Arial, sans-serif; padding: 40px; background: #f5f5f5; }}
+            .container {{ max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }}
+            h1 {{ color: #D8431A; }}
+            .status {{ padding: 15px; margin: 10px 0; border-radius: 5px; }}
+            .success {{ background: #d4edda; border-left: 4px solid #28a745; }}
+            .error {{ background: #f8d7da; border-left: 4px solid #dc3545; }}
+            .info {{ background: #d1ecf1; border-left: 4px solid #0c5460; padding: 15px; margin: 20px 0; border-radius: 5px; }}
+            code {{ background: #f4f4f4; padding: 2px 6px; border-radius: 3px; }}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>🔧 Test Configuration PayGate - COLPRAD 2025</h1>
+            
+            <h2>État de la Configuration</h2>
+            
+            <div class="status {0}">
+                <strong>PAYGATE_API_KEY (token):</strong> {1}<br>
+                <small>Valeur: {2}</small>
+            </div>
+            
+            <div class="status {3}">
+                <strong>PAYGATE_WEBHOOK_SECRET:</strong> {4}
+            </div>
+            
+            <div class="status {5}">
+                <strong>PAYGATE_PAYMENT_RETURN_URL:</strong> {6}<br>
+                <small>Valeur: {7}</small>
+            </div>
+            
+            <div class="status {8}">
+                <strong>Configuration Email:</strong> {9}
+            </div>
+            
+            <div class="info">
+                <h3>ℹ️ Méthode PayGate</h3>
+                <p><strong>Méthode 2 - Redirection Simple</strong></p>
+                <p>Cette configuration utilise la redirection simple PayGate avec:</p>
+                <ul>
+                    <li><code>token</code>: Votre clé API PayGate</li>
+                    <li><code>amount</code>: Montant en FCFA</li>
+                    <li><code>description</code>: Description de la transaction</li>
+                    <li><code>identifier</code>: Numéro de commande</li>
+                    <li><code>url</code>: URL de retour après paiement</li>
+                </ul>
+            </div>
+            
+            <div class="info">
+                <h3>📋 Actions Requises</h3>
+                {10}
+            </div>
+            
+            <h3>🧪 Test de Paiement</h3>
+            <p>
+                <a href="/tickets" style="display: inline-block; background: #D8431A; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin-right: 10px;">
+                    Tester une Commande
+                </a>
+                <a href="/" style="display: inline-block; background: #0057A6; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px;">
+                    Retour à l'Accueil
+                </a>
+            </p>
+            
+            <div class="info">
+                <h3>📞 Besoin d'Aide ?</h3>
+                <p>Consultez le fichier <code>CONFIGURATION_PAYGATE.md</code> pour un guide complet de configuration.</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    """.format(
+        'success' if api_key_configured == '✅ Configuré' else 'error',
+        api_key_configured,
+        api_key_value,
+        'success' if webhook_configured == '✅ Configuré' else 'error',
+        webhook_configured,
+        'success' if return_url_configured == '✅ Configuré' else 'error',
+        return_url_configured,
+        return_url_value,
+        'success' if mail_configured == '✅ Configuré' else 'error',
+        mail_configured,
+        '<p>✅ Toutes les configurations sont en place ! Vous pouvez tester le paiement.</p>' if all_configured else '''
+                <p>⚠️ Configuration incomplète. Veuillez :</p>
+                <ol>
+                    <li>Ouvrir le fichier <code>.env</code></li>
+                    <li>Compléter les valeurs manquantes</li>
+                    <li>Redémarrer Flask</li>
+                    <li>Rafraîchir cette page</li>
+                </ol>
+                <p>Consultez <code>CONFIGURATION_PAYGATE.md</code> pour plus de détails.</p>
+        '''
+    )
+    
+    return html
 
 # API routes
 @app.route('/api/validate-promo', methods=['POST'])

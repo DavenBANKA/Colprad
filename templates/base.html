@@ -189,14 +189,19 @@
                     </ul>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <h5>Newsletter</h5>
-                    <p class="small mb-3">{% if current_lang == 'fr' %}Restez informé des actualités COLPRAD{% else
-                        %}Stay informed about COLPRAD news{% endif %}</p>
+                    <h5>{% if current_lang == 'fr' %}Suivez-nous{% else %}Follow Us{% endif %}</h5>
+                    <p class="small mb-3">{% if current_lang == 'fr' %}Restez connectés sur nos réseaux sociaux{% else %}Stay connected on our social media{% endif %}</p>
+                    <div class="d-flex gap-2 flex-wrap mb-3">
+                        <a href="https://facebook.com/colprad" class="btn btn-sm btn-outline-light" target="_blank" aria-label="Facebook">Facebook</a>
+                        <a href="https://wa.me/22892384092" class="btn btn-sm btn-outline-light" target="_blank" aria-label="WhatsApp">WhatsApp</a>
+                        <a href="https://youtube.com/@colprad" class="btn btn-sm btn-outline-light" target="_blank" aria-label="YouTube">YouTube</a>
+                        <a href="https://linkedin.com/company/colprad" class="btn btn-sm btn-outline-light" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                    </div>
                     <form id="newsletter-form">
                         <div class="input-group">
                             <input type="email" class="form-control" placeholder="Email" required>
                             <button class="btn btn-warning" type="submit">
-                                {% if current_lang == 'fr' %}S'inscrire{% else %}Subscribe{% endif %}
+                                {% if current_lang == 'fr' %}Newsletter{% else %}Newsletter{% endif %}
                             </button>
                         </div>
                     </form>

@@ -16,10 +16,10 @@ class Config:
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER')
     
-    # PayGate settings
+    # PayGate settings (Méthode 2 - Redirection)
     PAYGATE_API_KEY = os.environ.get('PAYGATE_API_KEY')
-    PAYGATE_MERCHANT_ID = os.environ.get('PAYGATE_MERCHANT_ID')
     PAYGATE_WEBHOOK_SECRET = os.environ.get('PAYGATE_WEBHOOK_SECRET')
+    PAYGATE_PAYMENT_RETURN_URL = os.environ.get('PAYGATE_PAYMENT_RETURN_URL')
     
     # App settings
     TICKETS_PER_PAGE = 20
