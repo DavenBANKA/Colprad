@@ -233,6 +233,53 @@
     </div>
 </section>
 
+<!-- Contact Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-lg-10 mx-auto text-center">
+                <h2 class="section-title-main mb-3">
+                    {% if current_lang == 'fr' %}Contactez-Nous{% else %}Contact Us{% endif %}
+                </h2>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 text-center">
+                    <div class="card-body p-4">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">📧</span>
+                        <h5 style="color: var(--accent-color); font-weight: 700;">Email</h5>
+                        <p><a href="mailto:colpradofficiel@gmail.com" style="color: var(--secondary-1); text-decoration: none;">colpradofficiel@gmail.com</a></p>
+                        <small class="text-muted">{% if current_lang == 'fr' %}Réponse sous 24-48h{% else %}Response within 24-48h{% endif %}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 text-center">
+                    <div class="card-body p-4">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">📱</span>
+                        <h5 style="color: var(--accent-color); font-weight: 700;">{% if current_lang == 'fr' %}Téléphone{% else %}Phone{% endif %}</h5>
+                        <p><a href="tel:+22892384092" style="color: var(--secondary-1); text-decoration: none;">+228 92 38 40 92</a></p>
+                        <small class="text-muted">{% if current_lang == 'fr' %}Disponible 7j/7{% else %}Available 7 days a week{% endif %}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 text-center">
+                    <div class="card-body p-4">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">💬</span>
+                        <h5 style="color: var(--accent-color); font-weight: 700;">{% if current_lang == 'fr' %}Réseaux Sociaux{% else %}Social Media{% endif %}</h5>
+                        <div class="d-flex gap-2 justify-content-center flex-wrap">
+                            <a href="https://wa.me/22892384092" class="btn btn-sm btn-outline-success" target="_blank">WhatsApp</a>
+                            <a href="https://youtube.com/@colprad" class="btn btn-sm btn-outline-danger" target="_blank">YouTube</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- CTA Section -->
 <section class="cta-section py-5">
     <div class="container">
