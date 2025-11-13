@@ -54,19 +54,6 @@
                             If you are not redirected automatically, click the button above.
                         {% endif %}
                     </p>
-                    
-                    {% if config.FLASK_ENV == 'development' %}
-                    <hr class="my-4">
-                    <div class="alert alert-warning">
-                        <strong>🧪 Mode Test</strong><br>
-                        <small>
-                            Pour tester sans PayGate : 
-                            <a href="{{ url_for('test_payment', order_number=order.order_number) }}" class="alert-link">
-                                Simuler un paiement
-                            </a>
-                        </small>
-                    </div>
-                    {% endif %}
                 </div>
             </div>
         </div>
@@ -74,18 +61,13 @@
 </div>
 
 <script>
-// Auto-submit form after 3 seconds (plus de temps pour voir le message de test)
+// Auto-submit form after 2 seconds
 setTimeout(function() {
     const form = document.getElementById('paygate-form');
     if (form) {
-        console.log('Submitting payment form to PayGate...');
-        console.log('PayGate URL:', form.action);
-        console.log('Order Number:', '{{ order.order_number }}');
         form.submit();
-    } else {
-        console.error('Payment form not found!');
     }
-}, 3000);
+}, 2000);
 
 // Manual submit button handler
 document.addEventListener('DOMContentLoaded', function() {
