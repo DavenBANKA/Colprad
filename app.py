@@ -64,10 +64,6 @@ def speakers():
     speakers_list = Speaker.query.order_by(Speaker.order_index).all()
     return render_template('speakers.html', speakers=speakers_list)
 
-@app.route('/practical-info')
-def practical_info():
-    return render_template('practical_info.html')
-
 @app.route('/press')
 def press():
     return render_template('press.html')
