@@ -1,0 +1,8 @@
+# Fichier pour forcer le redéploiement sur Render
+# Dernière mise à jour: 13 Novembre 2024 - 18:30
+# Modifications: Statistiques + Contacts + Lien LinkedIn
+
+Modifications appliquées:
+- Statistiques: 20+ Intervenants, 6+ Sessions (suppression Pays)
+- Sections contact ajoutées dans about, program, speakers, tickets
+- Lien LinkedIn développeur dans footer
