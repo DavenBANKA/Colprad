@@ -14,7 +14,8 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 # Configuration du logging professionnel
-if app.config['FLASK_ENV'] == 'production':
+flask_env = app.config.get('FLASK_ENV', 'production')
+if flask_env == 'production':
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s [%(levelname)s] %(message)s',
