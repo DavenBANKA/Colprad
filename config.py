@@ -30,7 +30,7 @@ class Config:
     TICKET_TYPES = {
         'standard': {'name': 'Standard', 'price': 5000, 'quota': 200, 'color': '#FFFFFF'},
         'premium': {'name': 'Premium', 'price': 15000, 'quota': 100, 'color': '#9E9E9E'},
-        'vip': {'name': 'VIP', 'price': 30000, 'quota': 50, 'color': '#D4AF37'}
+        'vip': {'name': 'VIP', 'price': 50000, 'quota': 50, 'color': '#D4AF37'}
     }
     
     # Badge colors
