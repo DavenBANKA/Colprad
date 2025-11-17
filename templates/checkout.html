@@ -57,28 +57,35 @@
                 </div>
 
                 <div class="card mb-4">
-                    <div class="card-header">
-                        <h5>{% if current_lang == 'fr' %}Mode de paiement{% else %}Payment Method{% endif %}</h5>
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">💳 {% if current_lang == 'fr' %}Numéros de Paiement Mobile Money{% else %}Mobile Money Payment Numbers{% endif %}</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="payment_method" value="momo" id="momo" required>
-                            <label class="form-check-label" for="momo">
-                                MoovMoney
-                            </label>
+                        <div class="alert alert-info mb-3">
+                            <strong>📱 {% if current_lang == 'fr' %}Comment payer ?{% else %}How to pay?{% endif %}</strong><br>
+                            {% if current_lang == 'fr' %}
+                                Après validation, vous serez redirigé vers WhatsApp pour confirmer votre paiement avec les numéros ci-dessous.
+                            {% else %}
+                                After validation, you will be redirected to WhatsApp to confirm your payment with the numbers below.
+                            {% endif %}
                         </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="payment_method" value="mixx" id="mixx">
-                            <label class="form-check-label" for="mixx">
-                                Mixx By Yas
-                            </label>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="p-3 border rounded bg-light">
+                                    <strong class="text-success">📱 TMoney / Flooz</strong><br>
+                                    <span class="fs-5 fw-bold">+228 92 38 40 92</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 border rounded bg-light">
+                                    <strong class="text-primary">💳 Moov Money</strong><br>
+                                    <span class="fs-5 fw-bold">+228 92 38 40 92</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="payment_method" value="card" id="card">
-                            <label class="form-check-label" for="card">
-                                {% if current_lang == 'fr' %}Carte bancaire{% else %}Credit Card{% endif %}
-                            </label>
-                        </div>
+                        
+                        <input type="hidden" name="payment_method" value="mobile_money">
                     </div>
                 </div>
 

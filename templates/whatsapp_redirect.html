@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card shadow-lg">
+                <div class="card-body text-center py-5">
+                    <div class="mb-4">
+                        <span style="font-size: 5rem;">💬</span>
+                    </div>
+                    
+                    <h2 class="mb-3" style="color: var(--accent-color);">
+                        {% if current_lang == 'fr' %}
+                            Confirmation de Paiement via WhatsApp
+                        {% else %}
+                            Payment Confirmation via WhatsApp
+                        {% endif %}
+                    </h2>
+                    
+                    <p class="lead mb-4">
+                        {% if current_lang == 'fr' %}
+                            Vous allez être redirigé vers WhatsApp pour confirmer votre paiement
+                        {% else %}
+                            You will be redirected to WhatsApp to confirm your payment
+                        {% endif %}
+                    </p>
+                    
+                    <div class="alert alert-success mb-4">
+                        <h5><strong>✅ {% if current_lang == 'fr' %}Commande enregistrée{% else %}Order Registered{% endif %}</strong></h5>
+                        <p class="mb-2"><strong>{% if current_lang == 'fr' %}Numéro{% else %}Number{% endif %} :</strong> {{ order.order_number }}</p>
+                        <p class="mb-2"><strong>{% if current_lang == 'fr' %}Montant{% else %}Amount{% endif %} :</strong> {{ "{:,.0f}".format(order.total_amount) }} FCFA</p>
+                        <p class="mb-0"><strong>{% if current_lang == 'fr' %}Billet{% else %}Ticket{% endif %} :</strong> {{ order.ticket_type.upper() }}</p>
+                    </div>
+                    
+                    <div class="card mb-4 border-success">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0">💳 {% if current_lang == 'fr' %}Numéros de Paiement{% else %}Payment Numbers{% endif %}</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="p-3 bg-light rounded">
+                                        <strong class="text-success d-block mb-2">📱 TMoney / Flooz</strong>
+                                        <span class="fs-4 fw-bold">+228 92 38 40 92</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-3 bg-light rounded">
+                                        <strong class="text-primary d-block mb-2">💳 Moov Money</strong>
+                                        <span class="fs-4 fw-bold">+228 92 38 40 92</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info mb-4">
+                        <strong>📝 {% if current_lang == 'fr' %}Instructions{% else %}Instructions{% endif %} :</strong><br>
+                        {% if current_lang == 'fr' %}
+                            1. Cliquez sur le bouton ci-dessous pour ouvrir WhatsApp<br>
+                            2. Envoyez le message pré-rempli<br>
+                            3. Effectuez le paiement sur l'un des numéros ci-dessus<br>
+                            4. Envoyez la capture d'écran de la transaction<br>
+                            5. Vous recevrez votre billet par email après validation
+                        {% else %}
+                            1. Click the button below to open WhatsApp<br>
+                            2. Send the pre-filled message<br>
+                            3. Make the payment to one of the numbers above<br>
+                            4. Send the transaction screenshot<br>
+                            5. You will receive your ticket by email after validation
+                        {% endif %}
+                    </div>
+                    
+                    <a href="https://wa.me/{{ whatsapp_number }}?text={{ message | urlencode }}" 
+                       class="btn btn-success btn-lg mb-3" 
+                       target="_blank"
+                       style="font-size: 1.2rem; padding: 15px 40px;">
+                        <i class="fab fa-whatsapp"></i> 
+                        {% if current_lang == 'fr' %}
+                            Ouvrir WhatsApp et Confirmer
+                        {% else %}
+                            Open WhatsApp and Confirm
+                        {% endif %}
+                    </a>
+                    
+                    <p class="text-muted mt-4">
+                        {% if current_lang == 'fr' %}
+                            Après avoir envoyé le message, effectuez votre paiement et envoyez la preuve de transaction.
+                        {% else %}
+                            After sending the message, make your payment and send the transaction proof.
+                        {% endif %}
+                    </p>
+                    
+                    <hr class="my-4">
+                    
+                    <p class="small text-muted">
+                        {% if current_lang == 'fr' %}
+                            <strong>Besoin d'aide ?</strong><br>
+                            Email : <a href="mailto:colpradofficiel@gmail.com">colpradofficiel@gmail.com</a><br>
+                            Téléphone : <a href="tel:+22892384092">+228 92 38 40 92</a>
+                        {% else %}
+                            <strong>Need help?</strong><br>
+                            Email: <a href="mailto:colpradofficiel@gmail.com">colpradofficiel@gmail.com</a><br>
+                            Phone: <a href="tel:+22892384092">+228 92 38 40 92</a>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.card {
+    border: none;
+}
+.btn-success {
+    background: #25D366;
+    border-color: #25D366;
+}
+.btn-success:hover {
+    background: #128C7E;
+    border-color: #128C7E;
+}
+</style>
+{% endblock %}

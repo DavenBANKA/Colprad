@@ -1,0 +1,515 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-professional" style="min-height: 50vh;">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative">
+        <div class="row align-items-center" style="min-height: 50vh;">
+            <div class="col-lg-10 mx-auto text-center text-white">
+                <h1 class="hero-title mb-4">
+                    {% if current_lang == 'fr' %}
+                        Informations Pratiques
+                    {% else %}
+                        Practical Information
+                    {% endif %}
+                </h1>
+                <p class="hero-subtitle">
+                    {% if current_lang == 'fr' %}
+                        Tout ce que vous devez savoir pour préparer votre participation à COLPRAD 2025
+                    {% else %}
+                        Everything you need to know to prepare your participation in COLPRAD 2025
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Event Details -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Date & Time -->
+            <div class="col-lg-6">
+                <div class="info-box" style="border-left: 4px solid var(--secondary-2); padding: 2rem; background: #f8f9fa; border-radius: 8px;">
+                    <div class="d-flex align-items-start mb-3">
+                        <span style="font-size: 2.5rem; margin-right: 1rem;">📅</span>
+                        <div>
+                            <h3 style="color: var(--accent-color); font-weight: 700; margin-bottom: 0.5rem;">
+                                {% if current_lang == 'fr' %}Date et Horaires{% else %}Date and Time{% endif %}
+                            </h3>
+                            <p class="mb-2"><strong style="font-size: 1.2rem; color: var(--secondary-1);">13 Décembre 2025</strong></p>
+                            <p class="mb-2"><strong>{% if current_lang == 'fr' %}Horaires{% else %}Schedule{% endif %}:</strong> 14H00 - 17H00</p>
+                            <p class="mb-0"><strong>{% if current_lang == 'fr' %}Durée{% else %}Duration{% endif %}:</strong> 3 heures</p>
+                            <p class="text-muted small mt-2">
+                                {% if current_lang == 'fr' %}
+                                    Accueil des participants dès 14H00
+                                {% else %}
+                                    Participant reception from 2PM
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location -->
+            <div class="col-lg-6">
+                <div class="info-box" style="border-left: 4px solid var(--secondary-1); padding: 2rem; background: #f8f9fa; border-radius: 8px;">
+                    <div class="d-flex align-items-start mb-3">
+                        <span style="font-size: 2.5rem; margin-right: 1rem;">📍</span>
+                        <div>
+                            <h3 style="color: var(--accent-color); font-weight: 700; margin-bottom: 0.5rem;">
+                                {% if current_lang == 'fr' %}Lieu de l'Événement{% else %}Event Location{% endif %}
+                            </h3>
+                            <p class="mb-2"><strong style="font-size: 1.2rem; color: var(--secondary-1);">Hôtel Elie Palace</strong></p>
+                            <p class="mb-2">Adidogomé - Lomé</p>
+                            <p class="mb-2">Lomé, Togo</p>
+                            <p class="text-muted small mt-2">
+                                {% if current_lang == 'fr' %}
+                                    Établissement moderne avec toutes les commodités
+                                {% else %}
+                                    Modern establishment with all amenities
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Access & Transport -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-lg-10 mx-auto text-center">
+                <h2 class="section-title-main mb-3">
+                    {% if current_lang == 'fr' %}Accès et Transport{% else %}Access and Transport{% endif %}
+                </h2>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card text-center">
+                    <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">🚗</span>
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}En Voiture{% else %}By Car{% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Parking gratuit disponible sur place pour tous les participants
+                        {% else %}
+                            Free parking available on site for all participants
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card text-center">
+                    <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">🚕</span>
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}En Taxi{% else %}By Taxi{% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Accessible facilement depuis tous les quartiers de Lomé
+                        {% else %}
+                            Easily accessible from all areas of Lomé
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card text-center">
+                    <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">🏨</span>
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}Sur Place{% else %}On Site{% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Salles climatisées, équipements audiovisuels modernes
+                        {% else %}
+                            Air-conditioned rooms, modern audiovisual equipment
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card text-center">
+                    <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">☕</span>
+                    <h4 class="why-title">
+                        {% if current_lang == 'fr' %}Restauration{% else %}Catering{% endif %}
+                    </h4>
+                    <p class="why-text">
+                        {% if current_lang == 'fr' %}
+                            Cocktail de networking inclus en fin d'événement
+                        {% else %}
+                            Networking cocktail included at the end of the event
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Important Information -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-lg-10 mx-auto text-center">
+                <h2 class="section-title-main mb-3">
+                    {% if current_lang == 'fr' %}Informations Importantes{% else %}Important Information{% endif %}
+                </h2>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h4 style="color: var(--accent-color); font-weight: 700; margin-bottom: 1.5rem;">
+                            ✅ {% if current_lang == 'fr' %}À Prévoir{% else %}What to Bring{% endif %}
+                        </h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <strong>📱 {% if current_lang == 'fr' %}Votre billet électronique{% else %}Your e-ticket{% endif %}</strong><br>
+                                <small class="text-muted">
+                                    {% if current_lang == 'fr' %}
+                                        Présentez votre QR code à l'entrée (email ou version imprimée)
+                                    {% else %}
+                                        Present your QR code at the entrance (email or printed version)
+                                    {% endif %}
+                                </small>
+                            </li>
+                            <li class="mb-3">
+                                <strong>🪪 {% if current_lang == 'fr' %}Pièce d'identité{% else %}ID Card{% endif %}</strong><br>
+                                <small class="text-muted">
+                                    {% if current_lang == 'fr' %}
+                                        Obligatoire pour retirer votre badge
+                                    {% else %}
+                                        Required to collect your badge
+                                    {% endif %}
+                                </small>
+                            </li>
+                            <li class="mb-3">
+                                <strong>📝 {% if current_lang == 'fr' %}Cartes de visite{% else %}Business Cards{% endif %}</strong><br>
+                                <small class="text-muted">
+                                    {% if current_lang == 'fr' %}
+                                        Pour faciliter le networking
+                                    {% else %}
+                                        To facilitate networking
+                                    {% endif %}
+                                </small>
+                            </li>
+                            <li class="mb-3">
+                                <strong>💼 {% if current_lang == 'fr' %}Tenue professionnelle{% else %}Professional Attire{% endif %}</strong><br>
+                                <small class="text-muted">
+                                    {% if current_lang == 'fr' %}
+                                        Recommandée pour cet événement professionnel
+                                    {% else %}
+                                        Recommended for this professional event
+                                    {% endif %}
+                                </small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h4 style="color: var(--accent-color); font-weight: 700; margin-bottom: 1.5rem;">
+                            ⏰ {% if current_lang == 'fr' %}Déroulement{% else %}Schedule{% endif %}
+                        </h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <strong>14H00 - 14H30</strong><br>
+                                <small class="text-muted">
+                                    {% if current_lang == 'fr' %}
+                                        Accueil et enregistrement des participants
+                                    {% else %}
+                                        Welcome and participant registration
+                                    {% endif %}
+                                </small>
+                            </li>
+                            <li class="mb-3">
+                                <strong>14H30 - 15H00</strong><br>
+                                <small class="text-muted">
+                                    {% if current_lang == 'fr' %}
+                                        Cérémonie d'ouverture
+                                    {% else %}
+                                        Opening ceremony
+                                    {% endif %}
+                                </small>
+                            </li>
+                            <li class="mb-3">
+                                <strong>15H00 - 16H30</strong><br>
+                                <small class="text-muted">
+                                    {% if current_lang == 'fr' %}
+                                        Panels et ateliers parallèles
+                                    {% else %}
+                                        Panels and parallel workshops
+                                    {% endif %}
+                                </small>
+                            </li>
+                            <li class="mb-3">
+                                <strong>16H30 - 17H00</strong><br>
+                                <small class="text-muted">
+                                    {% if current_lang == 'fr' %}
+                                        Clôture et cocktail de networking
+                                    {% else %}
+                                        Closing and networking cocktail
+                                    {% endif %}
+                                </small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-lg-10 mx-auto text-center">
+                <h2 class="section-title-main mb-3">
+                    {% if current_lang == 'fr' %}Contacts{% else %}Contacts{% endif %}
+                </h2>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4 text-center">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">📧</span>
+                        <h4 style="color: var(--accent-color); font-weight: 700; margin-bottom: 1rem;">
+                            {% if current_lang == 'fr' %}Email Principal{% else %}Main Email{% endif %}
+                        </h4>
+                        <p class="mb-2">
+                            <a href="mailto:colpradofficiel@gmail.com" style="color: var(--secondary-1); text-decoration: none; font-size: 1.1rem; font-weight: 600;">
+                                colpradofficiel@gmail.com
+                            </a>
+                        </p>
+                        <p class="text-muted small">
+                            {% if current_lang == 'fr' %}
+                                Réponse sous 24-48 heures
+                            {% else %}
+                                Response within 24-48 hours
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4 text-center">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">📱</span>
+                        <h4 style="color: var(--accent-color); font-weight: 700; margin-bottom: 1rem;">
+                            {% if current_lang == 'fr' %}Téléphone{% else %}Phone{% endif %}
+                        </h4>
+                        <p class="mb-2">
+                            <a href="tel:+22892384092" style="color: var(--secondary-1); text-decoration: none; font-size: 1.1rem; font-weight: 600;">
+                                +228 92 38 40 92
+                            </a>
+                        </p>
+                        <p class="text-muted small">
+                            {% if current_lang == 'fr' %}
+                                Disponible 7 jours sur 7
+                            {% else %}
+                                Available 7 days a week
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4 text-center">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">👤</span>
+                        <h4 style="color: var(--accent-color); font-weight: 700; margin-bottom: 1rem;">
+                            {% if current_lang == 'fr' %}Contact Personnel{% else %}Personal Contact{% endif %}
+                        </h4>
+                        <p class="mb-1">
+                            <a href="mailto:blaisederge@outlook.com" style="color: var(--secondary-1); text-decoration: none;">
+                                blaisederge@outlook.com
+                            </a>
+                        </p>
+                        <p class="mb-2">
+                            <a href="tel:+22892530512" style="color: var(--secondary-1); text-decoration: none;">
+                                +228 92 53 05 12
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4 text-center">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">💬</span>
+                        <h4 style="color: var(--accent-color); font-weight: 700; margin-bottom: 1rem;">
+                            {% if current_lang == 'fr' %}Réseaux Sociaux{% else %}Social Media{% endif %}
+                        </h4>
+                        <div class="d-flex gap-2 justify-content-center flex-wrap">
+                            <a href="https://wa.me/22892384092" class="btn btn-sm btn-outline-success" target="_blank">WhatsApp</a>
+                            <a href="https://facebook.com/colprad" class="btn btn-sm btn-outline-primary" target="_blank">Facebook</a>
+                            <a href="https://youtube.com/@colprad" class="btn btn-sm btn-outline-danger" target="_blank">YouTube</a>
+                            <a href="https://linkedin.com/company/colprad" class="btn btn-sm btn-outline-info" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-lg-10 mx-auto text-center">
+                <h2 class="section-title-main mb-3">
+                    {% if current_lang == 'fr' %}Questions Fréquentes{% else %}Frequently Asked Questions{% endif %}
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                {% if current_lang == 'fr' %}
+                                    Puis-je arriver en retard ?
+                                {% else %}
+                                    Can I arrive late?
+                                {% endif %}
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                {% if current_lang == 'fr' %}
+                                    Nous vous recommandons d'arriver au moins 30 minutes avant le début (13H30) pour l'enregistrement. 
+                                    L'accès sera possible jusqu'à 14H30, mais vous risquez de manquer la cérémonie d'ouverture.
+                                {% else %}
+                                    We recommend arriving at least 30 minutes before the start (1:30 PM) for registration. 
+                                    Access will be possible until 2:30 PM, but you may miss the opening ceremony.
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                {% if current_lang == 'fr' %}
+                                    Y a-t-il un parking disponible ?
+                                {% else %}
+                                    Is parking available?
+                                {% endif %}
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                {% if current_lang == 'fr' %}
+                                    Oui, un parking gratuit est disponible sur place pour tous les participants. 
+                                    L'espace est sécurisé pendant toute la durée de l'événement.
+                                {% else %}
+                                    Yes, free parking is available on site for all participants. 
+                                    The space is secured throughout the event.
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                {% if current_lang == 'fr' %}
+                                    Que comprend mon billet ?
+                                {% else %}
+                                    What does my ticket include?
+                                {% endif %}
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                {% if current_lang == 'fr' %}
+                                    Votre billet comprend : l'accès à toutes les sessions, le matériel de conférence, 
+                                    le cocktail de networking, le certificat de participation, et selon votre catégorie, 
+                                    des avantages supplémentaires (places réservées, kit VIP, etc.).
+                                {% else %}
+                                    Your ticket includes: access to all sessions, conference materials, 
+                                    networking cocktail, participation certificate, and depending on your category, 
+                                    additional benefits (reserved seats, VIP kit, etc.).
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                {% if current_lang == 'fr' %}
+                                    Puis-je annuler ou transférer mon billet ?
+                                {% else %}
+                                    Can I cancel or transfer my ticket?
+                                {% endif %}
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                {% if current_lang == 'fr' %}
+                                    Les billets sont transférables à une autre personne jusqu'à 48h avant l'événement. 
+                                    Pour toute demande d'annulation ou de transfert, contactez-nous à colpradofficiel@gmail.com.
+                                {% else %}
+                                    Tickets are transferable to another person up to 48 hours before the event. 
+                                    For any cancellation or transfer request, contact us at colpradofficiel@gmail.com.
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="cta-title">
+                    {% if current_lang == 'fr' %}
+                        Prêt à Participer à COLPRAD 2025 ?
+                    {% else %}
+                        Ready to Participate in COLPRAD 2025?
+                    {% endif %}
+                </h2>
+                <p class="cta-text">
+                    {% if current_lang == 'fr' %}
+                        Réservez votre place dès maintenant pour cet événement unique
+                    {% else %}
+                        Book your spot now for this unique event
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{{ url_for('tickets') }}" class="btn btn-cta btn-lg">
+                    {% if current_lang == 'fr' %}Réserver Mon Billet{% else %}Book My Ticket{% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -172,10 +172,42 @@ def checkout():
         db.session.add(order)
         db.session.commit()
         
-        # Redirect to PayGate for payment
-        return redirect(url_for('process_payment', order_number=order.order_number))
+        # Redirect to WhatsApp for payment confirmation
+        return redirect(url_for('whatsapp_payment', order_number=order.order_number))
     
     return render_template('checkout.html', order_data=order_data)
+
+@app.route('/whatsapp-payment/<order_number>')
+def whatsapp_payment(order_number):
+    """
+    Redirige vers WhatsApp pour confirmer le paiement
+    """
+    order = Order.query.filter_by(order_number=order_number).first_or_404()
+    
+    # Créer le message WhatsApp pré-rempli
+    whatsapp_number = "22892384092"  # Numéro WhatsApp COLPRAD
+    
+    message = f"""Bonjour COLPRAD! 👋
+
+Je viens de remplir le formulaire de réservation et je souhaite payer mon billet.
+
+📋 *Détails de ma commande:*
+• Numéro: {order.order_number}
+• Nom: {order.first_name} {order.last_name}
+• Type de billet: {order.ticket_type.upper()}
+• Quantité: {order.quantity}
+• Montant: {order.total_amount:,.0f} FCFA
+
+💳 *Numéros de paiement:*
+• TMoney/Flooz: +228 92 38 40 92
+• Moov Money: +228 92 38 40 92
+
+Je vais effectuer le paiement maintenant. Merci!"""
+    
+    return render_template('whatsapp_redirect.html', 
+                         whatsapp_number=whatsapp_number,
+                         message=message,
+                         order=order)
 
 @app.route('/process-payment/<order_number>')
 def process_payment(order_number):
