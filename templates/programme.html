@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-professional" style="min-height: 40vh;">
+  <div class="hero-overlay"></div>
+  <div class="container position-relative">
+    <div class="row align-items-center" style="min-height: 40vh;">
+      <div class="col-lg-10 mx-auto text-center text-white">
+        <h1 class="hero-title mb-3">Programme</h1>
+        <p class="hero-subtitle">Parcours des sessions et livrables</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Programme Content -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-lg-10 mx-auto">
+        <div class="program-card p-4 p-md-5" style="background:#fff; border-left:4px solid var(--secondary-1); box-shadow:0 8px 24px rgba(0,0,0,0.06); border-radius:12px;">
+          <h2 class="section-title-main mb-4" style="text-align:center;">Programme détaillé</h2>
+
+          <div class="mb-5">
+            <h3 class="mb-2" style="color:var(--accent-color);">Session 1 — Parade de contextualisation</h3>
+            <ul class="mb-2">
+              <li><strong>Objectif</strong> : Créer une ambiance et une prestation amenant l’audiance dans le contexte du colloque</li>
+              <li><strong>Contenu</strong> : Interprétation de Chants, écrivains, humouristes...</li>
+              <li><strong>Intervenant·e ciblé·e</strong> :</li>
+            </ul>
+          </div>
+
+          <div class="mb-5">
+            <h3 class="mb-2" style="color:var(--accent-color);">Session 2 — Valoriser l’art local : professionnalisation et modèles durables</h3>
+            <ul class="mb-2">
+              <li><strong>Objectif</strong> : Proposer voies concrètes pour transformer la pratique artistique informelle en activité économiquement viable.</li>
+              <li><strong>Contenu</strong> : statuts et formalisation ; modèles de revenus (ventes, commandes, prestations, licences) ; micro-mécénat et financement participatif ; exemples locaux.</li>
+              <li><strong>Intervenant·e ciblé·e</strong> : entrepreneur culturel ou responsable d’incubateur culturel.</li>
+              <li><strong>Livrable</strong> : fiche-action 1 page (checklist formalisation, 1 source de financement court terme, contact d’accompagnement).</li>
+            </ul>
+          </div>
+
+          <div class="mb-5">
+            <h3 class="mb-2" style="color:var(--accent-color);">Session 3 — De la pratique à l’éducation : intégrer l’art dans les parcours jeunesse</h3>
+            <ul class="mb-2">
+              <li><strong>Objectif</strong> : Définir formats pédagogiques praticables en école et dispositifs de médiation.</li>
+              <li><strong>Contenu</strong> : ateliers clé-en-main ; résidences courtes et mentorat intergénérationnel ; kits pédagogiques ; indicateurs simples d’impact.</li>
+              <li><strong>Intervenant·e ciblé·e</strong> : enseignant en arts, responsable programme éducatif, ONG de médiation.</li>
+              <li><strong>Livrable</strong> : fiche-action 1 page (2 formats pilotes à tester, plan de mise en œuvre dans 2 établissements).</li>
+            </ul>
+          </div>
+
+          <div class="mb-5">
+            <h3 class="mb-2" style="color:var(--accent-color);">Session 4 — Identité visuelle, diffusion physique, numérique et monétisation pour créateurs</h3>
+            <ul class="mb-2">
+              <li><strong>Objectif</strong> : Outiller les créateurs pour construire visibilité et revenus via le numérique.</li>
+              <li><strong>Contenu</strong> : templates portfolio, formats contenus performants, plateformes et outils low-cost, protection des œuvres.</li>
+              <li><strong>Intervenant·e ciblé·e</strong> : expert UX/UI pour culture ou fondateur marketplace culturelle.</li>
+              <li><strong>Livrable</strong> : fiche-action 1 page (3 templates visuels, 2 formats vidéo, 1 outil gratuit de catalogue/vente).</li>
+            </ul>
+          </div>
+
+          <div class="mb-5">
+            <h3 class="mb-2" style="color:var(--accent-color);">Table ronde — Gouvernance, financement et écosystème</h3>
+            <ul class="mb-2">
+              <li><strong>Objectif</strong> : Rassembler institutions, privés et artistes pour adopter engagements concrets.</li>
+              <li><strong>Composition</strong> : 4 panélistes (représentant mairie/ministère, sponsor/opérateur, structure formation/incubateur, artiste représentant créateurs en herbe).</li>
+              <li><strong>Thèmes</strong> : mécanismes financement ; rôle opérateurs télécoms ; formation et mentoring ; création d’espaces de diffusion.</li>
+              <li><strong>Livrable</strong> : feuille de route 5 engagements signés</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="mb-2" style="color:var(--accent-color);">Session finale — Parade publicitaire des artistes et animation de fin</h3>
+            <ul class="mb-0">
+              <li><strong>Objectif</strong> : Ambiance de fin</li>
+              <li><strong>Contenu</strong> : Branding, réseautage, interprétations et promotions des œuvres bibliographiques et discographiques et autres produits artisanaux...</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
