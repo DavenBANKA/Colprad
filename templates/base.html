@@ -90,11 +90,6 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('program') }}">
-                                {% if current_lang == 'fr' %}Programme{% else %}Program{% endif %}
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('speakers') }}">
                                 {% if current_lang == 'fr' %}Intervenants{% else %}Speakers{% endif %}
                             </a>
@@ -172,8 +167,6 @@
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="{{ url_for('about') }}">{% if current_lang == 'fr' %}À propos{% else
                                 %}About{% endif %}</a></li>
-                        <li class="mb-2"><a href="{{ url_for('program') }}">{% if current_lang == 'fr' %}Programme{%
-                                else %}Program{% endif %}</a></li>
                         <li class="mb-2"><a href="{{ url_for('contact') }}">Contact</a></li>
                         <li class="mb-2"><a href="{{ url_for('legal') }}">{% if current_lang == 'fr' %}Mentions
                                 légales{% else %}Legal Notice{% endif %}</a></li>

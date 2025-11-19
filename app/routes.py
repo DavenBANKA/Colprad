@@ -24,7 +24,8 @@ def a_propos():
 
 @main_bp.route("/programme")
 def programme():
-    return render_template("programme.html")
+    return redirect(url_for("main.index"))
+
 
 
 @main_bp.route("/intervenants")

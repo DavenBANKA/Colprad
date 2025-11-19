@@ -56,9 +56,6 @@
                     <a href="{{ url_for('tickets') }}" class="btn btn-hero btn-lg me-3 mb-3">
                         {% if current_lang == 'fr' %}Réserver ma place{% else %}Book My Seat{% endif %}
                     </a>
-                    <a href="{{ url_for('program') }}" class="btn btn-hero-outline btn-lg mb-3">
-                        {% if current_lang == 'fr' %}Découvrir le programme{% else %}Discover Program{% endif %}
-                    </a>
                     <a href="https://whatsapp.com/channel/0029Vb70EsBDDmFLvmlU453l" class="btn btn-sm btn-outline-success" target="_blank" rel="noopener">WhatsApp</a>
                     <a href="https://www.youtube.com/@blaisedergeofficiel" class="btn btn-sm btn-outline-danger" target="_blank" rel="noopener">YouTube</a>
                 </div>
@@ -172,88 +169,6 @@
                 </div>
             </div>
             
-        </div>
-    </div>
-</section>
-
-<!-- Program Highlights -->
-<section class="py-5 bg-white">
-    <div class="container">
-        <div class="section-header text-center mb-5">
-            <h2 class="section-title">
-                {% if current_lang == 'fr' %}Programme de la Journée{% else %}Day Program{% endif %}
-            </h2>
-            <p class="section-subtitle">
-                {% if current_lang == 'fr' %}
-                    Un moment intensif de conférences, ateliers et networking - 13 Décembre 2025, 14H-17H
-                {% else %}
-                    An intensive moment of conferences, workshops and networking - December 13, 2025, 2PM-5PM
-                {% endif %}
-            </p>
-        </div>
-        <div class="row g-4">
-            <div class="col-lg-12">
-                <div class="program-card">
-                    <div class="program-day">
-                        {% if current_lang == 'fr' %}13 Décembre 2025 | 14H - 17H{% else %}December 13, 2025 | 2PM - 5PM{% endif %}
-                    </div>
-                    <h3 class="program-title">
-                        {% if current_lang == 'fr' %}
-                            Politiques Culturelles, Financement et Développement du Secteur Créatif
-                        {% else %}
-                            Cultural Policies, Funding and Creative Sector Development
-                        {% endif %}
-                    </h3>
-                    <ul class="program-list">
-                        <li>
-                            <strong>14H00 - 14H30</strong> : 
-                            {% if current_lang == 'fr' %}
-                                Accueil et enregistrement des participants
-                            {% else %}
-                                Welcome and participant registration
-                            {% endif %}
-                        </li>
-                        <li>
-                            <strong>14H30 - 15H00</strong> : 
-                            {% if current_lang == 'fr' %}
-                                Cérémonie d'ouverture avec discours officiels
-                            {% else %}
-                                Opening ceremony with official speeches
-                            {% endif %}
-                        </li>
-                        <li>
-                            <strong>15H00 - 15H45</strong> : 
-                            {% if current_lang == 'fr' %}
-                                Panel principal : Politiques culturelles et financement en Afrique de l'Ouest
-                            {% else %}
-                                Main panel: Cultural policies and funding in West Africa
-                            {% endif %}
-                        </li>
-                        <li>
-                            <strong>15H45 - 16H30</strong> : 
-                            {% if current_lang == 'fr' %}
-                                Ateliers thématiques et sessions de networking
-                            {% else %}
-                                Thematic workshops and networking sessions
-                            {% endif %}
-                        </li>
-                        <li>
-                            <strong>16H30 - 17H00</strong> : 
-                            {% if current_lang == 'fr' %}
-                                Clôture et cocktail de networking
-                            {% else %}
-                                Closing and networking cocktail
-                            {% endif %}
-                        </li>
-                    </ul>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="text-center mt-5">
-            <a href="{{ url_for('program') }}" class="btn btn-primary btn-lg">
-                {% if current_lang == 'fr' %}Consulter le programme complet{% else %}View Full Program{% endif %}
-            </a>
         </div>
     </div>
 </section>
