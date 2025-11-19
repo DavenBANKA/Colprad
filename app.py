@@ -200,7 +200,7 @@ Je viens de remplir le formulaire de réservation et je souhaite payer mon bille
 
 💳 *Numéros de paiement:*
 • TMoney/Flooz: +228 92 38 40 92
-• Moov Money: +228 92 38 40 92
+• Moov Money: +228 99 71 50 52
 
 Je vais effectuer le paiement maintenant. Merci!"""
     

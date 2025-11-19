@@ -19,7 +19,7 @@
                 </h1>
                 <p class="hero-subtitle mb-5">
                     {% if current_lang == 'fr' %}
-                        Le COLPRAD réunit les acteurs majeurs du secteur culturel et artistique pour une journée d'échanges stratégiques 
+                        Le COLPRAD réunit les acteurs majeurs du secteur culturel et artistique pour un moment intensif d'échanges stratégiques 
                         sur les politiques culturelles, le financement des arts et le développement durable du secteur créatif. 
                         Une plateforme d'excellence où se rencontrent artistes, gestionnaires culturels, décideurs politiques et investisseurs 
                         pour construire ensemble l'écosystème culturel de demain.
@@ -46,8 +46,15 @@
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="meta-card">
-                                <div class="meta-value">{% if current_lang == 'fr' %}Hôtel Elie Palace{% else %}Elie Palace Hotel{% endif %}</div>
-                                <div class="meta-label">Adidogomé - Lomé</div>
+                                <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">📱</span>
+                                <h5 style="color: var(--accent-color); font-weight: 700;">{% if current_lang == 'fr' %}Téléphone{% else %}Phone{% endif %}</h5>
+                                <p><a href="tel:+22892384092" style="color: var(--secondary-1); text-decoration: none;">+228 92 38 40 92</a></p>
+                                <small class="text-muted">{% if current_lang == 'fr' %}Disponible 24h/24{% else %}Available 24/7{% endif %}</small>
+                                <div class="meta-label">Amadahomé, Adidogomé, Lomé Togo</div>
+                                <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">📧</span>
+                                <h5 style="color: var(--accent-color); font-weight: 700;">Email</h5>
+                                <p><a href="mailto:colpradofficiel@gmail.com" style="color: var(--secondary-1); text-decoration: none;">colpradofficiel@gmail.com</a></p>
+                                <small class="text-muted">{% if current_lang == 'fr' %}Disponible 24h/24{% else %}Available 24/7{% endif %}</small>
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
@@ -65,6 +72,8 @@
                     <a href="{{ url_for('program') }}" class="btn btn-hero-outline btn-lg mb-3">
                         {% if current_lang == 'fr' %}Découvrir le programme{% else %}Discover Program{% endif %}
                     </a>
+                    <a href="https://whatsapp.com/channel/0029Vb70EsBDDmFLvmlU453l" class="btn btn-sm btn-outline-success" target="_blank" rel="noopener">WhatsApp</a>
+                    <a href="https://www.youtube.com/@blaisedergeofficiel" class="btn btn-sm btn-outline-danger" target="_blank" rel="noopener">YouTube</a>
                 </div>
             </div>
         </div>
@@ -78,20 +87,16 @@
             <div class="col-lg-10 mx-auto text-center">
                 <h2 class="section-title-main mb-4">
                     {% if current_lang == 'fr' %}
-                        Une Plateforme Stratégique pour le Développement Culturel
+                        Le rendez-vous stratégique de la communauté de créateurs pour un Développement Culturel durable 
                     {% else %}
-                        A Strategic Platform for Cultural Development
+                        A Strategic Meeting of the Creators' Community for Sustainable Cultural Development
                     {% endif %}
                 </h2>
                 <p class="section-description">
                     {% if current_lang == 'fr' %}
-                        Le COLPRAD s'impose comme le rendez-vous incontournable des professionnels de la culture en Afrique de l'Ouest. 
-                        Depuis sa création, le colloque a facilité plus de 500 partenariats stratégiques et contribué au financement 
-                        de dizaines de projets culturels d'envergure régionale et internationale.
+                        Le Colloque des Professionnels de l'Art pour le Développement s'impose comme le rendez-vous incontournable des professionnels sans cesse à  l'œuvre au service de l'éducation. Depuis sa création par Life Field, ce collectif facilite des partenariats stratégiques et contribue au financement des projets artistiques d'envergure sectorielle, nationale, régionale et internationale.
                     {% else %}
-                        COLPRAD has established itself as the essential meeting place for culture professionals in West Africa. 
-                        Since its creation, the conference has facilitated over 500 strategic partnerships and contributed to the financing 
-                        of dozens of regional and international cultural projects.
+                        The Conference of Art Professionals for Development has become the essential meeting for professionals tirelessly at work in the service of education. Since its creation by Life Field, this collective has facilitated strategic partnerships and contributed to funding artistic projects of sectoral, national, regional and international scope.
                     {% endif %}
                 </p>
             </div>
@@ -106,10 +111,7 @@
                     </h3>
                     <p class="info-text">
                         {% if current_lang == 'fr' %}
-                            Analyse approfondie des cadres réglementaires et politiques culturelles en Afrique de l'Ouest. 
-                            Participation d'experts internationaux, ministres de la Culture, directeurs d'institutions culturelles 
-                            et représentants d'organisations internationales (UNESCO, Union Africaine, CEDEAO). 
-                            Études de cas sur les réformes réussies et les meilleures pratiques en matière de gouvernance culturelle.
+                            Analyse approfondie des cadres réglementaires et politiques culturelles. Participation d'experts nationaux et internationaux, ministres de la Culture, directeurs d'institutions culturelles et représentants d'organisations internationales. Études de cas sur les réformes réussies et les meilleures pratiques en matière de gouvernance culturelle.
                         {% else %}
                             In-depth analysis of regulatory frameworks and cultural policies in West Africa. 
                             Participation of international experts, Ministers of Culture, directors of cultural institutions 
@@ -127,10 +129,7 @@
                     </h3>
                     <p class="info-text">
                         {% if current_lang == 'fr' %}
-                            Exploration des mécanismes de financement innovants pour les projets culturels : subventions publiques, 
-                            mécénat d'entreprise, crowdfunding, investissement d'impact. Présentation des fonds de développement culturel, 
-                            des programmes de soutien internationaux et des opportunités de partenariat public-privé. 
-                            Sessions de pitch pour les porteurs de projets et rencontres B2B avec des investisseurs potentiels.
+                            Exploration des mécanismes de financement innovants pour les projets culturels : subventions publiques, mécénat d'entreprise, crowdfunding, investissement d'impact. Présentation des fonds de développement culturel, des programmes de soutien et des opportunités de partenariat public-privé. Sessions de pitch pour les porteurs de projets et rencontres B2B avec des investisseurs potentiels.
                         {% else %}
                             Exploration of innovative financing mechanisms for cultural projects: public grants, 
                             corporate patronage, crowdfunding, impact investment. Presentation of cultural development funds, 
@@ -185,14 +184,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-6">
-                <div class="stat-item">
-                    <div class="stat-number">6+</div>
-                    <div class="stat-label">
-                        {% if current_lang == 'fr' %}Sessions{% else %}Sessions{% endif %}
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </section>
@@ -206,9 +198,9 @@
             </h2>
             <p class="section-subtitle">
                 {% if current_lang == 'fr' %}
-                    Une journée intensive de conférences, ateliers et networking - 13 Décembre 2025, 14H-17H
+                    Un moment intensif de conférences, ateliers et networking - 13 Décembre 2025, 14H-17H
                 {% else %}
-                    An intensive day of conferences, workshops and networking - December 13, 2025, 2PM-5PM
+                    An intensive moment of conferences, workshops and networking - December 13, 2025, 2PM-5PM
                 {% endif %}
             </p>
         </div>
@@ -269,7 +261,7 @@
                     </ul>
                     <div class="mt-3">
                         <span class="badge bg-primary me-2">{% if current_lang == 'fr' %}Hôtel Elie Palace{% else %}Elie Palace Hotel{% endif %}</span>
-                        <span class="badge bg-secondary">Adidogomé - Lomé</span>
+                        <span class="badge bg-secondary">Amadahomé, Adidogomé, Lomé Togo</span>
                     </div>
                 </div>
             </div>
@@ -302,8 +294,7 @@
                     </h4>
                     <p class="why-text">
                         {% if current_lang == 'fr' %}
-                            Bénéficiez de l'expérience de plus de 50 experts internationaux en politiques culturelles, 
-                            financement de projets et développement du secteur créatif.
+                            Bénéficiez de l'expérience des experts en politiques culturelles, financement de projets et développement du secteur créatif.
                         {% else %}
                             Benefit from the experience of over 50 international experts in cultural policies, 
                             project financing and creative sector development.
@@ -322,8 +313,7 @@
                     </h4>
                     <p class="why-text">
                         {% if current_lang == 'fr' %}
-                            Découvrez les mécanismes de financement disponibles, rencontrez des bailleurs de fonds 
-                            et apprenez à monter des dossiers de financement efficaces.
+                            Découvrez les mécanismes de financement disponibles, rencontrez des bailleurs de fonds et apprenez à monter des dossiers efficaces.
                         {% else %}
                             Discover available funding mechanisms, meet funders 
                             and learn how to build effective funding proposals.
@@ -342,8 +332,7 @@
                     </h4>
                     <p class="why-text">
                         {% if current_lang == 'fr' %}
-                            Créez des contacts durables avec des professionnels du secteur culturel, 
-                            des décideurs politiques et des acteurs économiques.
+                            Créez des contacts durables avec des professionnels du secteur culturel, des décideurs politiques et des éducateurs, formateurs et acteurs économiques.
                         {% else %}
                             Create lasting partnerships with cultural sector professionals, 
                             policy makers and economic actors.
@@ -362,8 +351,7 @@
                     </h4>
                     <p class="why-text">
                         {% if current_lang == 'fr' %}
-                            Participez à des ateliers pratiques, obtenez un certificat de participation 
-                            et renforcez vos compétences en gestion culturelle.
+                            Participez à des ateliers pratiques, obtenez un certificat de participation et renforcez vos compétences en gestion de carrière culturelle
                         {% else %}
                             Participate in practical workshops, obtain a certificate of participation 
                             and strengthen your cultural management skills.
