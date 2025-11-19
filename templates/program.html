@@ -9,16 +9,16 @@
             <div class="col-lg-10 mx-auto text-center text-white">
                 <h1 class="hero-title mb-4">
                     {% if current_lang == 'fr' %}
-                        Programme COLPRAD 2025
+                        Programme COLPRAD - 1ère Édition
                     {% else %}
-                        COLPRAD 2025 Program
+                        COLPRAD Program - 1st Edition
                     {% endif %}
                 </h1>
                 <p class="hero-subtitle">
                     {% if current_lang == 'fr' %}
-                        Un après-midi intensif de conférence, d'ateliers et de networking pour transformer le secteur culturel et artistique vers une horizon plus productive.
+                        Une journée intensive dédiée à la professionnalisation et au développement de l'art en Afrique de l'Ouest
                     {% else %}
-                        An intensive afternoon of conference, workshops and networking to transform the cultural and artistic sector towards a more productive horizon.
+                        An intensive day dedicated to the professionalization and development of art in West Africa
                     {% endif %}
                 </p>
             </div>
@@ -31,239 +31,262 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-10 mx-auto text-center">
-                <h2 class="section-title-main mb-4">
-                    {% if current_lang == 'fr' %}Un Programme Riche et Diversifié{% else %}A Rich and Diverse Program{% endif %}
-                </h2>
-                <p class="section-description">
-                    {% if current_lang == 'fr' %}
-                        Le programme COLPRAD 2025 a été conçu pour offrir une expérience complète et enrichissante en une journée, 
-                        combinant sessions plénières de haut niveau, ateliers pratiques, tables rondes interactives 
-                        et opportunités de networking stratégique. Rendez-vous le 13 Décembre 2025 de 14H à 17H à Lomé, Togo.
-                    {% else %}
-                        The COLPRAD 2025 program has been designed to offer a complete and enriching experience in one day, 
-                        combining high-level plenary sessions, practical workshops, interactive round tables 
-                        and strategic networking opportunities. Join us on December 13, 2025 from 2PM to 5PM in Lomé, Togo.
-                    {% endif %}
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Programme du 13 Décembre 2025 -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="program-day-header">
-                    <h2 class="text-center mb-2" style="color: var(--accent-color); font-size: 2.5rem;">
+                <div class="mb-4">
+                    <h2 class="section-title-main mb-3" style="color: var(--accent-color);">
                         {% if current_lang == 'fr' %}13 Décembre 2025{% else %}December 13, 2025{% endif %}
                     </h2>
                     <h3 class="text-center mb-2" style="color: var(--secondary-1); font-size: 1.5rem;">
                         14H00 - 17H00
                     </h3>
                     <p class="text-center" style="color: var(--secondary-2); font-size: 1.2rem; font-weight: 600;">
-                        {% if current_lang == 'fr' %}
-                            Lomé, Togo
-                        {% else %}
-                            Lomé, Togo
-                        {% endif %}
+                        Hôtel Elie Palace, Adidogomé - Lomé, Togo
                     </p>
                 </div>
             </div>
         </div>
         
-        <div class="row g-4">
-            <div class="col-lg-6">
-                <div class="program-card">
+        <!-- Session 1 -->
+        <div class="row g-4 mb-4">
+            <div class="col-lg-12">
+                <div class="program-card" style="border-top: 4px solid var(--accent-color);">
                     <div class="program-time">14:00 - 14:30</div>
                     <h4 class="program-session-title">
-                        {% if current_lang == 'fr' %}Accueil et Enregistrement{% else %}Welcome and Registration{% endif %}
+                        {% if current_lang == 'fr' %}
+                            Session 1 — Parade de Contextualisation
+                        {% else %}
+                            Session 1 — Contextualization Parade
+                        {% endif %}
                     </h4>
                     <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Objectif{% else %}Objective{% endif %} :</strong>
                         {% if current_lang == 'fr' %}
-                            Accueil des participants, remise des badges et kits participants. 
-                            Première prise de contact avec les autres professionnels du secteur culturel.
+                            Créer une ambiance et une prestation amenant l'audience dans le contexte du colloque
                         {% else %}
-                            Welcome participants, badge and participant kit distribution. 
-                            First contact with other cultural sector professionals.
+                            Create an atmosphere and performance bringing the audience into the context of the conference
+                        {% endif %}
+                    </p>
+                    <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Contenu{% else %}Content{% endif %} :</strong>
+                        {% if current_lang == 'fr' %}
+                            Interprétation de chants, écrivains, humouristes...
+                        {% else %}
+                            Interpretation of songs, writers, comedians...
                         {% endif %}
                     </p>
                 </div>
             </div>
-            
-            <div class="col-lg-6">
-                <div class="program-card">
+        </div>
+
+        <!-- Session 2 -->
+        <div class="row g-4 mb-4">
+            <div class="col-lg-12">
+                <div class="program-card" style="border-top: 4px solid var(--secondary-1);">
                     <div class="program-time">14:30 - 15:00</div>
                     <h4 class="program-session-title">
-                        {% if current_lang == 'fr' %}Cérémonie d'Ouverture{% else %}Opening Ceremony{% endif %}
+                        {% if current_lang == 'fr' %}
+                            Session 2 — Valoriser l'Art Local : Professionnalisation et Modèles Durables
+                        {% else %}
+                            Session 2 — Promoting Local Art: Professionalization and Sustainable Models
+                        {% endif %}
                     </h4>
                     <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Objectif{% else %}Objective{% endif %} :</strong>
                         {% if current_lang == 'fr' %}
-                            Discours officiels des autorités, présentation du colloque et de ses objectifs. 
-                            Intervention des partenaires institutionnels et sponsors principaux.
+                            Proposer des voies concrètes pour transformer la pratique artistique informelle en activité économiquement viable
                         {% else %}
-                            Official speeches from authorities, presentation of the conference and its objectives. 
-                            Intervention of institutional partners and main sponsors.
+                            Propose concrete ways to transform informal artistic practice into economically viable activity
                         {% endif %}
                     </p>
-                </div>
-            </div>
-            
-            <div class="col-lg-12">
-                <div class="program-card" style="border-top-color: var(--secondary-2);">
-                    <div class="program-time">15:00 - 15:45</div>
-                    <h4 class="program-session-title">
-                        {% if current_lang == 'fr' %}
-                            Panel Principal : Politiques Culturelles et Financement en Afrique de l'Ouest
-                        {% else %}
-                            Main Panel: Cultural Policies and Funding in West Africa
-                        {% endif %}
-                    </h4>
                     <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Contenu{% else %}Content{% endif %} :</strong>
                         {% if current_lang == 'fr' %}
-                            Table ronde de haut niveau réunissant ministres de la Culture, directeurs d'institutions culturelles, 
-                            représentants de l'UNESCO, de l'Union Africaine et de la CEDEAO. Discussion sur les défis et opportunités 
-                            des politiques culturelles régionales, les mécanismes de financement et les stratégies de développement culturel durable.
+                            Statuts et formalisation • Modèles de revenus (ventes, commandes, prestations, licences) • 
+                            Micro-mécénat et financement participatif • Exemples locaux
                         {% else %}
-                            High-level round table bringing together Ministers of Culture, directors of cultural institutions, 
-                            representatives of UNESCO, the African Union and ECOWAS. Discussion on challenges and opportunities 
-                            of regional cultural policies, funding mechanisms and sustainable cultural development strategies.
+                            Status and formalization • Revenue models (sales, orders, services, licenses) • 
+                            Micro-patronage and crowdfunding • Local examples
+                        {% endif %}
+                    </p>
+                    <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Intervenant ciblé{% else %}Target Speaker{% endif %} :</strong>
+                        {% if current_lang == 'fr' %}
+                            Entrepreneur culturel ou responsable d'incubateur culturel
+                        {% else %}
+                            Cultural entrepreneur or cultural incubator manager
                         {% endif %}
                     </p>
                     <div class="mt-3">
-                        <span class="badge bg-primary me-2">{% if current_lang == 'fr' %}Conférence Plénière{% else %}Plenary Conference{% endif %}</span>
-                        <span class="badge bg-secondary">{% if current_lang == 'fr' %}Traduction simultanée{% else %}Simultaneous Translation{% endif %}</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="program-card">
-                    <div class="program-time">15:45 - 16:30</div>
-                    <h4 class="program-session-title">
-                        {% if current_lang == 'fr' %}Atelier A : Gestion de Projets Culturels{% else %}Workshop A: Cultural Project Management{% endif %}
-                    </h4>
-                    <p class="program-description">
-                        {% if current_lang == 'fr' %}
-                            Méthodologies de gestion de projets culturels, planification stratégique, 
-                            budgétisation et suivi-évaluation. Études de cas pratiques et échanges d'expériences.
-                        {% else %}
-                            Cultural project management methodologies, strategic planning, 
-                            budgeting and monitoring-evaluation. Practical case studies and experience sharing.
-                        {% endif %}
-                    </p>
-                    <div class="mt-3">
-                        <span class="badge bg-success">{% if current_lang == 'fr' %}Atelier Pratique{% else %}Practical Workshop{% endif %}</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="program-card">
-                    <div class="program-time">15:45 - 16:30</div>
-                    <h4 class="program-session-title">
-                        {% if current_lang == 'fr' %}Atelier B : Financement et Mécénat Culturel{% else %}Workshop B: Cultural Funding and Patronage{% endif %}
-                    </h4>
-                    <p class="program-description">
-                        {% if current_lang == 'fr' %}
-                            Stratégies de levée de fonds, montage de dossiers de financement, 
-                            approche des mécènes et investisseurs. Opportunités de financement disponibles.
-                        {% else %}
-                            Fundraising strategies, funding proposal development, 
-                            approaching patrons and investors. Available funding opportunities.
-                        {% endif %}
-                    </p>
-                    <div class="mt-3">
-                        <span class="badge bg-success">{% if current_lang == 'fr' %}Atelier Pratique{% else %}Practical Workshop{% endif %}</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-12">
-                <div class="program-card" style="border-top-color: var(--vip-color);">
-                    <div class="program-time">16:30 - 17:00</div>
-                    <h4 class="program-session-title">
-                        {% if current_lang == 'fr' %}Clôture et Cocktail de Networking{% else %}Closing and Networking Cocktail{% endif %}
-                    </h4>
-                    <p class="program-description">
-                        {% if current_lang == 'fr' %}
-                            Synthèse de la journée, remise des certificats de participation et cocktail de networking. 
-                            Opportunité d'échanges informels avec les intervenants, décideurs et autres participants.
-                        {% else %}
-                            Summary of the day, distribution of participation certificates and networking cocktail. 
-                            Opportunity for informal exchanges with speakers, decision-makers and other participants.
-                        {% endif %}
-                    </p>
-                    <div class="mt-3">
-                        <span class="badge" style="background-color: var(--secondary-2);">{% if current_lang == 'fr' %}Networking{% else %}Networking{% endif %}</span>
+                        <span class="badge bg-success">{% if current_lang == 'fr' %}Livrable : Fiche-action 1 page{% else %}Deliverable: 1-page action sheet{% endif %}</span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
 
-
-
-<!-- Important Notes -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="alert alert-info" style="border-left: 4px solid var(--secondary-1);">
-                    <h5 class="alert-heading">
-                        {% if current_lang == 'fr' %}Informations Importantes{% else %}Important Information{% endif %}
-                    </h5>
-                    <ul class="mb-0">
-                        <li>
-                            {% if current_lang == 'fr' %}
-                                Le programme détaillé avec les noms des intervenants sera communiqué aux participants inscrits
-                            {% else %}
-                                The detailed program with speaker names will be communicated to registered participants
-                            {% endif %}
-                        </li>
-                        <li>
-                            {% if current_lang == 'fr' %}
-                                Des modifications mineures peuvent intervenir pour optimiser l'expérience des participants
-                            {% else %}
-                                Minor changes may occur to optimize the participant experience
-                            {% endif %}
-                        </li>
-                        <li>
-                            {% if current_lang == 'fr' %}
-                                Les ateliers sont à capacité limitée - inscription prioritaire pour les participants Premium et VIP
-                            {% else %}
-                                Workshops have limited capacity - priority registration for Premium and VIP participants
-                            {% endif %}
-                        </li>
-                        <li>
-                            {% if current_lang == 'fr' %}
-                                Traduction simultanée français-anglais disponible pour les sessions plénières
-                            {% else %}
-                                Simultaneous French-English translation available for plenary sessions
-                            {% endif %}
-                        </li>
-                        <li>
-                            {% if current_lang == 'fr' %}
-                                Lieu : Lomé, Togo
-                            {% else %}
-                                Venue: Lomé, Togo
-                            {% endif %}
-                        </li>
-                        <li>
-                            {% if current_lang == 'fr' %}
-                                Horaires : 14H00 - 17H00 (accueil dès 14H00)
-                            {% else %}
-                                Schedule: 2PM - 5PM (welcome from 2PM)
-                            {% endif %}
-                        </li>
-                    </ul>
-                    <p class="text-muted small">
+        <!-- Session 3 -->
+        <div class="row g-4 mb-4">
+            <div class="col-lg-12">
+                <div class="program-card" style="border-top: 4px solid var(--secondary-2);">
+                    <div class="program-time">15:00 - 15:30</div>
+                    <h4 class="program-session-title">
                         {% if current_lang == 'fr' %}
-                            Disponible 24h/24
+                            Session 3 — De la Pratique à l'Éducation : Intégrer l'Art dans les Parcours Jeunesse
                         {% else %}
-                            Available 24/7
+                            Session 3 — From Practice to Education: Integrating Art into Youth Pathways
+                        {% endif %}
+                    </h4>
+                    <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Objectif{% else %}Objective{% endif %} :</strong>
+                        {% if current_lang == 'fr' %}
+                            Définir des formats pédagogiques praticables en école et dispositifs de médiation
+                        {% else %}
+                            Define practical educational formats in schools and mediation systems
+                        {% endif %}
+                    </p>
+                    <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Contenu{% else %}Content{% endif %} :</strong>
+                        {% if current_lang == 'fr' %}
+                            Ateliers clé-en-main • Résidences courtes et mentorat intergénérationnel • 
+                            Kits pédagogiques • Indicateurs simples d'impact
+                        {% else %}
+                            Turnkey workshops • Short residencies and intergenerational mentoring • 
+                            Educational kits • Simple impact indicators
+                        {% endif %}
+                    </p>
+                    <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Intervenant ciblé{% else %}Target Speaker{% endif %} :</strong>
+                        {% if current_lang == 'fr' %}
+                            Enseignant en arts, responsable programme éducatif, ONG de médiation
+                        {% else %}
+                            Arts teacher, educational program manager, mediation NGO
+                        {% endif %}
+                    </p>
+                    <div class="mt-3">
+                        <span class="badge bg-success">{% if current_lang == 'fr' %}Livrable : 2 formats pilotes à tester{% else %}Deliverable: 2 pilot formats to test{% endif %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Session 4 -->
+        <div class="row g-4 mb-4">
+            <div class="col-lg-12">
+                <div class="program-card" style="border-top: 4px solid #FF7F11;">
+                    <div class="program-time">15:30 - 16:00</div>
+                    <h4 class="program-session-title">
+                        {% if current_lang == 'fr' %}
+                            Session 4 — Identité Visuelle, Diffusion Physique, Numérique et Monétisation pour Créateurs
+                        {% else %}
+                            Session 4 — Visual Identity, Physical & Digital Distribution and Monetization for Creators
+                        {% endif %}
+                    </h4>
+                    <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Objectif{% else %}Objective{% endif %} :</strong>
+                        {% if current_lang == 'fr' %}
+                            Outiller les créateurs pour construire visibilité et revenus via le numérique
+                        {% else %}
+                            Equip creators to build visibility and revenue through digital
+                        {% endif %}
+                    </p>
+                    <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Contenu{% else %}Content{% endif %} :</strong>
+                        {% if current_lang == 'fr' %}
+                            Templates portfolio • Formats contenus performants • Plateformes et outils low-cost • 
+                            Protection des œuvres
+                        {% else %}
+                            Portfolio templates • High-performing content formats • Low-cost platforms and tools • 
+                            Work protection
+                        {% endif %}
+                    </p>
+                    <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Intervenant ciblé{% else %}Target Speaker{% endif %} :</strong>
+                        {% if current_lang == 'fr' %}
+                            Expert UX/UI pour culture ou fondateur marketplace culturelle
+                        {% else %}
+                            UX/UI expert for culture or cultural marketplace founder
+                        {% endif %}
+                    </p>
+                    <div class="mt-3">
+                        <span class="badge bg-success">{% if current_lang == 'fr' %}Livrable : 3 templates visuels + 2 formats vidéo{% else %}Deliverable: 3 visual templates + 2 video formats{% endif %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table Ronde -->
+        <div class="row g-4 mb-4">
+            <div class="col-lg-12">
+                <div class="program-card" style="border-top: 4px solid #D4AF37;">
+                    <div class="program-time">16:00 - 16:30</div>
+                    <h4 class="program-session-title">
+                        {% if current_lang == 'fr' %}
+                            Table Ronde — Gouvernance, Financement et Écosystème
+                        {% else %}
+                            Round Table — Governance, Funding and Ecosystem
+                        {% endif %}
+                    </h4>
+                    <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Objectif{% else %}Objective{% endif %} :</strong>
+                        {% if current_lang == 'fr' %}
+                            Rassembler institutions, privés et artistes pour adopter des engagements concrets
+                        {% else %}
+                            Bring together institutions, private sector and artists to adopt concrete commitments
+                        {% endif %}
+                    </p>
+                    <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Composition{% else %}Composition{% endif %} :</strong>
+                        {% if current_lang == 'fr' %}
+                            4 panélistes : Représentant mairie/ministère • Sponsor/opérateur • 
+                            Structure formation/incubateur • Artiste représentant créateurs en herbe
+                        {% else %}
+                            4 panelists: City/ministry representative • Sponsor/operator • 
+                            Training/incubator structure • Artist representing emerging creators
+                        {% endif %}
+                    </p>
+                    <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Thèmes{% else %}Themes{% endif %} :</strong>
+                        {% if current_lang == 'fr' %}
+                            Mécanismes de financement • Rôle des opérateurs télécoms • 
+                            Formation et mentoring • Création d'espaces de diffusion
+                        {% else %}
+                            Funding mechanisms • Role of telecom operators • 
+                            Training and mentoring • Creation of distribution spaces
+                        {% endif %}
+                    </p>
+                    <div class="mt-3">
+                        <span class="badge bg-warning text-dark">{% if current_lang == 'fr' %}Livrable : Feuille de route - 5 engagements signés{% else %}Deliverable: Roadmap - 5 signed commitments{% endif %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Session Finale -->
+        <div class="row g-4 mb-4">
+            <div class="col-lg-12">
+                <div class="program-card" style="border-top: 4px solid var(--accent-color);">
+                    <div class="program-time">16:30 - 17:00</div>
+                    <h4 class="program-session-title">
+                        {% if current_lang == 'fr' %}
+                            Session Finale — Parade Publicitaire des Artistes et Animation de Fin
+                        {% else %}
+                            Final Session — Artists' Promotional Parade and Closing Animation
+                        {% endif %}
+                    </h4>
+                    <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Objectif{% else %}Objective{% endif %} :</strong>
+                        {% if current_lang == 'fr' %}
+                            Ambiance de fin et célébration
+                        {% else %}
+                            Closing atmosphere and celebration
+                        {% endif %}
+                    </p>
+                    <p class="program-description">
+                        <strong>{% if current_lang == 'fr' %}Contenu{% else %}Content{% endif %} :</strong>
+                        {% if current_lang == 'fr' %}
+                            Branding • Réseautage • Interprétations et promotions des œuvres bibliographiques et discographiques • 
+                            Produits artisanaux • Cocktail de networking
+                        {% else %}
+                            Branding • Networking • Interpretations and promotions of bibliographic and discographic works • 
+                            Artisan products • Networking cocktail
                         {% endif %}
                     </p>
                 </div>
@@ -289,7 +312,7 @@
                         <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">📧</span>
                         <h5 style="color: var(--accent-color); font-weight: 700;">Email</h5>
                         <p><a href="mailto:colpradofficiel@gmail.com" style="color: var(--secondary-1); text-decoration: none;">colpradofficiel@gmail.com</a></p>
-                        <small class="text-muted">{% if current_lang == 'fr' %}Disponible 24h/24{% else %}Available 24/7{% endif %}</small>
+                        <small class="text-muted">{% if current_lang == 'fr' %}Réponse sous 24-48h{% else %}Response within 24-48h{% endif %}</small>
                     </div>
                 </div>
             </div>
@@ -299,7 +322,7 @@
                         <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">📱</span>
                         <h5 style="color: var(--accent-color); font-weight: 700;">{% if current_lang == 'fr' %}Téléphone{% else %}Phone{% endif %}</h5>
                         <p><a href="tel:+22892384092" style="color: var(--secondary-1); text-decoration: none;">+228 92 38 40 92</a></p>
-                        <small class="text-muted">{% if current_lang == 'fr' %}Disponible 24h/24{% else %}Available 24/7{% endif %}</small>
+                        <small class="text-muted">{% if current_lang == 'fr' %}Disponible 7j/7{% else %}Available 7 days a week{% endif %}</small>
                     </div>
                 </div>
             </div>
@@ -310,7 +333,7 @@
                         <h5 style="color: var(--accent-color); font-weight: 700;">{% if current_lang == 'fr' %}Réseaux Sociaux{% else %}Social Media{% endif %}</h5>
                         <div class="d-flex gap-2 justify-content-center flex-wrap">
                             <a href="https://wa.me/22892384092" class="btn btn-sm btn-outline-success" target="_blank">WhatsApp</a>
-                            <a href="https://www.youtube.com/@blaisedergeofficiel" class="btn btn-sm btn-outline-danger" target="_blank">YouTube</a>
+                            <a href="https://youtube.com/@colprad" class="btn btn-sm btn-outline-danger" target="_blank">YouTube</a>
                         </div>
                     </div>
                 </div>
