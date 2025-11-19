@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#052B47">
     <title>{% block title %}COLPRAD 2025{% endblock %}</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='favicon.jpg') }}">
     <link rel="shortcut icon" type="image/jpeg" href="{{ url_for('static', filename='favicon.jpg') }}">
@@ -183,17 +183,26 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <h5>{% if current_lang == 'fr' %}Suivez-nous{% else %}Follow Us{% endif %}</h5>
-                    <p class="small mb-3">{% if current_lang == 'fr' %}Restez connectés sur nos réseaux sociaux{% else %}Stay connected on our social media{% endif %}</p>
+                    <p class="small mb-3">{% if current_lang == 'fr' %}Restez connectés sur nos réseaux sociaux{% else
+                        %}Stay connected on our social media{% endif %}</p>
                     <div class="d-flex gap-2 flex-wrap mb-3">
-                        <a href="https://www.facebook.com/colprad" class="btn btn-sm btn-outline-light" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
-                        <a href="https://www.linkedin.com/company/colprad" class="btn btn-sm btn-outline-light" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
-                        <a href="https://whatsapp.com/channel/0029Vb70EsBDDmFLvmlU453l" class="btn btn-sm btn-outline-light" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
-                        <a href="https://x.com/BlaiseEssohana" class="btn btn-sm btn-outline-light" target="_blank" rel="noopener" aria-label="X">X</a>
-                        <a href="https://www.instagram.com/blaisedergeofficiel" class="btn btn-sm btn-outline-light" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-                        <a href="https://www.tiktok.com/@blaisedergeofficiel" class="btn btn-sm btn-outline-light" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
-                        <a href="https://www.youtube.com/@blaisedergeofficiel" class="btn btn-sm btn-outline-light" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
+                        <a href="https://www.facebook.com/colprad" class="btn btn-sm btn-outline-light" target="_blank"
+                            rel="noopener" aria-label="Facebook">Facebook</a>
+                        <a href="https://www.linkedin.com/company/colprad" class="btn btn-sm btn-outline-light"
+                            target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="https://whatsapp.com/channel/0029Vb70EsBDDmFLvmlU453l"
+                            class="btn btn-sm btn-outline-light" target="_blank" rel="noopener"
+                            aria-label="WhatsApp">WhatsApp</a>
+                        <a href="https://x.com/BlaiseEssohana" class="btn btn-sm btn-outline-light" target="_blank"
+                            rel="noopener" aria-label="X">X</a>
+                        <a href="https://www.instagram.com/blaisedergeofficiel" class="btn btn-sm btn-outline-light"
+                            target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+                        <a href="https://www.tiktok.com/@blaisedergeofficiel" class="btn btn-sm btn-outline-light"
+                            target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
+                        <a href="https://www.youtube.com/@blaisedergeofficiel" class="btn btn-sm btn-outline-light"
+                            target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
                     </div>
-                    
+
                 </div>
             </div>
             <hr style="border-color: rgba(255,255,255,0.2);">
@@ -203,8 +212,10 @@
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <p class="mb-0 small">
-                        {% if current_lang == 'fr' %}Développé par{% else %}Developed by{% endif %} 
-                        <a href="https://www.linkedin.com/in/banka-daven-20a191364" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5); transition: all 0.3s ease;">
+                        {% if current_lang == 'fr' %}Développé par{% else %}Developed by{% endif %}
+                        <a href="https://www.linkedin.com/in/banka-daven-20a191364" target="_blank"
+                            rel="noopener noreferrer"
+                            style="color: #ffffff; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5); transition: all 0.3s ease;">
                             Daven BANKA
                         </a>
                     </p>
